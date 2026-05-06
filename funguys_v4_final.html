@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="FunGuys — Hongos comestibles, kits de autocultivo, cursos técnicos e insumos para productores en Argentina. City Bell, La Plata.">
+<meta property="og:title" content="FunGuys — Hongos Comestibles | Kits · Cursos · Insumos">
+<meta property="og:description" content="Cultivá tus propios hongos comestibles. Kits, cursos e insumos desde La Plata, Argentina.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍄</text></svg>">
+<title>FunGuys — Hongos Comestibles</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ═══ TOKENS — Paleta natural clara ═══ */
+:root {
+  --bg:        #F8F6F1;
+  --surface:   #FFFFFF;
+  --surface2:  #F0EDE6;
+  --surface3:  #E8E4DB;
+  --text:      #1E1E18;
+  --text-m:    #5C5A4E;
+  --text-s:    #8A8777;
+  --green:     #3D6B35;
+  --green-l:   #7A9E6E;
+  --green-xl:  #B4D4AB;
+  --brown:     #6B4423;
+  --brown-l:   #9E6B45;
+  --amber:     #C4861E;
+  --amber-l:   #E5A83A;
+  --border:    rgba(30,30,24,0.10);
+  --border-s:  rgba(30,30,24,0.18);
+  --shadow:    0 2px 12px rgba(30,30,24,0.08);
+  --shadow-m:  0 8px 32px rgba(30,30,24,0.12);
+  --r:         12px;
+  --rsm:       8px;
+  --rlg:       20px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.65;overflow-x:hidden;}
+h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:700;line-height:1.15;letter-spacing:-0.02em;}
+a{color:inherit;text-decoration:none;}
+
+/* ═══ NAV ═══ */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(248,246,241,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);transition:box-shadow .3s;}
+nav.scrolled{box-shadow:var(--shadow);}
+.nav-inner{max-width:1160px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:13px 24px;}
+.nav-logo{font-family:'Fraunces',serif;font-size:21px;font-weight:800;color:var(--green);display:flex;align-items:center;gap:7px;cursor:pointer;transition:opacity .2s;}
+.nav-logo:hover{opacity:.8;}
+.nav-logo span{color:var(--brown);font-style:italic;}
+.nav-links{display:flex;gap:2px;list-style:none;}
+.nav-links button{background:none;border:none;cursor:pointer;color:var(--text-m);font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;padding:7px 13px;border-radius:999px;transition:color .2s,background .2s;}
+.nav-links button:hover{color:var(--green);background:rgba(61,107,53,.07);}
+.nav-links button.active{color:var(--green);background:rgba(61,107,53,.10);font-weight:600;}
+.nav-right{display:flex;align-items:center;gap:10px;}
+.nav-cta{background:var(--green);color:#fff;padding:9px 20px;border-radius:var(--rsm);font-size:13px;font-weight:700;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background .2s,transform .15s;}
+.nav-cta:hover{background:#2e5228;transform:translateY(-1px);}
+.cart-nav-btn{position:relative;background:none;border:1px solid var(--border-s);cursor:pointer;color:var(--text-m);font-size:18px;width:38px;height:38px;border-radius:var(--rsm);display:flex;align-items:center;justify-content:center;transition:border-color .2s,background .2s;}
+.cart-nav-btn:hover{border-color:var(--green);background:rgba(61,107,53,.06);}
+.cart-badge{position:absolute;top:-6px;right:-6px;background:var(--amber);color:#fff;font-size:10px;font-weight:700;width:18px;height:18px;border-radius:50%;display:none;align-items:center;justify-content:center;font-family:'DM Sans',sans-serif;}
+.cart-badge.visible{display:flex;}
+.hamburger{display:none;cursor:pointer;flex-direction:column;gap:5px;background:none;border:none;padding:4px;}
+.hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;}
+
+/* ═══ MOBILE DRAWER ═══ */
+.mobile-drawer{display:none;position:fixed;inset:0;z-index:300;background:var(--bg);flex-direction:column;align-items:center;justify-content:center;gap:26px;}
+.mobile-drawer.open{display:flex;}
+.mobile-drawer button{background:none;border:none;cursor:pointer;font-family:'Fraunces',serif;font-size:28px;font-weight:700;color:var(--text);transition:color .2s;}
+.mobile-drawer button:hover{color:var(--green);}
+.mobile-close{position:absolute;top:20px;right:24px;font-size:22px!important;color:var(--text-m)!important;font-family:'DM Sans',sans-serif!important;font-weight:400!important;}
+
+/* ═══ CART PANEL ═══ */
+.cart-overlay{display:none;position:fixed;inset:0;z-index:400;background:rgba(30,30,24,.45);backdrop-filter:blur(4px);}
+.cart-overlay.open{display:block;}
+.cart-panel{position:fixed;top:0;right:0;bottom:0;z-index:401;width:min(420px,100vw);background:var(--surface);border-left:1px solid var(--border);display:flex;flex-direction:column;transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);box-shadow:-8px 0 32px rgba(30,30,24,.10);}
+.cart-panel.open{transform:translateX(0);}
+.cart-header{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;border-bottom:1px solid var(--border);background:var(--surface2);}
+.cart-header h3{font-size:17px;color:var(--text);}
+.cart-close{background:none;border:none;color:var(--text-m);font-size:20px;cursor:pointer;}
+.cart-items{flex:1;overflow-y:auto;padding:14px 22px;}
+.cart-empty{text-align:center;padding:56px 20px;color:var(--text-s);}
+.cart-item{display:flex;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--border);}
+.cart-item-info{flex:1;}
+.cart-item-name{font-size:14px;font-weight:600;color:var(--text);margin-bottom:2px;}
+.cart-item-price{font-size:13px;color:var(--amber);}
+.cart-item-controls{display:flex;align-items:center;gap:6px;}
+.qty-btn{background:var(--surface2);border:1px solid var(--border);color:var(--text);width:28px;height:28px;border-radius:6px;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;transition:border-color .2s;}
+.qty-btn:hover{border-color:var(--green);}
+.qty-display{font-size:14px;font-weight:600;min-width:22px;text-align:center;}
+.cart-remove{background:none;border:none;color:var(--text-s);cursor:pointer;font-size:15px;padding:4px;transition:color .2s;}
+.cart-remove:hover{color:#c0392b;}
+.cart-footer{padding:18px 22px;border-top:1px solid var(--border);background:var(--surface2);}
+.cart-total-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;}
+.cart-total-label{font-size:14px;color:var(--text-m);}
+.cart-total-val{font-family:'Fraunces',serif;font-size:28px;font-weight:800;color:var(--green);}
+.cart-note{font-size:12px;color:var(--text-s);margin-bottom:12px;line-height:1.55;}
+
+/* ═══ PAGE / SHARED ═══ */
+#app{min-height:100vh;padding-top:64px;}
+.page{display:none;animation:fadeIn .3s ease both;}
+.page.active{display:block;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.container{max-width:1140px;margin:0 auto;padding:0 24px;}
+.container-sm{max-width:800px;margin:0 auto;padding:0 24px;}
+.tag{display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--green);background:rgba(61,107,53,.10);border:1px solid rgba(61,107,53,.20);padding:4px 13px;border-radius:999px;margin-bottom:14px;}
+.tag-brown{color:var(--brown);background:rgba(107,68,35,.08);border-color:rgba(107,68,35,.18);}
+.tag-amber{color:var(--amber);background:rgba(196,134,30,.08);border-color:rgba(196,134,30,.20);}
+.page-title{font-size:clamp(28px,5vw,50px);color:var(--text);margin-bottom:14px;}
+.page-sub{font-size:17px;color:var(--text-m);max-width:560px;line-height:1.78;margin-bottom:44px;}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;border-radius:var(--rsm);font-size:15px;font-weight:600;cursor:pointer;border:none;font-family:'DM Sans',sans-serif;transition:all .2s;}
+.btn-green{background:var(--green);color:#fff;}
+.btn-green:hover{background:#2e5228;transform:translateY(-2px);box-shadow:0 8px 24px rgba(61,107,53,.25);}
+.btn-outline{background:transparent;color:var(--text);border:1.5px solid var(--border-s);}
+.btn-outline:hover{border-color:var(--green);color:var(--green);background:rgba(61,107,53,.05);transform:translateY(-1px);}
+.btn-wa{background:#25d366;color:#fff;}
+.btn-wa:hover{background:#20b557;transform:translateY(-2px);}
+.btn-amber{background:var(--amber);color:#fff;}
+.btn-amber:hover{background:var(--amber-l);transform:translateY(-2px);}
+.btn-sm{padding:9px 18px;font-size:13px;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--rlg);padding:30px 26px;transition:border-color .2s,box-shadow .2s,transform .2s;box-shadow:var(--shadow);}
+.card:hover{border-color:var(--border-s);box-shadow:var(--shadow-m);transform:translateY(-3px);}
+.card-green::before{content:'';display:block;position:absolute;top:0;left:0;right:0;height:3px;background:var(--green);border-radius:var(--rlg) var(--rlg) 0 0;}
+.card-brown::before{content:'';display:block;position:absolute;top:0;left:0;right:0;height:3px;background:var(--brown);border-radius:var(--rlg) var(--rlg) 0 0;}
+.card-amber::before{content:'';display:block;position:absolute;top:0;left:0;right:0;height:3px;background:var(--amber);border-radius:var(--rlg) var(--rlg) 0 0;}
+.card-line::before{content:'';display:block;position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--green),var(--amber));border-radius:var(--rlg) var(--rlg) 0 0;}
+.card-rel{position:relative;overflow:hidden;}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+.section{padding:64px 0;}
+.divider{border:none;border-top:1px solid var(--border);margin:32px 0;}
+.chip{display:inline-block;padding:4px 12px;border-radius:999px;font-size:12px;font-weight:500;border:1px solid var(--border);color:var(--text-m);margin:3px;}
+.chip-green{border-color:rgba(61,107,53,.25);color:var(--green);background:rgba(61,107,53,.07);}
+.chip-brown{border-color:rgba(107,68,35,.22);color:var(--brown);background:rgba(107,68,35,.06);}
+.chip-amber{border-color:rgba(196,134,30,.22);color:var(--amber);background:rgba(196,134,30,.07);}
+.checklist{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.checklist li{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--text-m);}
+.checklist li::before{content:'';width:18px;height:18px;min-width:18px;border-radius:50%;margin-top:2px;background:rgba(61,107,53,.12) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%233D6B35' stroke='%233D6B35' stroke-width='1' d='M3 8l3.5 3.5L13 5'/%3E%3C/svg%3E") center/12px no-repeat;border:1px solid rgba(61,107,53,.3);}
+.hbox{background:var(--surface2);border:1px solid var(--border);border-left:3px solid var(--green);border-radius:var(--rsm);padding:14px 18px;font-size:14px;color:var(--text-m);line-height:1.7;}
+.hbox-amber{border-left-color:var(--amber);}
+.hbox-brown{border-left-color:var(--brown);}
+.steps{display:flex;flex-direction:column;gap:10px;}
+.step{display:flex;gap:14px;align-items:center;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:12px 16px;box-shadow:var(--shadow);}
+.step-n{font-family:'Fraunces',serif;font-size:20px;font-weight:800;color:var(--amber);min-width:26px;}
+.cmethod{display:flex;align-items:center;gap:14px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:14px 16px;transition:border-color .2s,transform .2s,box-shadow .2s;text-decoration:none;color:var(--text);box-shadow:var(--shadow);}
+.cmethod:hover{border-color:var(--green);transform:translateX(3px);box-shadow:var(--shadow-m);}
+.cmethod-icon{width:42px;height:42px;min-width:42px;border-radius:var(--rsm);display:flex;align-items:center;justify-content:center;font-size:20px;}
+.sim-label{display:block;font-size:12px;font-weight:600;color:var(--text-m);text-transform:uppercase;letter-spacing:.06em;margin-bottom:7px;}
+.sim-select{width:100%;background:var(--surface2);border:1.5px solid var(--border);border-radius:var(--rsm);color:var(--text);padding:11px 14px;font-size:14px;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s;appearance:none;}
+.sim-select:focus{border-color:var(--green);}
+.slider-row{display:flex;gap:10px;align-items:center;}
+.slider-row input[type=range]{flex:1;-webkit-appearance:none;height:4px;background:var(--surface3);border-radius:2px;outline:none;}
+.slider-row input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--green);cursor:pointer;box-shadow:var(--shadow);}
+.slider-val{font-family:'Fraunces',serif;font-size:17px;font-weight:700;color:var(--green);min-width:48px;text-align:right;}
+.sim-rcard{background:var(--surface2);border:1px solid var(--border);border-radius:var(--rsm);padding:14px;text-align:center;}
+.sim-rval{font-family:'Fraunces',serif;font-size:26px;font-weight:800;color:var(--green);}
+.sim-rlabel{font-size:11px;color:var(--text-s);margin-top:4px;text-transform:uppercase;letter-spacing:.05em;}
+.faq-item{border-bottom:1px solid var(--border);}
+.faq-q{width:100%;background:none;border:none;color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;text-align:left;padding:17px 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:14px;transition:color .2s;}
+.faq-q:hover{color:var(--green);}
+.faq-arrow{width:20px;height:20px;min-width:20px;border-radius:50%;border:1.5px solid var(--border-s);display:flex;align-items:center;justify-content:center;transition:transform .3s,background .2s,border-color .2s;font-size:12px;color:var(--text-s);}
+.faq-item.open .faq-arrow{transform:rotate(45deg);background:rgba(61,107,53,.10);border-color:var(--green);color:var(--green);}
+.faq-a{font-size:14px;color:var(--text-m);line-height:1.7;max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease;}
+.faq-item.open .faq-a{max-height:400px;padding-bottom:16px;}
+.modal-overlay{display:none;position:fixed;inset:0;z-index:500;background:rgba(30,30,24,.6);backdrop-filter:blur(8px);align-items:center;justify-content:center;padding:20px;}
+.modal-overlay.open{display:flex;}
+.modal-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--rlg);padding:36px 32px;max-width:420px;width:100%;position:relative;box-shadow:var(--shadow-m);animation:fadeIn .3s ease;}
+.modal-close-btn{position:absolute;top:14px;right:16px;background:none;border:none;color:var(--text-s);font-size:20px;cursor:pointer;}
+.form-field{margin-bottom:14px;}
+.form-label{display:block;font-size:11px;font-weight:700;color:var(--text-s);text-transform:uppercase;letter-spacing:.09em;margin-bottom:5px;}
+.form-input{width:100%;background:var(--surface2);border:1.5px solid var(--border);border-radius:var(--rsm);color:var(--text);padding:11px 13px;font-size:14px;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s;}
+.form-input:focus{border-color:var(--green);}
+.form-error{display:none;background:rgba(192,57,43,.08);border:1px solid rgba(192,57,43,.2);border-radius:var(--rsm);padding:8px 12px;font-size:13px;color:#c0392b;margin-bottom:12px;}
+
+/* catalog */
+.cat-filters{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:28px;}
+.cat-filter-btn{background:var(--surface);border:1.5px solid var(--border);color:var(--text-m);padding:7px 16px;border-radius:999px;font-size:13px;font-weight:500;cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif;box-shadow:var(--shadow);}
+.cat-filter-btn:hover{border-color:var(--green);color:var(--green);}
+.cat-filter-btn.active{background:var(--green);border-color:var(--green);color:#fff;}
+.product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px;}
+.product-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:18px;transition:border-color .2s,box-shadow .2s,transform .2s;display:flex;flex-direction:column;box-shadow:var(--shadow);}
+.product-card:hover{border-color:var(--border-s);box-shadow:var(--shadow-m);transform:translateY(-2px);}
+.product-img-placeholder{width:100%;height:130px;background:var(--surface2);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:40px;margin-bottom:13px;border:1px dashed var(--border);}
+.product-img-real{width:100%;height:130px;object-fit:cover;border-radius:8px;margin-bottom:13px;}
+.product-sku{font-size:10px;color:var(--text-s);text-transform:uppercase;letter-spacing:.08em;margin-bottom:3px;}
+.product-name{font-size:14px;font-weight:600;color:var(--text);margin-bottom:5px;}
+.product-unit{font-size:12px;color:var(--text-s);margin-bottom:9px;}
+.stock-badge{display:inline-block;padding:2px 9px;border-radius:999px;font-size:11px;font-weight:600;margin-bottom:11px;}
+.stock-ok{background:rgba(61,107,53,.10);border:1px solid rgba(61,107,53,.22);color:var(--green);}
+.stock-low{background:rgba(196,134,30,.10);border:1px solid rgba(196,134,30,.22);color:var(--amber);}
+.stock-out{background:rgba(192,57,43,.08);border:1px solid rgba(192,57,43,.18);color:#c0392b;}
+.product-price-row{display:flex;align-items:baseline;gap:4px;margin-bottom:12px;padding:9px 0;border-top:1px solid var(--border);}
+.product-price{font-family:'Fraunces',serif;font-size:21px;font-weight:800;color:var(--amber);}
+.product-price-unit{font-size:12px;color:var(--text-s);}
+.product-actions{display:flex;gap:7px;align-items:center;margin-top:auto;}
+.qty-control{display:flex;align-items:center;gap:5px;background:var(--surface2);border:1px solid var(--border);border-radius:var(--rsm);padding:3px 7px;}
+.qty-control input{width:34px;background:none;border:none;color:var(--text);font-size:14px;font-weight:600;text-align:center;font-family:'DM Sans',sans-serif;outline:none;}
+.qty-control button{background:none;border:none;color:var(--text-m);cursor:pointer;font-size:18px;line-height:1;padding:0 2px;transition:color .2s;}
+.qty-control button:hover{color:var(--green);}
+.add-cart-btn{flex:1;background:var(--green);color:#fff;border:none;padding:9px 12px;border-radius:var(--rsm);font-size:13px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background .2s,transform .15s;}
+.add-cart-btn:hover{background:#2e5228;transform:translateY(-1px);}
+.add-cart-btn:disabled{background:var(--surface3);color:var(--text-s);cursor:not-allowed;transform:none;}
+.cat-section{margin-bottom:48px;}
+.cat-section-title{font-family:'Fraunces',serif;font-size:21px;color:var(--text);margin-bottom:18px;padding-bottom:12px;border-bottom:2px solid var(--border);display:flex;align-items:center;gap:10px;}
+.catalog-loader{text-align:center;padding:60px 24px;color:var(--text-s);}
+.spin{width:36px;height:36px;border:3px solid var(--border);border-top-color:var(--green);border-radius:50%;animation:spin 1s linear infinite;margin:0 auto 14px;}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* pain point banner */
+.pain-banner{background:var(--surface2);border:1px solid var(--border);border-radius:var(--rlg);padding:28px 32px;margin-bottom:40px;display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap;}
+.pain-item{display:flex;gap:12px;align-items:flex-start;flex:1;min-width:200px;}
+.pain-icon{width:40px;height:40px;min-width:40px;border-radius:var(--rsm);background:rgba(61,107,53,.10);border:1px solid rgba(61,107,53,.20);display:flex;align-items:center;justify-content:center;font-size:18px;}
+
+/* roi box */
+.roi-box{background:linear-gradient(135deg,rgba(61,107,53,.06) 0%,rgba(196,134,30,.06) 100%);border:1.5px solid rgba(61,107,53,.20);border-radius:var(--rlg);padding:28px 32px;margin-top:32px;}
+
+/* for who section */
+.for-who-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--rlg);padding:28px 24px;box-shadow:var(--shadow);transition:transform .2s,box-shadow .2s;}
+.for-who-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-m);}
+
+/* variety card */
+.variety-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:20px 22px;display:flex;gap:16px;align-items:flex-start;box-shadow:var(--shadow);transition:box-shadow .2s,transform .2s;}
+.variety-card:hover{box-shadow:var(--shadow-m);transform:translateY(-2px);}
+
+/* guarantee */
+.guarantee-box{background:linear-gradient(135deg,rgba(61,107,53,.08),rgba(61,107,53,.03));border:2px solid rgba(61,107,53,.25);border-radius:var(--rlg);padding:24px 28px;display:flex;gap:18px;align-items:flex-start;}
+
+footer{background:var(--surface);border-top:1px solid var(--border);padding:32px 0;margin-top:0;}
+.footer-inner{max-width:1140px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;}
+.footer-logo{font-family:'Fraunces',serif;font-size:17px;font-weight:800;color:var(--green);}
+.footer-logo span{color:var(--brown);font-style:italic;}
+.footer-copy{font-size:12px;color:var(--text-s);}
+.footer-links{display:flex;gap:16px;flex-wrap:wrap;}
+.footer-links a{font-size:12px;color:var(--text-s);transition:color .2s;}
+.footer-links a:hover{color:var(--green);}
+.consult-cta{display:inline-flex;align-items:center;gap:8px;background:var(--surface2);border:1.5px dashed var(--green);border-radius:var(--rsm);padding:9px 18px;font-size:14px;font-weight:600;color:var(--green);cursor:pointer;transition:background .2s;}
+.consult-cta:hover{background:rgba(61,107,53,.10);}
+
+@media(max-width:860px){
+  .g2,.g3,.g4{grid-template-columns:1fr;}
+  .nav-links,.nav-cta{display:none;}
+  .hamburger{display:flex;}
+  .footer-inner{flex-direction:column;text-align:center;}
+  .footer-links{justify-content:center;}
+  .cart-panel{width:100vw;}
+  .pain-banner{flex-direction:column;}
+}
+@media(max-width:600px){
+  .product-grid{grid-template-columns:1fr 1fr;}
+  .section{padding:44px 0;}
+}
+@media(max-width:380px){.product-grid{grid-template-columns:1fr;}}
+@keyframes pulse2{0%,100%{opacity:1}50%{opacity:.4}}
+</style>
+</head>
+<body>
+
+<!-- MOBILE DRAWER -->
+<div class="mobile-drawer" id="mobileDrawer">
+  <button class="mobile-close" onclick="closeDrawer()">✕</button>
+  <button onclick="nav('inicio');closeDrawer()">Inicio</button>
+  <button onclick="nav('quienes');closeDrawer()">Quiénes somos</button>
+  <button onclick="nav('cursos');closeDrawer()">Cursos</button>
+  <button onclick="nav('kits');closeDrawer()">Kits</button>
+  <button onclick="nav('insumos');closeDrawer()">Insumos</button>
+  <button onclick="nav('servicios');closeDrawer()">Servicios</button>
+  <button onclick="nav('faq');closeDrawer()">FAQ</button>
+  <button onclick="nav('contacto');closeDrawer()" style="color:var(--green)">Contacto</button>
+</div>
+
+<!-- CART -->
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+<div class="cart-panel" id="cartPanel">
+  <div class="cart-header"><h3>🛒 Tu presupuesto</h3><button class="cart-close" onclick="closeCart()">✕</button></div>
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty"><div style="font-size:38px;margin-bottom:12px;">🍄</div><p style="font-size:14px;">Tu presupuesto está vacío.<br>Agregá productos del catálogo.</p></div>
+  </div>
+  <div class="cart-footer" id="cartFooter" style="display:none;">
+    <div class="cart-total-row"><span class="cart-total-label">Total estimado</span><span class="cart-total-val" id="cartTotal">$0</span></div>
+    <p class="cart-note">Los precios son orientativos. Te confirmamos el total final con el costo de envío por WhatsApp.</p>
+    <button class="btn btn-wa" style="width:100%;justify-content:center;margin-bottom:8px;" onclick="sendCartWA()">💬 Consultar por WhatsApp</button>
+    <button class="btn btn-outline btn-sm" style="width:100%;justify-content:center;" onclick="clearCart()">Vaciar presupuesto</button>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <div class="nav-inner">
+    <div class="nav-logo" onclick="nav('inicio')">🍄 Fun<span>Guys</span></div>
+    <ul class="nav-links">
+      <li><button onclick="nav('quienes')" data-page="quienes">Quiénes somos</button></li>
+      <li><button onclick="nav('cursos')" data-page="cursos">Cursos</button></li>
+      <li><button onclick="nav('kits')" data-page="kits">Kits</button></li>
+      <li><button onclick="nav('insumos')" data-page="insumos">Insumos</button></li>
+      <li><button onclick="nav('servicios')" data-page="servicios">Servicios</button></li>
+      <li><button onclick="nav('faq')" data-page="faq">FAQ</button></li>
+    </ul>
+    <div class="nav-right">
+      <button class="cart-nav-btn" onclick="openCart()" title="Ver presupuesto">🛒<span class="cart-badge" id="cartBadge">0</span></button>
+      <button class="nav-cta" onclick="nav('contacto')">Contacto →</button>
+      <button class="hamburger" onclick="openDrawer()"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<div id="app">
+
+<!-- ══════ INICIO ══════ -->
+<div class="page active" id="page-inicio">
+  <!-- HERO -->
+  <div style="position:relative;min-height:90vh;display:flex;align-items:center;overflow:hidden;padding:56px 0 48px;background:linear-gradient(160deg,#F8F6F1 55%,#EBF0E8 100%);">
+    <div style="position:absolute;right:0;top:0;bottom:0;width:45%;background:url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 600%22><circle cx=%22200%22 cy=%22300%22 r=%22180%22 fill=%22%233D6B35%22 fill-opacity=%220.06%22/><circle cx=%22320%22 cy=%22150%22 r=%22100%22 fill=%22%236B4423%22 fill-opacity=%220.05%22/><circle cx=%22100%22 cy=%22480%22 r=%22130%22 fill=%22%23C4861E%22 fill-opacity=%220.05%22/></svg>') center/cover no-repeat;pointer-events:none;z-index:0;"></div>
+    <div class="container" style="position:relative;z-index:2;">
+      <div style="max-width:600px;">
+        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(61,107,53,.10);border:1px solid rgba(61,107,53,.25);color:var(--green);padding:5px 16px;border-radius:999px;font-size:12px;font-weight:700;margin-bottom:24px;letter-spacing:.04em;text-transform:uppercase;">
+          <span style="width:7px;height:7px;border-radius:50%;background:var(--green);display:block;animation:pulse2 2s ease infinite;"></span>
+          City Bell · La Plata · Argentina
+        </div>
+        <h1 style="font-size:clamp(38px,6.5vw,76px);color:var(--text);margin-bottom:20px;line-height:1.05;">Cultivá tus propios<br><em style="color:var(--green);">hongos comestibles</em></h1>
+        <p style="font-size:18px;color:var(--text-m);line-height:1.78;max-width:500px;margin-bottom:12px;">Producción local, formación técnica real y soporte de quien produce todos los días en City Bell.</p>
+
+        <!-- ROI anchor -->
+        <div style="display:inline-flex;align-items:center;gap:10px;background:rgba(196,134,30,.08);border:1px solid rgba(196,134,30,.22);border-radius:var(--rsm);padding:10px 16px;margin-bottom:32px;font-size:14px;color:var(--text-m);">
+          <span style="font-size:20px;">🌾</span>
+          <span><strong style="color:var(--brown);">Por cada kit (bolsa de sustrato inoculado)</strong> cosechás mínimo <strong style="color:var(--green);">1,5 kg de hongo fresco.</strong> El kit se paga con la primera cosecha.</span>
+        </div>
+
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:48px;">
+          <button class="btn btn-green" onclick="nav('cursos')">Ver formación →</button>
+          <button class="btn btn-outline" onclick="nav('insumos')">📦 Ver catálogo</button>
+        </div>
+
+        <!-- PAIN POINTS -->
+        <div class="pain-banner">
+          <div class="pain-item">
+            <div class="pain-icon">🏠</div>
+            <div><div style="font-weight:600;font-size:14px;color:var(--text);margin-bottom:2px;">Quiero cultivar en casa</div><div style="font-size:13px;color:var(--text-m);">Sin infraestructura. Sin experiencia. Soporte técnico real incluido.</div></div>
+          </div>
+          <div class="pain-item">
+            <div class="pain-icon">💼</div>
+            <div><div style="font-weight:600;font-size:14px;color:var(--text);margin-bottom:2px;">Quiero emprender</div><div style="font-size:13px;color:var(--text-m);">Demanda real en restaurantes. Ciclo corto. Bajo costo de entrada.</div></div>
+          </div>
+          <div class="pain-item">
+            <div class="pain-icon">🏭</div>
+            <div><div style="font-weight:600;font-size:14px;color:var(--text);margin-bottom:2px;">Ya produzco y quiero escalar</div><div style="font-size:13px;color:var(--text-m);">Consultoría técnica, equipamiento a medida y diagnóstico real.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PARA QUIÉN ES -->
+  <div style="background:var(--surface);border-top:1px solid var(--border);padding:64px 0;">
+    <div class="container">
+      <p style="text-align:center;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--text-s);margin-bottom:12px;">¿Qué estás buscando?</p>
+      <h2 style="text-align:center;font-size:clamp(24px,4vw,38px);color:var(--text);margin-bottom:40px;">Encontrá tu camino<br><em style="color:var(--green);">dentro de FunGuys</em></h2>
+      <div class="g4">
+        <div class="for-who-card" style="cursor:pointer;text-align:center;" onclick="nav('cursos')">
+          <div style="font-size:42px;margin-bottom:14px;">🎓</div>
+          <div style="font-family:'Fraunces',serif;font-size:18px;font-weight:700;color:var(--text);margin-bottom:8px;">Cursos</div>
+          <p style="font-size:13px;color:var(--text-m);line-height:1.6;margin-bottom:16px;">Virtual · Presencial · Institucional. Técnica real desde producción activa.</p>
+          <span style="font-size:13px;color:var(--green);font-weight:600;">Consultar precio →</span>
+        </div>
+        <div class="for-who-card" style="cursor:pointer;text-align:center;" onclick="nav('kits')">
+          <div style="font-size:42px;margin-bottom:14px;">📦</div>
+          <div style="font-family:'Fraunces',serif;font-size:18px;font-weight:700;color:var(--text);margin-bottom:8px;">Kits</div>
+          <p style="font-size:13px;color:var(--text-m);line-height:1.6;margin-bottom:16px;">Primera cosecha en 15–25 días. Sin experiencia. Soporte incluido.</p>
+          <span style="font-size:13px;color:var(--green);font-weight:600;">Consultar precio →</span>
+        </div>
+        <div class="for-who-card" style="cursor:pointer;text-align:center;" onclick="nav('insumos')">
+          <div style="font-size:42px;margin-bottom:14px;">🧪</div>
+          <div style="font-family:'Fraunces',serif;font-size:18px;font-weight:700;color:var(--text);margin-bottom:8px;">Insumos</div>
+          <p style="font-size:13px;color:var(--text-m);line-height:1.6;margin-bottom:16px;">Spawn, sustratos, materiales y equipamiento. Stock en tiempo real.</p>
+          <span style="font-size:13px;color:var(--green);font-weight:600;">Ver catálogo →</span>
+        </div>
+        <div class="for-who-card" style="cursor:pointer;text-align:center;" onclick="nav('servicios')">
+          <div style="font-size:42px;margin-bottom:14px;">⚙️</div>
+          <div style="font-family:'Fraunces',serif;font-size:18px;font-weight:700;color:var(--text);margin-bottom:8px;">Servicios</div>
+          <p style="font-size:13px;color:var(--text-m);line-height:1.6;margin-bottom:16px;">Consultoría, pasteurizador, cámaras a medida e institucional.</p>
+          <span style="font-size:13px;color:var(--green);font-weight:600;">Consultar →</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- URGENCIA REAL -->
+  <div style="background:var(--bg);border-top:1px solid var(--border);padding:48px 0;">
+    <div class="container">
+      <div style="background:var(--surface);border:1.5px solid rgba(196,134,30,.30);border-radius:var(--rlg);padding:28px 32px;display:flex;gap:20px;align-items:center;flex-wrap:wrap;box-shadow:var(--shadow);">
+        <div style="font-size:36px;flex-shrink:0;">🔥</div>
+        <div style="flex:1;">
+          <div style="font-family:'Fraunces',serif;font-size:18px;font-weight:700;color:var(--text);margin-bottom:5px;">Próximo taller presencial — cupos limitados</div>
+          <p style="font-size:14px;color:var(--text-m);margin:0;">City Bell, La Plata · Día completo · Kit incluido · Soporte post-curso. <strong style="color:var(--brown);">Consultá disponibilidad antes de que se llenen los cupos.</strong></p>
+        </div>
+        <a href="https://wa.me/5491122798768?text=Hola!%20Quiero%20consultar%20sobre%20el%20próximo%20taller%20presencial%20de%20FunGuys" target="_blank" class="btn btn-wa" style="white-space:nowrap;">💬 Consultar cupos</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════ QUIÉNES SOMOS ══════ -->
+<div class="page" id="page-quienes">
+  <div class="section">
+    <div class="container-sm">
+      <span class="tag">Quiénes somos</span>
+      <h1 class="page-title">Lo que enseñamos,<br><em style="color:var(--green);">lo producimos.</em></h1>
+      <p class="page-sub">Somos productores activos de hongos comestibles en La Plata. Más de cinco años de producción real respaldan cada protocolo.</p>
+    </div>
+  </div>
+  <div style="border-top:1px solid var(--border);padding:56px 0;background:var(--surface);">
+    <div class="container">
+      <div class="g2">
+        <div class="card card-rel card-green" style="padding:32px;">
+          <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px;">
+            <div style="width:52px;height:52px;border-radius:50%;background:rgba(61,107,53,.10);border:1px solid rgba(61,107,53,.25);display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;">⚙️</div>
+            <div>
+              <div style="font-family:'Fraunces',serif;font-size:18px;font-weight:700;color:var(--text);">Fernando Ocampo</div>
+              <div style="font-size:12px;color:var(--green);font-weight:600;margin-top:2px;">Ing. Mecánico · Magíster en Energías Renovables</div>
+            </div>
+          </div>
+          <p style="font-size:14px;color:var(--text-m);line-height:1.75;margin-bottom:14px;">Más de diez años en ingeniería de proyectos, energías renovables y diseño de soluciones productivas. Especialista en mecanización agrícola, prototipado de equipos y validación de tecnologías. Desarrollador del pasteurizador atmosférico FunGuys.</p>
+          <p style="font-size:14px;color:var(--text-m);line-height:1.75;">Cada protocolo del curso está respaldado por datos propios de eficiencia biológica, tasas de contaminación y costos operativos registrados en producción activa en City Bell.</p>
+          <div style="margin-top:16px;"><span class="chip chip-green">Ingeniería de Proyectos</span><span class="chip chip-green">Diseño de Equipos</span><span class="chip chip-green">Producción Pleurotus</span></div>
+        </div>
+        <div class="card card-rel card-brown" style="padding:32px;">
+          <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px;">
+            <div style="width:52px;height:52px;border-radius:50%;background:rgba(107,68,35,.08);border:1px solid rgba(107,68,35,.22);display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;">🌱</div>
+            <div>
+              <div style="font-family:'Fraunces',serif;font-size:18px;font-weight:700;color:var(--text);">Francisco Le Rose</div>
+              <div style="font-size:12px;color:var(--brown);font-weight:600;margin-top:2px;">Téc. Universitario en Agroecología</div>
+            </div>
+          </div>
+          <p style="font-size:14px;color:var(--text-m);line-height:1.75;margin-bottom:14px;">Formación en bioinsumos, manejo de cultivos y métodos de bajo impacto ambiental. Especialista en producción sustentable de gírgolas integrando economía circular desde la formulación del sustrato hasta la gestión del sustrato agotado.</p>
+          <p style="font-size:14px;color:var(--text-m);line-height:1.75;">Responsable del protocolo agronómico de FunGuys y del seguimiento técnico de kits y lotes.</p>
+          <div style="margin-top:16px;"><span class="chip chip-brown">Agroecología</span><span class="chip chip-brown">Bioinsumos</span><span class="chip chip-brown">Economía Circular</span></div>
+        </div>
+      </div>
+      <div class="hbox hbox-brown" style="margin-top:20px;display:flex;gap:16px;align-items:flex-start;">
+        <span style="font-size:26px;flex-shrink:0;">🍄</span>
+        <div>
+          <div style="font-family:'Fraunces',serif;font-size:16px;font-weight:700;color:var(--text);margin-bottom:5px;">Ingeniería + Agroecología. La combinación que faltaba.</div>
+          <p style="font-size:14px;color:var(--text-m);line-height:1.75;margin:0;">La mayoría de los capacitadores enseñan desde el libro. Nosotros combinamos rigor técnico de ingeniería, visión agroecológica y más de cinco años de producción activa. No damos recetas — damos sistemas.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="padding:48px 0;border-top:1px solid var(--border);">
+    <div class="container-sm" style="text-align:center;">
+      <h3 style="font-size:22px;color:var(--text);margin-bottom:10px;">¿Querés conocer nuestra producción?</h3>
+      <p style="color:var(--text-m);font-size:15px;margin-bottom:24px;">Coordinamos visitas técnicas presenciales en City Bell para productores, estudiantes e instituciones.</p>
+      <a href="https://wa.me/5491122798768?text=Hola!%20Quiero%20coordinar%20una%20visita%20a%20la%20producción%20de%20FunGuys" target="_blank" class="btn btn-wa">💬 Coordinar visita</a>
+    </div>
+  </div>
+</div>
+
+<!-- ══════ CURSOS ══════ -->
+<div class="page" id="page-cursos">
+  <div class="section">
+    <div class="container">
+      <span class="tag">Formación técnica</span>
+      <h1 class="page-title">Aprendé a cultivar<br><em style="color:var(--green);">con quien produce.</em></h1>
+      <p class="page-sub">Cursos diseñados por productores activos. No teoría de manual — técnica validada en producción real en City Bell.</p>
+      <div class="g2" style="align-items:start;gap:20px;">
+        <div class="card card-rel card-amber" style="padding:32px;">
+          <div style="display:inline-block;background:var(--amber);color:#fff;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;padding:3px 12px;border-radius:999px;margin-bottom:16px;">⭐ Más elegido</div>
+          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--amber);margin-bottom:8px;">Curso Virtual</div>
+          <h3 style="font-size:21px;color:var(--text);margin-bottom:12px;">Cultivo de Hongos — Nivel Completo</h3>
+          <p style="font-size:14px;color:var(--text-m);line-height:1.65;margin-bottom:20px;">Desde cero hasta producción consistente. 9 módulos técnicos, material descargable, comunidad activa y mini asesoría grupal en vivo. A tu ritmo, desde cualquier dispositivo.</p>
+          <ul class="checklist" style="margin-bottom:24px;">
+            <li>Biología del Pleurotus y ciclo completo</li>
+            <li>Sustratos, esterilización e inoculación</li>
+            <li>Incubación, fructificación y cosecha</li>
+            <li>Control ambiental y diagnóstico de fallas</li>
+            <li>Post-cosecha y comercialización</li>
+            <li>Mini asesoría grupal en vivo (incluida)</li>
+            <li>Acceso al grupo de productores</li>
+          </ul>
+          <div class="hbox hbox-amber" style="margin-bottom:20px;font-size:13px;">💰 Precio a consultar según modalidad y cupo disponible. Sin sorpresas.</div>
+          <a href="https://wa.me/5491122798768?text=Hola!%20Quiero%20consultar%20el%20precio%20del%20curso%20virtual%20de%20FunGuys" target="_blank" class="btn btn-green" style="width:100%;justify-content:center;">Consultar precio →</a>
+          <p style="font-size:11px;color:var(--text-s);text-align:center;margin-top:9px;">💳 MercadoPago · Transferencia · Cuotas sin interés</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div class="card" style="padding:26px;">
+            <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--green);margin-bottom:7px;">Curso Presencial</div>
+            <h3 style="font-size:18px;color:var(--text);margin-bottom:9px;">Taller Práctico — Día Completo</h3>
+            <p style="font-size:14px;color:var(--text-m);line-height:1.6;margin-bottom:13px;">Inoculación real, visita a producción activa, primera cosecha en vivo. Kit de inicio incluido. Cupos reducidos — garantía de atención personalizada.</p>
+            <ul class="checklist" style="margin-bottom:16px;">
+              <li>Inoculación y preparación de bloques</li>
+              <li>Visita a producción activa en City Bell</li>
+              <li>Kit de inicio para llevarte</li>
+            </ul>
+            <a href="https://wa.me/5491122798768?text=Hola!%20Consulto%20por%20el%20taller%20presencial%20de%20FunGuys" target="_blank" class="consult-cta">Consultar precio y fechas →</a>
+          </div>
+          <div class="card" style="padding:26px;">
+            <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-s);margin-bottom:7px;">Consultoría</div>
+            <h3 style="font-size:18px;color:var(--text);margin-bottom:9px;">Asesoría Especializada</h3>
+            <p style="font-size:14px;color:var(--text-m);line-height:1.6;margin-bottom:16px;">Para productores con producción en marcha. Diagnóstico técnico, optimización de parámetros y diseño de escala.</p>
+            <a href="https://wa.me/5491122798768?text=Hola!%20Quiero%20una%20asesoría%20especializada%20de%20FunGuys" target="_blank" class="consult-cta">Consultar →</a>
+          </div>
+          <div style="background:var(--surface2);border:1.5px dashed rgba(61,107,53,.30);border-radius:var(--r);padding:18px 20px;display:flex;gap:14px;align-items:center;">
+            <span style="font-size:26px;">📦</span>
+            <div>
+              <div style="font-weight:700;color:var(--text);font-size:14px;margin-bottom:3px;">Combo Curso + Kit</div>
+              <div style="font-size:13px;color:var(--text-m);margin-bottom:7px;">Curso virtual + kit de autocultivo a precio especial.</div>
+              <a href="https://wa.me/5491122798768?text=Hola!%20Me%20interesa%20el%20combo%20Curso%20%2B%20Kit%20de%20FunGuys" target="_blank" style="font-size:13px;color:var(--green);font-weight:600;">Consultar precio del combo →</a>
+            </div>
+          </div>
+          <div style="background:rgba(61,107,53,.05);border:1px solid rgba(61,107,53,.18);border-radius:var(--r);padding:18px 20px;display:flex;gap:14px;align-items:center;">
+            <span style="font-size:26px;">🏛️</span>
+            <div>
+              <div style="font-weight:700;color:var(--text);font-size:14px;margin-bottom:3px;">Para instituciones</div>
+              <div style="font-size:13px;color:var(--text-m);margin-bottom:7px;">Escuelas, municipios, cooperativas. Presupuesto oficial disponible.</div>
+              <button onclick="nav('servicios')" style="font-size:13px;color:var(--green);font-weight:600;background:none;border:none;cursor:pointer;padding:0;">Ver propuesta institucional →</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Simulador -->
+  <div style="background:var(--surface);border-top:1px solid var(--border);padding:56px 0;">
+    <div class="container">
+      <div class="g2" style="align-items:start;gap:48px;">
+        <div>
+          <span class="tag">Herramienta gratuita</span>
+          <h2 style="font-size:clamp(22px,4vw,34px);color:var(--text);margin-bottom:12px;">Simulador de Eficiencia Biológica</h2>
+          <p style="font-size:15px;color:var(--text-m);line-height:1.75;margin-bottom:20px;">Calculá el rendimiento estimado de tu cultivo antes de invertir. Parámetros técnicos reales — base húmeda, EB real de producción en Argentina.</p>
+          <div class="hbox" style="font-size:13px;">
+            <strong style="color:var(--green);display:block;margin-bottom:5px;">¿Qué es la Eficiencia Biológica (EB)?</strong>
+            Indica cuántos gramos de hongo fresco obtenés por cada 100 g de sustrato seco. El sustrato post-pasteurización tiene ~62% de humedad. La EB real de gírgola gris oscila entre 40–70% en producción doméstica.
+          </div>
+        </div>
+        <div style="background:var(--surface2);border:1px solid var(--border);border-radius:var(--rlg);padding:28px;box-shadow:var(--shadow);">
+          <div style="margin-bottom:18px;"><label class="sim-label">Especie</label><select class="sim-select" id="sEspecie"><option value="girgola_gris">Gírgola Gris (Pleurotus ostreatus)</option><option value="girgola_reina">Gírgola Reina (Pleurotus eryngii)</option><option value="shiitake">Shiitake (Lentinula edodes)</option></select></div>
+          <div style="margin-bottom:18px;"><label class="sim-label">Sustrato húmedo (kg)</label><div class="slider-row"><input type="range" min="1" max="100" value="10" step="1" id="sKg" oninput="document.getElementById('sKgV').textContent=this.value+' kg'"><span class="slider-val" id="sKgV">10 kg</span></div></div>
+          <div style="margin-bottom:18px;"><label class="sim-label">Condiciones</label><select class="sim-select" id="sCond"><option value="optimas">Óptimas (temp. y humedad controladas)</option><option value="buenas" selected>Buenas (semi-controladas)</option><option value="basicas">Básicas (sin control ambiental)</option></select></div>
+          <div style="margin-bottom:20px;"><label class="sim-label">Flushes esperados</label><div class="slider-row"><input type="range" min="1" max="4" value="3" step="1" id="sFlushes" oninput="document.getElementById('sFV').textContent=this.value"><span class="slider-val" id="sFV">3</span></div></div>
+          <button onclick="openSimModal()" class="btn btn-green" style="width:100%;justify-content:center;">🍄 Calcular proyección →</button>
+          <p style="font-size:11px;color:var(--text-s);text-align:center;margin-top:7px;">Recibís los resultados + guía gratuita en tu email</p>
+          <div id="simResults" style="display:none;">
+            <div class="divider"></div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+              <div class="sim-rcard"><div class="sim-rval" id="resRend">—</div><div class="sim-rlabel">kg totales</div></div>
+              <div class="sim-rcard"><div class="sim-rval" id="resEB">—</div><div class="sim-rlabel">EB %</div></div>
+              <div class="sim-rcard"><div class="sim-rval" id="resPF">—</div><div class="sim-rlabel">kg / flush</div></div>
+              <div class="sim-rcard"><div class="sim-rval" id="resDias">—</div><div class="sim-rlabel">días 1ª cosecha</div></div>
+            </div>
+            <p id="simNota" style="font-size:12px;color:var(--text-s);text-align:center;margin-top:10px;line-height:1.6;"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════ KITS ══════ -->
+<div class="page" id="page-kits">
+  <div class="section">
+    <div class="container">
+      <span class="tag">Kits de autocultivo</span>
+      <h1 class="page-title">Tu primera cosecha<br><em style="color:var(--green);">en menos de 25 días.</em></h1>
+      <p class="page-sub">El kit elimina la parte técnica compleja — inoculación y esterilización — y te deja enfocarte en lo que importa: observar y cosechar.</p>
+
+      <!-- GARANTÍA -->
+      <div class="guarantee-box" style="margin-bottom:40px;">
+        <div style="font-size:36px;flex-shrink:0;">🛡️</div>
+        <div>
+          <div style="font-family:'Fraunces',serif;font-size:17px;font-weight:700;color:var(--green);margin-bottom:6px;">Garantía de cosecha</div>
+          <p style="font-size:14px;color:var(--text-m);line-height:1.7;margin:0;">Si seguís el instructivo y no cosechás, <strong style="color:var(--text);">te reponemos el kit.</strong> No hay letra chica. La parte técnica difícil (inoculación y esterilización) ya está hecha — lo que queda es seguir pasos simples.</p>
+        </div>
+      </div>
+
+      <!-- ROI BOX -->
+      <div class="roi-box" style="margin-bottom:48px;">
+        <div style="display:flex;gap:32px;flex-wrap:wrap;align-items:center;">
+          <div style="text-align:center;flex:1;min-width:120px;">
+            <div style="font-family:'Fraunces',serif;font-size:38px;font-weight:800;color:var(--green);">1,5 kg</div>
+            <div style="font-size:13px;color:var(--text-m);">cosecha mínima por kit</div>
+          </div>
+          <div style="width:1px;height:60px;background:var(--border);flex-shrink:0;"></div>
+          <div style="text-align:center;flex:1;min-width:120px;">
+            <div style="font-family:'Fraunces',serif;font-size:38px;font-weight:800;color:var(--amber);">2–3</div>
+            <div style="font-size:13px;color:var(--text-m);">cosechas por bloque</div>
+          </div>
+          <div style="width:1px;height:60px;background:var(--border);flex-shrink:0;"></div>
+          <div style="text-align:center;flex:1;min-width:160px;">
+            <div style="font-size:14px;color:var(--text-m);line-height:1.6;font-weight:500;">1 kg de gírgola fresca en<br>verdulería gourmet ≈ <strong style="color:var(--brown);">$4.000–$6.000</strong><br>El kit se paga con la primera cosecha.</div>
+          </div>
+          <a href="https://wa.me/5491122798768?text=Hola!%20Quiero%20consultar%20el%20precio%20del%20kit%20de%20autocultivo" target="_blank" class="btn btn-green">Consultar precio →</a>
+        </div>
+      </div>
+
+      <div class="g2" style="align-items:start;">
+        <div>
+          <h3 style="color:var(--text);font-size:19px;margin-bottom:18px;">¿Qué incluye cada kit?</h3>
+          <ul class="checklist" style="margin-bottom:22px;">
+            <li>Bloque de sustrato inoculado (formulado y preparado)</li>
+            <li>Bolsa de humidificación con sistema de ventilación</li>
+            <li>Instructivo técnico paso a paso ilustrado</li>
+            <li>Soporte técnico por WhatsApp (Lun–Sáb, respuesta en el día)</li>
+          </ul>
+          <div class="steps">
+            <div class="step"><div class="step-n">1</div><div style="font-size:14px;"><strong>Recibís el kit</strong> — Bloque inoculado en óptimo estado</div></div>
+            <div class="step"><div class="step-n">2</div><div style="font-size:14px;"><strong>Inducís la fructificación</strong> — Escarificás y humedecés</div></div>
+            <div class="step"><div class="step-n">3</div><div style="font-size:14px;"><strong>Primordios en 7–10 días</strong> — Los primeros brotes aparecen</div></div>
+            <div class="step"><div class="step-n">4</div><div style="font-size:14px;"><strong>Primera cosecha</strong> — Entre 15 y 25 días del inicio</div></div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:13px;">
+          <!-- Variedades disponibles -->
+          <div class="variety-card">
+            <span style="font-size:34px;min-width:40px;">🍄</span>
+            <div>
+              <div style="font-family:'Fraunces',serif;font-size:16px;font-weight:700;color:var(--text);margin-bottom:2px;">Gírgola Gris</div>
+              <div style="font-size:12px;color:var(--text-s);font-style:italic;margin-bottom:5px;">Pleurotus ostreatus</div>
+              <p style="font-size:13px;color:var(--text-m);line-height:1.55;margin-bottom:8px;">La más popular. Sabor suave, textura carnosa. Alta eficiencia biológica. Ideal para saltear y grillar.</p>
+              <span class="chip chip-green" style="font-size:11px;">✅ Disponible</span>
+            </div>
+          </div>
+          <div class="variety-card">
+            <span style="font-size:34px;min-width:40px;">🍄</span>
+            <div>
+              <div style="font-family:'Fraunces',serif;font-size:16px;font-weight:700;color:var(--text);margin-bottom:2px;">Gírgola Reina · King Oyster</div>
+              <div style="font-size:12px;color:var(--text-s);font-style:italic;margin-bottom:5px;">Pleurotus eryngii</div>
+              <p style="font-size:13px;color:var(--text-m);line-height:1.55;margin-bottom:8px;">Alta calidad gastronómica. Carne consistente, tallo grueso. Excelente vida post-cosecha.</p>
+              <span class="chip chip-green" style="font-size:11px;">✅ Disponible</span>
+            </div>
+          </div>
+          <div class="variety-card">
+            <span style="font-size:34px;min-width:40px;">🍄</span>
+            <div>
+              <div style="font-family:'Fraunces',serif;font-size:16px;font-weight:700;color:var(--text);margin-bottom:2px;">Shiitake</div>
+              <div style="font-size:12px;color:var(--text-s);font-style:italic;margin-bottom:5px;">Lentinula edodes</div>
+              <p style="font-size:13px;color:var(--text-m);line-height:1.55;margin-bottom:8px;">El rey de la cocina asiática. Umami intenso. Alto valor comercial y nutricional.</p>
+              <span class="chip chip-amber" style="font-size:11px;">🔜 Próximamente</span>
+            </div>
+          </div>
+          <div class="variety-card">
+            <span style="font-size:34px;min-width:40px;">🍄</span>
+            <div>
+              <div style="font-family:'Fraunces',serif;font-size:16px;font-weight:700;color:var(--text);margin-bottom:2px;">Enoki · Hongos de aguja</div>
+              <div style="font-size:12px;color:var(--text-s);font-style:italic;margin-bottom:5px;">Flammulina velutipes</div>
+              <p style="font-size:13px;color:var(--text-m);line-height:1.55;margin-bottom:8px;">Sabor suave, textura crujiente. Muy apreciado en cocina asiática y ensaladas. Alto valor de mercado.</p>
+              <span class="chip chip-amber" style="font-size:11px;">🔜 Próximamente</span>
+            </div>
+          </div>
+          <div class="variety-card">
+            <span style="font-size:34px;min-width:40px;">🦁</span>
+            <div>
+              <div style="font-family:'Fraunces',serif;font-size:16px;font-weight:700;color:var(--text);margin-bottom:2px;">Melena de León</div>
+              <div style="font-size:12px;color:var(--text-s);font-style:italic;margin-bottom:5px;">Hericium erinaceus</div>
+              <p style="font-size:13px;color:var(--text-m);line-height:1.55;margin-bottom:8px;">Forma espectacular, sabor similar a mariscos. Propiedades funcionales reconocidas. Altamente valorado en gastronomía gourmet.</p>
+              <span class="chip chip-amber" style="font-size:11px;">🔜 Próximamente</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════ INSUMOS ══════ -->
+<div class="page" id="page-insumos">
+  <div class="section">
+    <div class="container">
+      <span class="tag">Catálogo de insumos</span>
+      <h1 class="page-title">Todo para escalar<br><em style="color:var(--green);">tu producción.</em></h1>
+      <p class="page-sub" style="margin-bottom:22px;">Stock en tiempo real desde nuestra hoja de inventario. Armá tu presupuesto y envialo por WhatsApp — coordinamos envío y precio final en el chat.</p>
+      <div class="hbox hbox-amber" style="margin-bottom:28px;font-size:13px;display:flex;gap:14px;align-items:flex-start;">
+        <span style="font-size:20px;flex-shrink:0;">💡</span>
+        <div><strong style="color:var(--text);">Los precios se actualizan directamente desde nuestro inventario.</strong> Si un producto aparece "sin stock" escribinos — puede haber producción en camino.</div>
+      </div>
+      <div class="cat-filters" id="catFilters">
+        <button class="cat-filter-btn active" onclick="filterCat('todos',this)">🧺 Todos</button>
+        <button class="cat-filter-btn" onclick="filterCat('spawn',this)">🍄 Spawn</button>
+        <button class="cat-filter-btn" onclick="filterCat('sustratos',this)">🌾 Sustratos</button>
+        <button class="cat-filter-btn" onclick="filterCat('aditivos',this)">🧪 Aditivos</button>
+        <button class="cat-filter-btn" onclick="filterCat('materiales',this)">📦 Materiales</button>
+        <button class="cat-filter-btn" onclick="filterCat('equipamiento',this)">🔧 Equipamiento</button>
+        <button class="cat-filter-btn" onclick="filterCat('consumibles',this)">🧤 Consumibles</button>
+      </div>
+      <div id="catalogContainer"><div class="catalog-loader"><div class="spin"></div><p>Cargando catálogo...</p></div></div>
+      <div class="hbox" style="margin-top:36px;display:flex;gap:16px;align-items:flex-start;">
+        <span style="font-size:20px;flex-shrink:0;">🛒</span>
+        <div><strong style="color:var(--text);display:block;margin-bottom:3px;">¿Cómo funciona el presupuesto?</strong><p style="font-size:13px;color:var(--text-m);line-height:1.65;margin:0;">Usá el botón 🛒 para agregar productos. Cuando termines, click en el carrito arriba → "Consultar por WhatsApp". Te llega el mensaje pre-armado con todos los ítems. Coordinamos envío y precio final en el chat.</p></div>
+      </div>
+      <div style="margin-top:24px;background:var(--surface2);border:1px solid var(--border);border-radius:var(--r);padding:18px 22px;">
+        <details><summary style="font-size:13px;font-weight:600;color:var(--text-m);cursor:pointer;">📸 Cómo agregar fotos a los productos (guía)</summary>
+        <div style="margin-top:12px;font-size:13px;color:var(--text-m);line-height:1.8;">
+          <strong style="color:var(--text);display:block;margin-bottom:6px;">Opción 1 — Google Drive:</strong>
+          1. Subí la foto → botón derecho → "Obtener vínculo" → acceso "Cualquier persona con el vínculo"<br>
+          2. Copiá el ID del archivo (entre /d/ y /view)<br>
+          3. En Google Sheets, columna "Imagen": <code>https://drive.google.com/uc?id=TU_ID_AQUI</code><br><br>
+          <strong style="color:var(--text);display:block;margin-bottom:6px;">Opción 2 — Imgur:</strong>
+          1. imgur.com → subí la foto → click derecho → "Copiar dirección de imagen"<br>
+          2. Pegá la URL en la columna "Imagen" del Sheet<br><br>
+          <strong style="color:var(--text);">El catálogo se actualiza automáticamente.</strong>
+        </div></details>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════ SERVICIOS ══════ -->
+<div class="page" id="page-servicios">
+  <div class="section">
+    <div class="container">
+      <span class="tag">Servicios técnicos</span>
+      <h1 class="page-title">Consultoría y<br><em style="color:var(--green);">equipamiento a medida.</em></h1>
+      <p class="page-sub">Ingeniería aplicada al sector bioindustrial. Desde diseño de instalaciones hasta fabricación de equipos propios. Cada proyecto es único — los precios también.</p>
+      <div class="g2" style="align-items:start;margin-bottom:20px;">
+        <div class="card card-rel card-green" style="padding:30px;">
+          <div style="font-size:38px;margin-bottom:14px;">💼</div>
+          <h3 style="font-size:19px;color:var(--text);margin-bottom:10px;">Consultoría Técnica</h3>
+          <p style="font-size:14px;color:var(--text-m);line-height:1.65;margin-bottom:16px;">Acompañamiento integral para proyectos productivos de pequeña y mediana escala. Desde la idea inicial hasta la primera cosecha comercial.</p>
+          <ul class="checklist" style="margin-bottom:20px;">
+            <li>Evaluación de viabilidad técnica y económica</li>
+            <li>Diseño de instalaciones</li>
+            <li>Selección de equipamiento y proveedores</li>
+            <li>Definición de protocolos operativos</li>
+            <li>Seguimiento post-implementación</li>
+          </ul>
+          <div class="hbox" style="margin-bottom:16px;font-size:13px;">💰 Precio a consultar según alcance y duración del proyecto.</div>
+          <a href="https://wa.me/5491122798768?text=Hola!%20Quiero%20consultar%20sobre%20una%20consultoría%20técnica%20de%20FunGuys" target="_blank" class="consult-cta">Consultar →</a>
+        </div>
+        <div class="card card-rel card-brown" style="padding:30px;">
+          <div style="font-size:38px;margin-bottom:14px;">🏭</div>
+          <h3 style="font-size:19px;color:var(--text);margin-bottom:10px;">Pasteurizador Atmosférico</h3>
+          <p style="font-size:14px;color:var(--text-m);line-height:1.65;margin-bottom:16px;">Diseño y fabricación de pasteurizadores a vapor. Sin clasificación como recipiente a presión — no requiere habilitación especial en Argentina.</p>
+          <ul class="checklist" style="margin-bottom:20px;">
+            <li>Pasteuriza <strong>50 kg de sustrato por batch</strong></li>
+            <li>Diseño vertical, presión atmosférica (sin riesgo)</li>
+            <li>Calentamiento a gas o eléctrico</li>
+            <li>Aislación térmica 75 mm lana mineral</li>
+            <li>Documentación técnica completa</li>
+            <li>Instalación y puesta en marcha incluidas</li>
+          </ul>
+          <div class="hbox hbox-brown" style="margin-bottom:16px;font-size:13px;">💰 Precio a consultar. Varía según materiales, escala y modalidad de entrega.</div>
+          <a href="https://wa.me/5491122798768?text=Hola!%20Quiero%20cotizar%20un%20pasteurizador%20atmosférico%20FunGuys" target="_blank" class="consult-cta">Consultar precio →</a>
+        </div>
+      </div>
+
+      <!-- CÁMARAS -->
+      <div class="g2" style="align-items:start;margin-bottom:20px;">
+        <div class="card card-rel card-line" style="padding:30px;">
+          <div style="font-size:38px;margin-bottom:14px;">🌡️</div>
+          <div style="display:inline-block;background:rgba(61,107,53,.10);border:1px solid rgba(61,107,53,.22);color:var(--green);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;padding:2px 10px;border-radius:999px;margin-bottom:12px;">A medida · Cada proyecto es único</div>
+          <h3 style="font-size:19px;color:var(--text);margin-bottom:10px;">Cámaras de Incubación y Fructificación</h3>
+          <p style="font-size:14px;color:var(--text-m);line-height:1.65;margin-bottom:16px;">Diseñamos y fabricamos cámaras de cultivo adaptadas a cada proyecto. Dimensiones, materiales y nivel de automatización se definen según las necesidades del productor.</p>
+          <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:18px;">
+            <div style="background:var(--surface2);border:1px solid var(--border);border-radius:var(--rsm);padding:9px 13px;font-size:13px;"><strong style="color:var(--text);">🌡 Sensores de temperatura y humedad</strong><br><span style="color:var(--text-m);">Monitoreo continuo. Parámetros siempre en rango óptimo.</span></div>
+            <div style="background:var(--surface2);border:1px solid var(--border);border-radius:var(--rsm);padding:9px 13px;font-size:13px;"><strong style="color:var(--text);">💧 Sistema de aspersión / humidificación</strong><br><span style="color:var(--text-m);">Humidificadores ultrasónicos o electroválvulas automatizadas.</span></div>
+            <div style="background:var(--surface2);border:1px solid var(--border);border-radius:var(--rsm);padding:9px 13px;font-size:13px;"><strong style="color:var(--text);">⏱ Temporizadores y controladores</strong><br><span style="color:var(--text-m);">Automatización de iluminación, ventilación y riego.</span></div>
+            <div style="background:var(--surface2);border:1px solid var(--border);border-radius:var(--rsm);padding:9px 13px;font-size:13px;"><strong style="color:var(--text);">🌬 Ventilación forzada con filtrado</strong><br><span style="color:var(--text-m);">Control de CO₂. Crítico para morfología de los cuerpos fructíferos.</span></div>
+          </div>
+          <div class="hbox hbox-amber" style="margin-bottom:16px;font-size:13px;">💰 Precio a convenir según dimensiones, nivel de automatización y materiales. Consultanos para recibir una propuesta técnica personalizada.</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <a href="https://wa.me/5491122798768?text=Hola!%20Quiero%20consultar%20sobre%20el%20diseño%20de%20una%20cámara%20de%20cultivo%20FunGuys" target="_blank" class="consult-cta">Consultar por WhatsApp →</a>
+            <a href="mailto:funguysgirgolas@gmail.com?subject=Consulta%20Cámara%20de%20Cultivo%20FunGuys" class="btn btn-outline btn-sm">📧 Email formal</a>
+          </div>
+        </div>
+        <div class="card card-rel" style="padding:30px;border-color:var(--border-s);">
+          <div style="font-size:38px;margin-bottom:14px;">🧫</div>
+          <div style="display:inline-block;background:rgba(196,134,30,.08);border:1px solid rgba(196,134,30,.20);color:var(--amber);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;padding:2px 10px;border-radius:999px;margin-bottom:12px;">Fabricación a pedido</div>
+          <h3 style="font-size:19px;color:var(--text);margin-bottom:10px;">Cámara de Flujo Laminar</h3>
+          <p style="font-size:14px;color:var(--text-m);line-height:1.65;margin-bottom:16px;">Indispensable para inoculación en condiciones de asepsia controlada. Reduce la tasa de contaminación del 15% (sin flujo) al 2% (con flujo) en el mismo proceso.</p>
+          <ul class="checklist" style="margin-bottom:16px;">
+            <li>Flujo de aire unidireccional con filtro HEPA</li>
+            <li>Superficie de trabajo en acero inoxidable</li>
+            <li>Iluminación UV germicida</li>
+            <li>Dimensiones a medida según volumen de producción</li>
+            <li>Fabricación local con materiales de calidad industrial</li>
+            <li>Documentación técnica incluida</li>
+          </ul>
+          <div class="hbox" style="margin-bottom:16px;font-size:13px;">💰 Precio a convenir según especificaciones técnicas y dimensiones.</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <a href="https://wa.me/5491122798768?text=Hola!%20Quiero%20consultar%20sobre%20una%20cámara%20de%20flujo%20laminar%20FunGuys" target="_blank" class="consult-cta">Consultar por WhatsApp →</a>
+            <a href="mailto:funguysgirgolas@gmail.com?subject=Consulta%20Flujo%20Laminar%20FunGuys" class="btn btn-outline btn-sm">📧 Email formal</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Institucional -->
+  <div style="background:var(--surface);border-top:1px solid var(--border);padding:56px 0;">
+    <div class="container">
+      <div class="g2" style="align-items:center;gap:56px;">
+        <div>
+          <span class="tag tag-brown">Para instituciones</span>
+          <h2 style="font-size:clamp(22px,4vw,36px);color:var(--text);margin-bottom:12px;">Escuelas, municipios y cooperativas</h2>
+          <p style="font-size:15px;color:var(--text-m);line-height:1.75;margin-bottom:22px;">Programas de capacitación técnica para el sector agroalimentario. Modalidades adaptables, precios institucionales y documentación para contratación directa en Provincia de Buenos Aires.</p>
+          <ul class="checklist" style="margin-bottom:22px;">
+            <li>Escuelas agrotécnicas — módulo interdisciplinario</li>
+            <li>Municipios — capacitación para programas productivos</li>
+            <li>Cooperativas — nueva línea productiva para socios</li>
+            <li>INTA/extensión — prestador técnico disponible</li>
+          </ul>
+          <div class="hbox" style="margin-bottom:20px;font-size:13px;">✅ Todos los servicios están dentro del umbral de contratación directa de Prov. Buenos Aires. Presupuesto oficial disponible.</div>
+          <a href="mailto:funguysgirgolas@gmail.com?subject=Consulta%20Institucional%20FunGuys" class="btn btn-green btn-sm">📧 Consultar propuesta institucional →</a>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:var(--surface2);border:1px solid var(--border);border-radius:var(--r);font-size:14px;"><span style="color:var(--text-m);">Taller hasta 15 personas</span><span style="color:var(--green);font-weight:700;">Consultar</span></div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:var(--surface2);border:1px solid var(--border);border-radius:var(--r);font-size:14px;"><span style="color:var(--text-m);">Taller 16–25 personas</span><span style="color:var(--green);font-weight:700;">Consultar</span></div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:var(--surface2);border:1px solid var(--border);border-radius:var(--r);font-size:14px;"><span style="color:var(--text-m);">Ciclo 3–4 encuentros</span><span style="color:var(--green);font-weight:700;">Consultar</span></div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:var(--surface2);border:1px solid var(--border);border-radius:var(--r);font-size:14px;"><span style="color:var(--text-m);">Capacitación equipo técnico interno</span><span style="color:var(--green);font-weight:700;">Consultar</span></div>
+          <div style="padding:10px 14px;background:rgba(61,107,53,.06);border:1px solid rgba(61,107,53,.18);border-radius:var(--r);"><p style="font-size:12px;color:var(--green);margin:0;">Factura A o B. Sin licitación requerida. Incluye materiales y kit por participante.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════ FAQ ══════ -->
+<div class="page" id="page-faq">
+  <div class="section">
+    <div class="container-sm">
+      <span class="tag">Preguntas frecuentes</span>
+      <h1 class="page-title">Todo lo que querés<br><em style="color:var(--green);">saber antes de arrancar.</em></h1>
+      <p class="page-sub">Si no encontrás tu pregunta, escribinos por WhatsApp — respondemos el mismo día.</p>
+      <h3 style="color:var(--green);font-size:13px;text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px;">🍄 Kits y cultivo</h3>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">¿Necesito experiencia previa para usar el kit? <span class="faq-arrow">+</span></button><div class="faq-a">No. El sustrato ya viene inoculado y el instructivo guía cada paso con parámetros precisos. Ante cualquier duda, respondemos por WhatsApp en el día (Lun–Sáb). Si seguís el instructivo y no cosechás, te reponemos el kit.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">¿Puedo cultivar en un departamento pequeño? <span class="faq-arrow">+</span></button><div class="faq-a">Sí. Los kits de gírgola gris funcionan muy bien en espacios reducidos: un rincón con temperatura entre 15–25°C, buena ventilación indirecta y humedad sostenida es suficiente. No se necesita cámara ni equipamiento especial.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">¿Cuánto cosecha un kit? <span class="faq-arrow">+</span></button><div class="faq-a">Un bloque bien manejado cosecha mínimo 1,5 kg en el primer flush, con 2 a 3 flushes totales. La eficiencia biológica acumulada en buenas condiciones puede superar el 80% del peso seco del sustrato.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">¿El kit funciona si no tengo donde colgarlo? <span class="faq-arrow">+</span></button><div class="faq-a">Sí. El sistema de bolsa no requiere colgado ni infraestructura. Puede apoyarse sobre una superficie plana. Solo necesitás asegurar ventilación y humedad.</div></div>
+      <h3 style="color:var(--green);font-size:13px;text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px;margin-top:36px;">🎓 Cursos y formación</h3>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">¿El curso virtual tiene fecha de inicio fija? <span class="faq-arrow">+</span></button><div class="faq-a">No. El curso es a tu ritmo con acceso 24/7 al material. La mini asesoría grupal en vivo se coordina en grupos reducidos para que puedas hacer preguntas reales.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">¿Qué diferencia al curso virtual del presencial? <span class="faq-arrow">+</span></button><div class="faq-a">El virtual cubre toda la teoría y práctica con materiales de alta calidad a tu ritmo. El presencial agrega la experiencia táctil: manos en el sustrato, inoculación real y te vas con tu propio kit. Ambos son válidos.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">¿Puedo escalar a producción comercial después del curso? <span class="faq-arrow">+</span></button><div class="faq-a">Es exactamente la trayectoria que seguimos nosotros. Empezás con el kit, aprendés el ciclo, tomás el curso, y si querés escalar, la asesoría especializada te ayuda a diseñar una producción de 5–50 kg semanales.</div></div>
+      <h3 style="color:var(--green);font-size:13px;text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px;margin-top:36px;">📦 Insumos y pedidos</h3>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">¿Hacen envíos fuera de La Plata? <span class="faq-arrow">+</span></button><div class="faq-a">Los kits se entregan en La Plata y GBA. Para envíos al interior coordinamos modalidad y costo individualmente. Los insumos como spawn tienen más flexibilidad logística. Consultanos para tu caso específico.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">¿Tienen precios mayoristas? <span class="faq-arrow">+</span></button><div class="faq-a">Sí. Para pedidos de mayor volumen tenemos condiciones especiales. Escribinos indicando qué productos y qué cantidades y te armamos una cotización.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">¿Cuáles son las formas de pago? <span class="faq-arrow">+</span></button><div class="faq-a">Transferencia bancaria, Mercado Pago (débito, crédito, hasta 3 cuotas sin interés) y efectivo en persona. Para cursos e instituciones emitimos factura A o B.</div></div>
+      <h3 style="color:var(--green);font-size:13px;text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px;margin-top:36px;">⚙️ Servicios y equipamiento</h3>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">¿Cuánto tarda la fabricación de un pasteurizador o cámara? <span class="faq-arrow">+</span></button><div class="faq-a">Depende del proyecto. Los plazos se definen junto con el presupuesto técnico. En general trabajamos con 4 a 8 semanas según complejidad y nivel de automatización.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">¿Los equipos incluyen garantía? <span class="faq-arrow">+</span></button><div class="faq-a">Sí. Todos los equipos fabricados incluyen garantía de funcionamiento y documentación técnica completa. La puesta en marcha y capacitación de uso están incluidas en el precio.</div></div>
+      <div style="text-align:center;margin-top:44px;padding:28px;background:var(--surface);border:1px solid var(--border);border-radius:var(--rlg);box-shadow:var(--shadow);">
+        <p style="font-size:15px;color:var(--text-m);margin-bottom:18px;">¿No encontraste tu pregunta?</p>
+        <a href="https://wa.me/5491122798768?text=Hola!%20Tengo%20una%20consulta%20sobre%20FunGuys" target="_blank" class="btn btn-wa">💬 Preguntar por WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════ CONTACTO ══════ -->
+<div class="page" id="page-contacto">
+  <div class="section">
+    <div class="container-sm">
+      <span class="tag">Contacto</span>
+      <h1 class="page-title">¿Tenés dudas?<br><em style="color:var(--green);">Hablemos.</em></h1>
+      <p class="page-sub">Respondemos de lunes a sábado. No hay preguntas tontas en el reino fungi.</p>
+      <div class="g2" style="align-items:start;gap:28px;">
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <a href="https://wa.me/5491122798768" target="_blank" class="cmethod"><div class="cmethod-icon" style="background:rgba(37,211,102,.10);">💬</div><div><strong style="display:block;font-size:14px;font-weight:600;color:var(--text);">WhatsApp — +54 9 11 2279-8768</strong><span style="font-size:13px;color:var(--text-m);">Respuesta rápida · Lun–Sáb</span></div></a>
+          <a href="https://wa.me/5492215245842" target="_blank" class="cmethod"><div class="cmethod-icon" style="background:rgba(37,211,102,.10);">💬</div><div><strong style="display:block;font-size:14px;font-weight:600;color:var(--text);">WhatsApp — +54 9 221 524-5842</strong><span style="font-size:13px;color:var(--text-m);">Línea alternativa</span></div></a>
+          <a href="https://instagram.com/funguys.girgolas" target="_blank" class="cmethod"><div class="cmethod-icon" style="background:rgba(200,73,142,.10);">📸</div><div><strong style="display:block;font-size:14px;font-weight:600;color:var(--text);">@funguys.girgolas</strong><span style="font-size:13px;color:var(--text-m);">Tips, novedades y promos</span></div></a>
+          <a href="mailto:funguysgirgolas@gmail.com" class="cmethod"><div class="cmethod-icon" style="background:rgba(196,134,30,.10);">📧</div><div><strong style="display:block;font-size:14px;font-weight:600;color:var(--text);">funguysgirgolas@gmail.com</strong><span style="font-size:13px;color:var(--text-m);">Consultas formales y empresas</span></div></a>
+        </div>
+        <div style="background:var(--surface2);border:1px solid var(--border);border-radius:var(--rlg);padding:32px;text-align:center;box-shadow:var(--shadow);">
+          <div style="font-size:46px;margin-bottom:12px;">🍄</div>
+          <h3 style="font-size:20px;color:var(--text);margin-bottom:8px;">¿Listo para cultivar?</h3>
+          <p style="font-size:14px;color:var(--text-m);line-height:1.7;margin-bottom:22px;">Escribinos y en minutos te decimos qué opción se adapta mejor a tu situación y presupuesto.</p>
+          <a href="https://wa.me/5491122798768?text=Hola!%20Quiero%20empezar%20a%20cultivar%20hongos.%20¿Por%20dónde%20arranco?" target="_blank" class="btn btn-wa" style="width:100%;justify-content:center;margin-bottom:10px;">💬 Escribir por WhatsApp</a>
+          <a href="https://instagram.com/funguys.girgolas" target="_blank" class="btn btn-outline btn-sm" style="width:100%;justify-content:center;">📸 Seguir en Instagram</a>
+        </div>
+      </div>
+      <details style="margin-top:36px;">
+        <summary style="font-size:12px;color:var(--text-s);cursor:pointer;">🔒 Política de privacidad (Ley 25.326)</summary>
+        <div style="margin-top:10px;padding:14px 18px;background:var(--surface2);border:1px solid var(--border);border-radius:var(--r);">
+          <p style="font-size:12px;color:var(--text-m);line-height:1.8;margin:0;">Los datos personales proporcionados son recolectados por FunGuys (Ing. Fernando David Ocampo, City Bell, La Plata) exclusivamente para envío de resultados del simulador e información comercial. No se ceden a terceros. En cumplimiento de la <strong>Ley N° 25.326</strong>, podés acceder, rectificar y suprimir tus datos escribiendo a <strong>funguysgirgolas@gmail.com</strong>. Organismo de control: Dirección Nacional de Protección de Datos Personales.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</div>
+
+</div><!-- /app -->
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">🍄 Fun<span>Guys</span></div>
+    <p class="footer-copy">© 2026 FunGuys · Ing. Fernando Ocampo & Francisco Le Rose · City Bell, La Plata, Buenos Aires</p>
+    <div class="footer-links">
+      <a href="#" onclick="nav('inicio');return false;">Inicio</a>
+      <a href="#" onclick="nav('cursos');return false;">Cursos</a>
+      <a href="#" onclick="nav('kits');return false;">Kits</a>
+      <a href="#" onclick="nav('insumos');return false;">Insumos</a>
+      <a href="#" onclick="nav('servicios');return false;">Servicios</a>
+      <a href="#" onclick="nav('faq');return false;">FAQ</a>
+      <a href="#" onclick="nav('contacto');return false;">Contacto</a>
+    </div>
+  </div>
+</footer>
+
+<!-- MODAL SIMULADOR -->
+<div class="modal-overlay" id="simModal">
+  <div class="modal-box">
+    <button class="modal-close-btn" onclick="closeSimModal()">✕</button>
+    <div style="text-align:center;margin-bottom:22px;">
+      <div style="font-size:36px;margin-bottom:9px;">🍄</div>
+      <h3 style="font-family:'Fraunces',serif;font-size:20px;color:var(--text);margin-bottom:7px;">Tu proyección está lista</h3>
+      <p style="font-size:14px;color:var(--text-m);line-height:1.6;">Dejanos tu email para ver los resultados + recibir la <strong style="color:var(--green);">Guía de Inicio Gratuita</strong> en PDF.</p>
+    </div>
+    <div id="simModalForm">
+      <div class="form-field"><label class="form-label">Nombre</label><input type="text" class="form-input" id="mNombre" placeholder="Tu nombre"></div>
+      <div class="form-field"><label class="form-label">Email</label><input type="email" class="form-input" id="mEmail" placeholder="tu@email.com"></div>
+      <div class="form-field"><label class="form-label">WhatsApp <span style="font-weight:400;text-transform:none;letter-spacing:0;">(opcional)</span></label><input type="tel" class="form-input" id="mWA" placeholder="+54 9 11 xxxxxxxx"></div>
+      <div class="form-error" id="mError"></div>
+      <button class="btn btn-green" style="width:100%;justify-content:center;" onclick="submitSimLead()">Ver mi proyección →</button>
+      <p style="font-size:11px;color:var(--text-s);text-align:center;margin-top:9px;">Sin spam. Solo usamos tu email para enviarte los resultados.</p>
+    </div>
+    <div id="simModalOk" style="display:none;text-align:center;padding:14px 0;">
+      <div style="font-size:42px;margin-bottom:10px;">✅</div>
+      <h4 style="color:var(--text);font-family:'Fraunces',serif;font-size:17px;margin-bottom:5px;">¡Listo!</h4>
+      <p style="font-size:14px;color:var(--text-m);">Los resultados están disponibles abajo.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+const INVENTORY_URL='https://script.google.com/macros/s/AKfycbx_T0u3zNXACryeChyH_ncZu_uVgsTLxt_i1py0TVUTk-5ZgXjJ64GDcNhU2lY2lcMj/exec';
+const WA_NUMBER='5491122798768';
+const PAGES=['inicio','quienes','cursos','kits','insumos','servicios','faq','contacto'];
+
+function nav(p){
+  PAGES.forEach(id=>{const el=document.getElementById('page-'+id);if(el)el.classList.remove('active');});
+  const t=document.getElementById('page-'+p);if(t)t.classList.add('active');
+  document.querySelectorAll('.nav-links button').forEach(b=>b.classList.toggle('active',b.dataset.page===p));
+  history.pushState({page:p},'','#'+p);
+  window.scrollTo({top:0,behavior:'smooth'});
+  if(p==='insumos'&&!catalogLoaded)loadCatalog();
+}
+window.addEventListener('popstate',e=>nav((e.state&&e.state.page)||'inicio'));
+(function(){const h=location.hash.replace('#','');nav(PAGES.includes(h)?h:'inicio');})();
+window.addEventListener('scroll',()=>document.getElementById('mainNav').classList.toggle('scrolled',scrollY>50));
+
+function openDrawer(){document.getElementById('mobileDrawer').classList.add('open');document.body.style.overflow='hidden';}
+function closeDrawer(){document.getElementById('mobileDrawer').classList.remove('open');document.body.style.overflow='';}
+function toggleFaq(btn){const item=btn.closest('.faq-item');const isOpen=item.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));if(!isOpen)item.classList.add('open');}
+
+/* CART */
+let cartItems=[];
+try{cartItems=JSON.parse(localStorage.getItem('fg_cart')||'[]');}catch(e){}
+function saveCart(){try{localStorage.setItem('fg_cart',JSON.stringify(cartItems));}catch(e){}}
+function updateCartUI(){
+  const total=cartItems.reduce((s,i)=>s+i.price*i.qty,0);
+  const count=cartItems.reduce((s,i)=>s+i.qty,0);
+  const badge=document.getElementById('cartBadge');
+  badge.textContent=count;badge.classList.toggle('visible',count>0);
+  document.getElementById('cartTotal').textContent='$'+total.toLocaleString('es-AR');
+  document.getElementById('cartFooter').style.display=cartItems.length?'block':'none';
+  const el=document.getElementById('cartItems');
+  if(!cartItems.length){el.innerHTML='<div class="cart-empty"><div style="font-size:38px;margin-bottom:12px;">🍄</div><p style="font-size:14px;">Tu presupuesto está vacío.<br>Agregá productos del catálogo.</p></div>';return;}
+  el.innerHTML=cartItems.map((item,idx)=>`<div class="cart-item"><div class="cart-item-info"><div class="cart-item-name">${item.name}</div><div class="cart-item-price">$${item.price.toLocaleString('es-AR')} / ${item.unit}</div></div><div class="cart-item-controls"><button class="qty-btn" onclick="cartQty(${idx},-1)">−</button><span class="qty-display">${item.qty}</span><button class="qty-btn" onclick="cartQty(${idx},1)">+</button><button class="cart-remove" onclick="cartRemove(${idx})">🗑</button></div></div>`).join('');
+}
+function cartAddItem(sku,name,price,unit,qty=1){const e=cartItems.find(i=>i.sku===sku);if(e){e.qty+=qty;}else{cartItems.push({sku,name,price,unit,qty});}saveCart();updateCartUI();const b=document.getElementById('cartBadge');b.style.transform='scale(1.4)';setTimeout(()=>b.style.transform='',300);}
+function cartQty(idx,d){cartItems[idx].qty+=d;if(cartItems[idx].qty<=0)cartItems.splice(idx,1);saveCart();updateCartUI();}
+function cartRemove(idx){cartItems.splice(idx,1);saveCart();updateCartUI();}
+function clearCart(){cartItems=[];saveCart();updateCartUI();}
+function openCart(){document.getElementById('cartOverlay').classList.add('open');document.getElementById('cartPanel').classList.add('open');document.body.style.overflow='hidden';}
+function closeCart(){document.getElementById('cartOverlay').classList.remove('open');document.getElementById('cartPanel').classList.remove('open');document.body.style.overflow='';}
+function sendCartWA(){if(!cartItems.length){alert('Tu presupuesto está vacío.');return;}const total=cartItems.reduce((s,i)=>s+i.price*i.qty,0);let msg='Hola!%20🍄%20Quiero%20consultar%20sobre%20el%20siguiente%20pedido:%0A%0A';cartItems.forEach(i=>{msg+=`• ${i.name} x${i.qty} ${i.unit} = $${(i.price*i.qty).toLocaleString('es-AR')}%0A`;});msg+=`%0ATotal%20estimado:%20*$${total.toLocaleString('es-AR')}*%0A%0A¿Pueden%20confirmarme%20disponibilidad,%20precio%20final%20y%20opciones%20de%20envío?`;window.open(`https://wa.me/${WA_NUMBER}?text=${msg}`,'_blank');}
+updateCartUI();
+
+/* CATALOG */
+let catalogLoaded=false,allProducts=[],activeFilter='todos';
+const CAT_ICONS={spawn:'🍄',sustratos:'🌾',aditivos:'🧪',materiales:'📦',equipamiento:'🔧',consumibles:'🧤'};
+const CAT_NAMES={spawn:'Spawn / Semilla',sustratos:'Sustratos',aditivos:'Aditivos',materiales:'Materiales',equipamiento:'Equipamiento',consumibles:'Consumibles'};
+const FALLBACK=[
+  {sku:'SPA-001',name:'Spawn Gírgola Gris',category:'spawn',price:8500,stock:50,unit:'kg',image:''},
+  {sku:'SPA-002',name:'Spawn Gírgola Reina',category:'spawn',price:9500,stock:35,unit:'kg',image:''},
+  {sku:'SPA-003',name:'Spawn Shiitake',category:'spawn',price:11000,stock:25,unit:'kg',image:''},
+  {sku:'SUS-001',name:'Viruta de álamo',category:'sustratos',price:2500,stock:150,unit:'kg',image:''},
+  {sku:'SUS-002',name:'Chipeado de pecán',category:'sustratos',price:3200,stock:80,unit:'kg',image:''},
+  {sku:'SUS-003',name:'Chip de fresno',category:'sustratos',price:2800,stock:100,unit:'kg',image:''},
+  {sku:'SUS-004',name:'Aserrín/viruta de eucalipto',category:'sustratos',price:2200,stock:200,unit:'kg',image:''},
+  {sku:'ADI-001',name:'Afrechillo de trigo',category:'aditivos',price:1800,stock:120,unit:'kg',image:''},
+  {sku:'ADI-002',name:'Avena (grano)',category:'aditivos',price:2100,stock:90,unit:'kg',image:''},
+  {sku:'ADI-003',name:'Cal agrícola',category:'aditivos',price:800,stock:250,unit:'kg',image:''},
+  {sku:'ADI-004',name:'Yeso agrícola',category:'aditivos',price:600,stock:300,unit:'kg',image:''},
+  {sku:'MAT-001',name:'Bolsa polipropileno 40×60',category:'materiales',price:350,stock:500,unit:'unidad',image:''},
+  {sku:'MAT-002',name:'Bolsa polipropileno 40×50',category:'materiales',price:320,stock:450,unit:'unidad',image:''},
+  {sku:'MAT-003',name:'Bolsa polipropileno 20×30',category:'materiales',price:180,stock:600,unit:'unidad',image:''},
+  {sku:'EQU-001',name:'Olla a presión Marmicoc 5L',category:'equipamiento',price:45000,stock:10,unit:'unidad',image:''},
+  {sku:'CON-001',name:'Guantes descartables (x100)',category:'consumibles',price:4500,stock:80,unit:'caja',image:''},
+  {sku:'CON-002',name:'Mechero/gas esterilización',category:'consumibles',price:2800,stock:60,unit:'unidad',image:''},
+];
+async function loadCatalog(){
+  if(catalogLoaded)return;
+  const c=document.getElementById('catalogContainer');
+  c.innerHTML='<div class="catalog-loader"><div class="spin"></div><p>Cargando catálogo en tiempo real...</p></div>';
+  try{const r=await fetch(INVENTORY_URL);const d=await r.json();if(d.status==='ok'&&d.products&&d.products.length){allProducts=d.products;}else throw new Error();}catch(e){allProducts=FALLBACK;}
+  catalogLoaded=true;renderCatalog();
+}
+function filterCat(cat,btn){activeFilter=cat;document.querySelectorAll('.cat-filter-btn').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');renderCatalog();}
+function renderCatalog(){
+  const c=document.getElementById('catalogContainer');
+  let prods=activeFilter==='todos'?allProducts:allProducts.filter(p=>p.category===activeFilter);
+  if(!prods.length){c.innerHTML='<div style="text-align:center;padding:60px 0;color:var(--text-s);">No hay productos en esta categoría por ahora.</div>';return;}
+  const groups={};prods.forEach(p=>{if(!groups[p.category])groups[p.category]=[];groups[p.category].push(p);});
+  const order=['spawn','sustratos','aditivos','materiales','equipamiento','consumibles'];
+  let html='';
+  order.forEach(cat=>{
+    if(!groups[cat])return;
+    html+=`<div class="cat-section"><div class="cat-section-title">${CAT_ICONS[cat]||'📦'} ${CAT_NAMES[cat]||cat}</div><div class="product-grid">`;
+    groups[cat].forEach(p=>{
+      const sb=p.stock>50?`<span class="stock-badge stock-ok">En stock</span>`:p.stock>10?`<span class="stock-badge stock-low">Stock limitado (${p.stock})</span>`:p.stock>0?`<span class="stock-badge stock-out">Últimas ${p.stock} unidades</span>`:`<span class="stock-badge stock-out">Sin stock</span>`;
+      const dis=p.stock===0?'disabled':'';
+      const img=p.image?`<img src="${p.image}" alt="${p.name}" class="product-img-real">`:`<div class="product-img-placeholder">${CAT_ICONS[p.category]||'📦'}</div>`;
+      html+=`<div class="product-card">${img}<div class="product-sku">${p.sku}</div><div class="product-name">${p.name}</div><div class="product-unit">Por ${p.unit}</div>${sb}<div class="product-price-row"><span class="product-price">$${p.price.toLocaleString('es-AR')}</span><span class="product-price-unit">/ ${p.unit}</span></div><div class="product-actions"><div class="qty-control"><button onclick="this.nextElementSibling.value=Math.max(1,parseInt(this.nextElementSibling.value)-1)">−</button><input type="number" id="qty_${p.sku}" value="1" min="1" max="${p.stock||99}"><button onclick="this.previousElementSibling.value=Math.min(${p.stock||99},parseInt(this.previousElementSibling.value)+1)">+</button></div><button class="add-cart-btn" ${dis} onclick="addProductToCart('${p.sku}','${p.name.replace(/'/g,"\\'")}',${p.price},'${p.unit}')">${p.stock===0?'Sin stock':'🛒 Agregar'}</button></div></div>`;
+    });
+    html+='</div></div>';
+  });
+  c.innerHTML=html;
+}
+function addProductToCart(sku,name,price,unit){const q=document.getElementById('qty_'+sku);const qty=q?parseInt(q.value)||1:1;cartAddItem(sku,name,price,unit,qty);if(q)q.value=1;}
+if(location.hash==='#insumos')loadCatalog();
+
+/* SIMULADOR */
+const FACTOR_SECO=0.375;
+const SIM_CFG={
+  girgola_gris:{beBase:70,dist:[.50,.30,.15,.05],dias:[15,25],mult:{optimas:1.0,buenas:.79,basicas:.57}},
+  girgola_reina:{beBase:60,dist:[.52,.28,.14,.06],dias:[20,35],mult:{optimas:1.0,buenas:.80,basicas:.58}},
+  shiitake:{beBase:55,dist:[.45,.30,.18,.07],dias:[45,75],mult:{optimas:1.0,buenas:.76,basicas:.55}}
+};
+let simUnlocked=false,lastSimData={};
+function calcSim(){
+  const esp=document.getElementById('sEspecie').value;
+  const kgH=parseFloat(document.getElementById('sKg').value);
+  const cond=document.getElementById('sCond').value;
+  const fl=parseInt(document.getElementById('sFlushes').value);
+  const c=SIM_CFG[esp];const be=c.beBase*c.mult[cond];
+  const kgS=kgH*FACTOR_SECO;const dTot=c.dist.reduce((a,b)=>a+b,0);
+  const dPar=c.dist.slice(0,fl).reduce((a,b)=>a+b,0);const frac=dPar/dTot;
+  const rend=kgS*be/100*frac;const pf=rend/fl;
+  const notas={girgola_gris:'Gírgola gris: la más eficiente para iniciar. Ciclos cortos y alta demanda gastronómica.',girgola_reina:'Gírgola reina: mayor valor comercial. Precio premium en restaurantes.',shiitake:'Shiitake: ciclo más largo. Alto valor comercial y nutricional reconocido.'};
+  lastSimData={esp,kgH,kgS:kgS.toFixed(1),cond,fl,rend:rend.toFixed(1),be:be.toFixed(0),pf:pf.toFixed(1),dias:c.dias[0]+'–'+c.dias[1],nota:notas[esp]};
+  if(simUnlocked){document.getElementById('resRend').textContent=rend.toFixed(1);document.getElementById('resEB').textContent=Math.round(be*frac)+'%';document.getElementById('resPF').textContent=pf.toFixed(1);document.getElementById('resDias').textContent=c.dias[0]+'–'+c.dias[1];document.getElementById('simNota').textContent=notas[esp];document.getElementById('simResults').style.display='block';}
+}
+function openSimModal(){calcSim();document.getElementById('simModal').classList.add('open');document.body.style.overflow='hidden';}
+function closeSimModal(){document.getElementById('simModal').classList.remove('open');document.body.style.overflow='';}
+document.getElementById('simModal').addEventListener('click',e=>{if(e.target===e.currentTarget)closeSimModal();});
+async function submitSimLead(){
+  const nombre=document.getElementById('mNombre').value.trim();
+  const email=document.getElementById('mEmail').value.trim();
+  const wa=document.getElementById('mWA').value.trim();
+  const errEl=document.getElementById('mError');errEl.style.display='none';
+  if(!nombre){errEl.textContent='Por favor ingresá tu nombre.';errEl.style.display='block';return;}
+  if(!email||!email.includes('@')){errEl.textContent='Ingresá un email válido.';errEl.style.display='block';return;}
+  const payload={nombre,email,whatsapp:wa,...lastSimData,timestamp:new Date().toISOString(),source:'simulador_funguys'};
+  try{await fetch(INVENTORY_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});}catch(e){}
+  document.getElementById('simModalForm').style.display='none';
+  document.getElementById('simModalOk').style.display='block';
+  simUnlocked=true;
+  setTimeout(()=>{closeSimModal();calcSim();},2000);
+}
+['sKg','sFlushes'].forEach(id=>document.getElementById(id).addEventListener('input',()=>{if(simUnlocked)calcSim();}));
+['sEspecie','sCond'].forEach(id=>document.getElementById(id).addEventListener('change',()=>{if(simUnlocked)calcSim();}));
+</script>
+</body>
+</html>
