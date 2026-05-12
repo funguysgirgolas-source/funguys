@@ -8,35 +8,56 @@
 <meta name="author" content="FunGuys - Ing. Fernando Ocampo">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://funguys.com.ar">
-
-<!-- Open Graph -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍄</text></svg>">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://funguys.com.ar">
 <meta property="og:title" content="FunGuys — Hongos Comestibles | Kits · Cursos · Insumos">
-<meta property="og:description" content="Cultivá tus propios hongos comestibles. Kits, cursos e insumos desde La Plata para todo el país.">
-<meta property="og:image" content="https://funguys.com.ar/og-image.jpg">
+<meta property="og:description" content="Cultivá tus propios hongos comestibles. Kits, cursos e insumos desde La Plata.">
 <meta property="og:site_name" content="FunGuys">
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="FunGuys — Hongos Comestibles | Kits · Cursos · Insumos">
-<meta name="twitter:description" content="Cultivá tus propios hongos comestibles. Kits, cursos e insumos desde La Plata.">
-<meta name="twitter:image" content="https://funguys.com.ar/og-image.jpg">
-
 <title>FunGuys — Hongos Comestibles | Kits · Cursos · Insumos</title>
 
-<!-- Fonts -->
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX', {
+    cookie_flags: 'SameSite=None;Secure',
+    anonymize_ip: true
+  });
+</script>
+
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', 'YOUR_META_PIXEL_ID');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=YOUR_META_PIXEL_ID&ev=PageView&noscript=1"/></noscript>
+
+<!-- Mercado Pago SDK -->
+<script src="https://sdk.mercadopago.com/js/v2"></script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-<!-- Structured Data -->
+<!-- Schema.org Markup -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "FunGuys",
-  "description": "Producción de hongos comestibles, kits de autocultivo, insumos y formación técnica",
+  "description": "Producción y venta de hongos comestibles, kits de autocultivo e insumos especializados",
+  "image": "https://funguys.com.ar/og-image.jpg",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "La Plata",
@@ -44,726 +65,1658 @@
     "addressCountry": "AR"
   },
   "telephone": "+54-9-11-2279-8768",
-  "email": "funguysgirgolas@gmail.com",
-  "url": "https://funguys.com.ar",
-  "priceRange": "$$"
+  "priceRange": "$$",
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Kit de Autocultivo Gírgolas",
+      "price": "20000",
+      "priceCurrency": "ARS"
+    },
+    {
+      "@type": "Offer",
+      "name": "Curso Virtual Cultivo de Hongos",
+      "price": "39000",
+      "priceCurrency": "ARS"
+    }
+  ]
 }
 </script>
 
 <style>
-:root {
-  --bg: #0a130a;
-  --surface: #111d11;
-  --surface2: #172317;
-  --cream: #f0e6cc;
-  --cream-muted: #b8a882;
-  --amber: #d4963a;
-  --amber-light: #f0b85a;
-  --sage: #6b9e5e;
-  --sage-light: #8fc07f;
-  --white: #faf7f0;
-  --border: rgba(240,230,204,0.1);
-  --border-strong: rgba(240,230,204,0.2);
-  --radius: 12px;
-  --radius-sm: 8px;
-  --radius-lg: 20px;
-}
-
+  :root {
+    --bg: #0a130a;
+    --surface: #111d11;
+    --surface2: #172317;
+    --cream: #f0e6cc;
+    --cream-muted: #b8a882;
+    --amber: #d4963a;
+    --amber-light: #f0b85a;
+    --sage: #6b9e5e;
+    --sage-light: #8fc07f;
+    --white: #faf7f0;
+    --border: rgba(240,230,204,0.1);
+    --border-strong: rgba(240,230,204,0.2);
+    --radius: 12px;
+    --radius-sm: 8px;
+    --radius-lg: 20px;
+  }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body {
-  background: var(--bg);
-  color: var(--cream);
-  font-family: 'DM Sans', sans-serif;
-  font-size: 16px;
-  line-height: 1.6;
-  overflow-x: hidden;
+background: var(--bg);
+color: var(--cream);
+font-family: 'DM Sans', sans-serif;
+font-size: 16px;
+line-height: 1.6;
+overflow-x: hidden;
 }
 h1, h2, h3, h4 {
-  font-family: 'Fraunces', serif;
-  font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
+font-family: 'Fraunces', serif;
+font-weight: 700;
+line-height: 1.15;
+letter-spacing: -0.02em;
 }
 a { color: inherit; text-decoration: none; }
 img { max-width: 100%; }
 .container {
-  max-width: 1140px;
-  margin: 0 auto;
-  padding: 0 24px;
+max-width: 1140px;
+margin: 0 auto;
+padding: 0 24px;
 }
+
+/* COOKIE BANNER */
+#cookieBanner {
+position: fixed;
+bottom: 0;
+left: 0;
+right: 0;
+background: rgba(17,29,17,0.98);
+backdrop-filter: blur(12px);
+border-top: 1px solid var(--border-strong);
+padding: 20px;
+z-index: 1000;
+display: none;
+}
+#cookieBanner.show { display: block; }
+.cookie-inner {
+max-width: 1140px;
+margin: 0 auto;
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 24px;
+flex-wrap: wrap;
+}
+.cookie-text {
+flex: 1;
+font-size: 14px;
+color: var(--cream-muted);
+line-height: 1.6;
+}
+.cookie-text a { color: var(--amber); text-decoration: underline; }
+.cookie-actions {
+display: flex;
+gap: 12px;
+}
+.cookie-btn {
+padding: 10px 20px;
+border-radius: var(--radius-sm);
+font-size: 14px;
+font-weight: 600;
+cursor: pointer;
+border: none;
+font-family: 'DM Sans', sans-serif;
+transition: all 0.2s;
+}
+.cookie-accept {
+background: var(--amber);
+color: var(--bg);
+}
+.cookie-accept:hover { background: var(--amber-light); }
+.cookie-decline {
+background: transparent;
+border: 1px solid var(--border-strong);
+color: var(--cream);
+}
+.cookie-decline:hover { border-color: var(--amber); }
+
+/* CART BUTTON */
+#cartButton {
+position: fixed;
+bottom: 24px;
+right: 24px;
+width: 60px;
+height: 60px;
+background: var(--amber);
+border-radius: 50%;
+border: none;
+font-size: 24px;
+cursor: pointer;
+box-shadow: 0 8px 24px rgba(212,150,58,0.4);
+z-index: 999;
+transition: transform 0.2s;
+display: flex;
+align-items: center;
+justify-content: center;
+position: relative;
+}
+#cartButton:hover { transform: scale(1.1); }
+#cartButton .cart-badge {
+position: absolute;
+top: -4px;
+right: -4px;
+background: #dc2626;
+color: white;
+border-radius: 50%;
+width: 24px;
+height: 24px;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 12px;
+font-weight: 700;
+font-family: 'DM Sans', sans-serif;
+}
+
+/* CART SIDEBAR */
+#cartSidebar {
+position: fixed;
+top: 0;
+right: -100%;
+width: min(450px, 100vw);
+height: 100vh;
+background: var(--surface);
+border-left: 1px solid var(--border);
+z-index: 1001;
+transition: right 0.3s ease;
+display: flex;
+flex-direction: column;
+overflow: hidden;
+}
+#cartSidebar.open { right: 0; }
+.cart-header {
+padding: 24px;
+border-bottom: 1px solid var(--border);
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+.cart-header h3 {
+font-family: 'Fraunces', serif;
+font-size: 22px;
+color: var(--white);
+}
+.cart-close {
+background: none;
+border: none;
+color: var(--cream);
+font-size: 28px;
+cursor: pointer;
+padding: 0;
+width: 32px;
+height: 32px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.cart-items {
+flex: 1;
+overflow-y: auto;
+padding: 24px;
+}
+.cart-item {
+display: flex;
+gap: 16px;
+padding: 16px;
+background: var(--surface2);
+border: 1px solid var(--border);
+border-radius: var(--radius);
+margin-bottom: 12px;
+}
+.cart-item-info {
+flex: 1;
+}
+.cart-item-name {
+font-weight: 600;
+color: var(--white);
+font-size: 15px;
+margin-bottom: 4px;
+}
+.cart-item-sku {
+font-size: 12px;
+color: var(--cream-muted);
+margin-bottom: 8px;
+}
+.cart-item-price {
+font-family: 'Fraunces', serif;
+font-size: 16px;
+font-weight: 700;
+color: var(--amber);
+}
+.cart-item-qty {
+display: flex;
+gap: 8px;
+align-items: center;
+margin-top: 12px;
+}
+.qty-btn {
+background: var(--bg);
+border: 1px solid var(--border-strong);
+color: var(--cream);
+width: 28px;
+height: 28px;
+border-radius: 4px;
+cursor: pointer;
+font-size: 16px;
+display: flex;
+align-items: center;
+justify-content: center;
+transition: all 0.2s;
+}
+.qty-btn:hover { border-color: var(--amber); background: rgba(212,150,58,0.1); }
+.qty-value {
+font-size: 14px;
+font-weight: 600;
+color: var(--white);
+min-width: 32px;
+text-align: center;
+}
+.cart-item-remove {
+background: none;
+border: none;
+color: var(--cream-muted);
+cursor: pointer;
+font-size: 20px;
+padding: 4px;
+transition: color 0.2s;
+}
+.cart-item-remove:hover { color: #dc2626; }
+.cart-empty {
+text-align: center;
+padding: 60px 20px;
+color: var(--cream-muted);
+}
+.cart-empty-icon {
+font-size: 64px;
+margin-bottom: 16px;
+opacity: 0.3;
+}
+.cart-footer {
+border-top: 1px solid var(--border);
+padding: 24px;
+background: var(--bg);
+}
+.cart-total {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 16px;
+}
+.cart-total-label {
+font-size: 16px;
+color: var(--cream-muted);
+}
+.cart-total-value {
+font-family: 'Fraunces', serif;
+font-size: 28px;
+font-weight: 800;
+color: var(--amber);
+}
+.cart-checkout-btn {
+width: 100%;
+background: var(--amber);
+color: var(--bg);
+border: none;
+padding: 16px;
+border-radius: var(--radius-sm);
+font-size: 16px;
+font-weight: 700;
+cursor: pointer;
+font-family: 'DM Sans', sans-serif;
+transition: all 0.2s;
+}
+.cart-checkout-btn:hover { background: var(--amber-light); transform: translateY(-2px); }
+.cart-checkout-btn:disabled {
+opacity: 0.5;
+cursor: not-allowed;
+transform: none;
+}
+
+/* OVERLAY */
+#cartOverlay {
+position: fixed;
+inset: 0;
+background: rgba(0,0,0,0.7);
+z-index: 1000;
+display: none;
+backdrop-filter: blur(4px);
+}
+#cartOverlay.show { display: block; }
 
 /* NAV */
 nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
-  padding: 16px 0;
-  transition: background 0.3s, backdrop-filter 0.3s;
+position: fixed;
+top: 0; left: 0; right: 0;
+z-index: 100;
+padding: 16px 0;
+transition: background 0.3s, backdrop-filter 0.3s;
 }
 nav.scrolled {
-  background: rgba(10,19,10,0.92);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border);
+background: rgba(10,19,10,0.92);
+backdrop-filter: blur(12px);
+border-bottom: 1px solid var(--border);
 }
 .nav-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+display: flex;
+align-items: center;
+justify-content: space-between;
 }
 .nav-logo {
-  font-family: 'Fraunces', serif;
-  font-size: 22px;
-  font-weight: 800;
-  color: var(--amber);
-  display: flex;
-  align-items: center;
-  gap: 8px;
+font-family: 'Fraunces', serif;
+font-size: 22px;
+font-weight: 800;
+color: var(--amber);
+display: flex;
+align-items: center;
+gap: 8px;
 }
 .nav-logo span { color: var(--cream); font-style: italic; }
 .nav-links {
-  display: flex;
-  gap: 32px;
-  list-style: none;
+display: flex;
+gap: 32px;
+list-style: none;
 }
 .nav-links a {
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--cream-muted);
-  transition: color 0.2s;
+font-size: 14px;
+font-weight: 500;
+color: var(--cream-muted);
+transition: color 0.2s;
 }
 .nav-links a:hover { color: var(--amber); }
 .nav-cta {
-  background: var(--amber);
-  color: var(--bg);
-  padding: 10px 22px;
-  border-radius: var(--radius-sm);
-  font-size: 14px;
-  font-weight: 600;
-  transition: background 0.2s, transform 0.15s;
-  white-space: nowrap;
+background: var(--amber);
+color: var(--bg);
+padding: 10px 22px;
+border-radius: var(--radius-sm);
+font-size: 14px;
+font-weight: 600;
+transition: background 0.2s, transform 0.15s;
+white-space: nowrap;
 }
 .nav-cta:hover { background: var(--amber-light); transform: translateY(-1px); }
+.hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
+.hamburger span { display: block; width: 24px; height: 2px; background: var(--cream); border-radius: 2px; }
 
 /* HERO */
 #hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-  padding: 120px 0 80px;
+min-height: 100vh;
+display: flex;
+align-items: center;
+position: relative;
+overflow: hidden;
+padding: 120px 0 80px;
 }
 .hero-bg {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 80% 60% at 70% 40%, rgba(107,158,94,0.12) 0%, transparent 60%),
-    radial-gradient(ellipse 50% 50% at 20% 80%, rgba(212,150,58,0.08) 0%, transparent 50%);
+position: absolute;
+inset: 0;
+background:
+radial-gradient(ellipse 80% 60% at 70% 40%, rgba(107,158,94,0.12) 0%, transparent 60%),
+radial-gradient(ellipse 50% 50% at 20% 80%, rgba(212,150,58,0.08) 0%, transparent 50%);
+}
+#mycelium-canvas {
+position: absolute;
+inset: 0;
+opacity: 0.35;
 }
 .hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 680px;
+position: relative;
+z-index: 2;
+max-width: 680px;
 }
 .hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(212,150,58,0.12);
-  border: 1px solid rgba(212,150,58,0.3);
-  color: var(--amber);
-  padding: 6px 16px;
-  border-radius: 999px;
-  font-size: 13px;
-  font-weight: 500;
-  margin-bottom: 28px;
-  animation: fadeUp 0.6s ease both;
+display: inline-flex;
+align-items: center;
+gap: 8px;
+background: rgba(212,150,58,0.12);
+border: 1px solid rgba(212,150,58,0.3);
+color: var(--amber);
+padding: 6px 16px;
+border-radius: 999px;
+font-size: 13px;
+font-weight: 500;
+margin-bottom: 28px;
+animation: fadeUp 0.6s ease both;
 }
-.hero-badge::before {
-  content: '';
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--amber);
-  display: block;
-  animation: pulse 2s ease infinite;
-}
+.hero-badge::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--amber); display: block; animation: pulse 2s ease infinite; }
 @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
-}
 h1.hero-title {
-  font-size: clamp(44px, 7vw, 84px);
-  color: var(--white);
-  margin-bottom: 24px;
-  animation: fadeUp 0.6s ease 0.1s both;
+font-size: clamp(44px, 7vw, 84px);
+color: var(--white);
+margin-bottom: 24px;
+animation: fadeUp 0.6s ease 0.1s both;
 }
 h1.hero-title em {
-  color: var(--amber);
-  font-style: italic;
+color: var(--amber);
+font-style: italic;
 }
 .hero-sub {
-  font-size: 18px;
-  color: var(--cream-muted);
-  line-height: 1.7;
-  max-width: 520px;
-  margin-bottom: 40px;
-  animation: fadeUp 0.6s ease 0.2s both;
+font-size: 18px;
+color: var(--cream-muted);
+line-height: 1.7;
+max-width: 520px;
+margin-bottom: 40px;
+animation: fadeUp 0.6s ease 0.2s both;
 }
 .hero-actions {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  animation: fadeUp 0.6s ease 0.3s both;
+display: flex;
+gap: 16px;
+flex-wrap: wrap;
+animation: fadeUp 0.6s ease 0.3s both;
 }
 .btn-primary {
-  background: var(--amber);
-  color: var(--bg);
-  padding: 14px 32px;
-  border-radius: var(--radius-sm);
-  font-size: 16px;
-  font-weight: 600;
-  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  border: none;
-  cursor: pointer;
+background: var(--amber);
+color: var(--bg);
+padding: 14px 32px;
+border-radius: var(--radius-sm);
+font-size: 16px;
+font-weight: 600;
+transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+display: inline-flex;
+align-items: center;
+gap: 8px;
 }
 .btn-primary:hover {
-  background: var(--amber-light);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(212,150,58,0.3);
+background: var(--amber-light);
+transform: translateY(-2px);
+box-shadow: 0 8px 24px rgba(212,150,58,0.3);
 }
 .btn-secondary {
-  background: transparent;
-  border: 1px solid var(--border-strong);
-  color: var(--cream);
-  padding: 14px 32px;
-  border-radius: var(--radius-sm);
-  font-size: 16px;
-  font-weight: 500;
-  transition: border-color 0.2s, background 0.2s, transform 0.15s;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  cursor: pointer;
+background: transparent;
+border: 1px solid var(--border-strong);
+color: var(--cream);
+padding: 14px 32px;
+border-radius: var(--radius-sm);
+font-size: 16px;
+font-weight: 500;
+transition: border-color 0.2s, background 0.2s, transform 0.15s;
+display: inline-flex;
+align-items: center;
+gap: 8px;
 }
 .btn-secondary:hover {
-  border-color: var(--amber);
-  background: rgba(212,150,58,0.06);
-  transform: translateY(-2px);
+border-color: var(--amber);
+background: rgba(212,150,58,0.06);
+transform: translateY(-2px);
 }
 .hero-stats {
-  display: flex;
-  gap: 40px;
-  margin-top: 64px;
-  padding-top: 40px;
-  border-top: 1px solid var(--border);
-  animation: fadeUp 0.6s ease 0.4s both;
+display: flex;
+gap: 40px;
+margin-top: 64px;
+padding-top: 40px;
+border-top: 1px solid var(--border);
+animation: fadeUp 0.6s ease 0.4s both;
 }
 .stat-num {
-  font-family: 'Fraunces', serif;
-  font-size: 36px;
-  font-weight: 800;
-  color: var(--amber);
-  line-height: 1;
+font-family: 'Fraunces', serif;
+font-size: 36px;
+font-weight: 800;
+color: var(--amber);
+line-height: 1;
 }
 .stat-label {
-  font-size: 13px;
-  color: var(--cream-muted);
-  margin-top: 4px;
+font-size: 13px;
+color: var(--cream-muted);
+margin-top: 4px;
+}
+.hero-img-wrap {
+position: absolute;
+right: -40px;
+top: 50%;
+transform: translateY(-50%);
+width: 480px;
+opacity: 0.15;
+pointer-events: none;
+z-index: 1;
+}
+@keyframes fadeUp {
+from { opacity: 0; transform: translateY(24px); }
+to { opacity: 1; transform: translateY(0); }
 }
 
-/* SECTIONS */
+/* SECTION COMMON */
 section { padding: 100px 0; }
 .section-tag {
-  font-size: 12px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--amber);
-  margin-bottom: 16px;
-  display: block;
+font-size: 12px;
+font-weight: 600;
+text-transform: uppercase;
+letter-spacing: 0.12em;
+color: var(--amber);
+margin-bottom: 16px;
+display: block;
 }
 .section-title {
-  font-size: clamp(32px, 5vw, 52px);
-  color: var(--white);
-  margin-bottom: 20px;
+font-size: clamp(32px, 5vw, 52px);
+color: var(--white);
+margin-bottom: 20px;
 }
 .section-sub {
-  font-size: 17px;
-  color: var(--cream-muted);
-  max-width: 540px;
-  line-height: 1.7;
-  margin-bottom: 56px;
+font-size: 17px;
+color: var(--cream-muted);
+max-width: 540px;
+line-height: 1.7;
+margin-bottom: 56px;
 }
 
-/* PRODUCTS */
+/* TIENDA */
+#tienda { background: var(--bg); }
+.tienda-filters {
+display: flex;
+gap: 12px;
+flex-wrap: wrap;
+margin-bottom: 40px;
+}
+.filter-btn {
+padding: 8px 18px;
+border-radius: 999px;
+font-size: 13px;
+font-weight: 500;
+border: 1px solid var(--border-strong);
+background: transparent;
+color: var(--cream-muted);
+cursor: pointer;
+font-family: 'DM Sans', sans-serif;
+transition: all 0.2s;
+}
+.filter-btn:hover, .filter-btn.active {
+background: rgba(212,150,58,0.12);
+border-color: var(--amber);
+color: var(--amber);
+}
+.tienda-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+gap: 20px;
+}
+.product-card-shop {
+background: var(--surface);
+border: 1px solid var(--border);
+border-radius: var(--radius-lg);
+padding: 28px;
+transition: border-color 0.2s, transform 0.2s;
+position: relative;
+}
+.product-card-shop:hover {
+border-color: var(--amber);
+transform: translateY(-4px);
+}
+.product-cat {
+font-size: 11px;
+text-transform: uppercase;
+letter-spacing: 0.1em;
+color: var(--sage-light);
+font-weight: 600;
+margin-bottom: 12px;
+}
+.product-name-shop {
+font-family: 'Fraunces', serif;
+font-size: 20px;
+font-weight: 700;
+color: var(--white);
+margin-bottom: 8px;
+line-height: 1.3;
+}
+.product-sku-shop {
+font-size: 12px;
+color: var(--cream-muted);
+margin-bottom: 16px;
+}
+.product-stock {
+font-size: 12px;
+margin-bottom: 16px;
+}
+.stock-ok { color: var(--sage-light); }
+.stock-low { color: var(--amber); }
+.stock-out { color: #dc2626; }
+.product-price-shop {
+font-family: 'Fraunces', serif;
+font-size: 28px;
+font-weight: 800;
+color: var(--amber);
+margin-bottom: 4px;
+}
+.product-unit {
+font-size: 12px;
+color: var(--cream-muted);
+margin-bottom: 20px;
+}
+.add-to-cart-btn {
+width: 100%;
+background: var(--amber);
+color: var(--bg);
+border: none;
+padding: 12px;
+border-radius: var(--radius-sm);
+font-size: 14px;
+font-weight: 600;
+cursor: pointer;
+font-family: 'DM Sans', sans-serif;
+transition: all 0.2s;
+}
+.add-to-cart-btn:hover {
+background: var(--amber-light);
+transform: translateY(-2px);
+}
+.add-to-cart-btn:disabled {
+opacity: 0.4;
+cursor: not-allowed;
+transform: none;
+}
+.loading-shop {
+text-align: center;
+padding: 60px 20px;
+color: var(--cream-muted);
+}
+
+/* PRODUCTOS */
 #productos { background: var(--surface); }
 .products-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 20px;
-  margin-top: 56px;
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+gap: 20px;
+margin-top: 56px;
 }
 .product-card {
-  background: var(--surface2);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 32px 28px;
-  transition: border-color 0.2s, transform 0.2s;
-  position: relative;
-  overflow: hidden;
+background: var(--surface2);
+border: 1px solid var(--border);
+border-radius: var(--radius-lg);
+padding: 32px 28px;
+transition: border-color 0.2s, transform 0.2s;
+position: relative;
+overflow: hidden;
 }
 .product-card::after {
-  content: '';
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 3px;
-  background: linear-gradient(90deg, var(--sage), var(--amber));
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.3s;
+content: '';
+position: absolute;
+top: 0; left: 0;
+width: 100%;
+height: 3px;
+background: linear-gradient(90deg, var(--sage), var(--amber));
+transform: scaleX(0);
+transform-origin: left;
+transition: transform 0.3s;
 }
 .product-card:hover { border-color: var(--border-strong); transform: translateY(-4px); }
 .product-card:hover::after { transform: scaleX(1); }
 .product-icon {
-  font-size: 36px;
-  margin-bottom: 20px;
-  display: block;
+font-size: 36px;
+margin-bottom: 20px;
+display: block;
 }
 .product-title {
-  font-family: 'Fraunces', serif;
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--white);
-  margin-bottom: 12px;
+font-family: 'Fraunces', serif;
+font-size: 22px;
+font-weight: 700;
+color: var(--white);
+margin-bottom: 12px;
 }
 .product-desc {
-  font-size: 14px;
-  color: var(--cream-muted);
-  line-height: 1.65;
-  margin-bottom: 24px;
+font-size: 14px;
+color: var(--cream-muted);
+line-height: 1.65;
+margin-bottom: 24px;
 }
 .product-tag {
-  display: inline-block;
-  padding: 4px 12px;
-  border-radius: 999px;
-  font-size: 12px;
-  font-weight: 500;
-  background: rgba(107,158,94,0.12);
-  border: 1px solid rgba(107,158,94,0.2);
-  color: var(--sage-light);
+display: inline-block;
+padding: 4px 12px;
+border-radius: 999px;
+font-size: 12px;
+font-weight: 500;
+background: rgba(107,158,94,0.12);
+border: 1px solid rgba(107,158,94,0.2);
+color: var(--sage-light);
 }
 
 /* CURSOS */
 #cursos { background: var(--bg); }
 .cursos-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  align-items: start;
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 24px;
+align-items: start;
 }
 .curso-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 40px 36px;
-  position: relative;
+background: var(--surface);
+border: 1px solid var(--border);
+border-radius: var(--radius-lg);
+padding: 40px 36px;
+position: relative;
 }
 .curso-card.featured {
-  border-color: var(--amber);
-  background: linear-gradient(135deg, rgba(212,150,58,0.05) 0%, var(--surface) 60%);
+border-color: var(--amber);
+background: linear-gradient(135deg, rgba(212,150,58,0.05) 0%, var(--surface) 60%);
 }
 .featured-badge {
-  position: absolute;
-  top: -12px;
-  left: 32px;
-  background: var(--amber);
-  color: var(--bg);
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  padding: 4px 14px;
-  border-radius: 999px;
+position: absolute;
+top: -12px;
+left: 32px;
+background: var(--amber);
+color: var(--bg);
+font-size: 11px;
+font-weight: 700;
+text-transform: uppercase;
+letter-spacing: 0.1em;
+padding: 4px 14px;
+border-radius: 999px;
 }
 .curso-type {
-  font-size: 12px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--amber);
-  margin-bottom: 12px;
+font-size: 12px;
+font-weight: 600;
+text-transform: uppercase;
+letter-spacing: 0.1em;
+color: var(--amber);
+margin-bottom: 12px;
 }
 .curso-title {
-  font-family: 'Fraunces', serif;
-  font-size: 26px;
-  font-weight: 700;
-  color: var(--white);
-  margin-bottom: 16px;
+font-family: 'Fraunces', serif;
+font-size: 26px;
+font-weight: 700;
+color: var(--white);
+margin-bottom: 16px;
 }
 .curso-desc {
-  font-size: 14px;
-  color: var(--cream-muted);
-  line-height: 1.65;
-  margin-bottom: 28px;
+font-size: 14px;
+color: var(--cream-muted);
+line-height: 1.65;
+margin-bottom: 28px;
 }
 .curso-features {
-  list-style: none;
-  margin-bottom: 32px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+list-style: none;
+margin-bottom: 32px;
+display: flex;
+flex-direction: column;
+gap: 10px;
 }
 .curso-features li {
-  font-size: 14px;
-  color: var(--cream);
-  display: flex;
-  gap: 10px;
-  align-items: flex-start;
+font-size: 14px;
+color: var(--cream);
+display: flex;
+gap: 10px;
+align-items: flex-start;
 }
 .curso-features li::before {
-  content: '';
-  width: 16px;
-  height: 16px;
-  min-width: 16px;
-  border-radius: 50%;
-  background: rgba(107,158,94,0.2);
-  border: 1px solid var(--sage);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 2px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%238fc07f' d='M3 8l3.5 3.5L13 5'/%3E%3C/svg%3E");
-  background-size: 12px;
-  background-repeat: no-repeat;
-  background-position: center;
+content: '';
+width: 16px;
+height: 16px;
+min-width: 16px;
+border-radius: 50%;
+background: rgba(107,158,94,0.2);
+border: 1px solid var(--sage);
+display: flex;
+align-items: center;
+justify-content: center;
+margin-top: 2px;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%238fc07f' d='M3 8l3.5 3.5L13 5'/%3E%3C/svg%3E");
+background-size: 12px;
+background-repeat: no-repeat;
+background-position: center;
 }
 .precio-wrap {
-  display: flex;
-  align-items: baseline;
-  gap: 12px;
-  margin-bottom: 8px;
+display: flex;
+align-items: baseline;
+gap: 12px;
+margin-bottom: 8px;
 }
 .precio-actual {
-  font-family: 'Fraunces', serif;
-  font-size: 38px;
-  font-weight: 800;
-  color: var(--amber);
-  line-height: 1;
+font-family: 'Fraunces', serif;
+font-size: 38px;
+font-weight: 800;
+color: var(--amber);
+line-height: 1;
 }
 .precio-tachado {
-  font-size: 18px;
-  color: var(--cream-muted);
-  text-decoration: line-through;
+font-size: 18px;
+color: var(--cream-muted);
+text-decoration: line-through;
 }
 .precio-nota {
-  font-size: 12px;
-  color: var(--cream-muted);
-  margin-bottom: 24px;
+font-size: 12px;
+color: var(--cream-muted);
+margin-bottom: 24px;
+}
+.precio-urgencia {
+font-size: 12px;
+color: var(--amber);
+font-weight: 600;
+background: rgba(212,150,58,0.1);
+border: 1px solid rgba(212,150,58,0.2);
+border-radius: var(--radius-sm);
+padding: 8px 14px;
+margin-bottom: 24px;
+display: block;
+}
+
+/* SIMULADOR */
+#simulador { background: var(--surface); }
+.sim-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 48px;
+align-items: start;
+}
+.sim-intro .section-sub { margin-bottom: 0; }
+.sim-panel {
+background: var(--surface2);
+border: 1px solid var(--border);
+border-radius: var(--radius-lg);
+padding: 36px;
+}
+.sim-field {
+margin-bottom: 24px;
+}
+.sim-label {
+display: block;
+font-size: 13px;
+font-weight: 500;
+color: var(--cream-muted);
+margin-bottom: 8px;
+text-transform: uppercase;
+letter-spacing: 0.06em;
+}
+.sim-select, .sim-input {
+width: 100%;
+background: var(--surface);
+border: 1px solid var(--border-strong);
+border-radius: var(--radius-sm);
+color: var(--cream);
+padding: 12px 16px;
+font-size: 15px;
+font-family: 'DM Sans', sans-serif;
+outline: none;
+transition: border-color 0.2s;
+appearance: none;
+}
+.sim-select:focus, .sim-input:focus {
+border-color: var(--amber);
+}
+.sim-select option { background: #111d11; }
+.sim-results {
+margin-top: 28px;
+padding-top: 28px;
+border-top: 1px solid var(--border);
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 16px;
+}
+.sim-result-card {
+background: var(--surface);
+border: 1px solid var(--border);
+border-radius: var(--radius-sm);
+padding: 16px;
+text-align: center;
+}
+.sim-result-val {
+font-family: 'Fraunces', serif;
+font-size: 28px;
+font-weight: 800;
+color: var(--amber);
+line-height: 1;
+}
+.sim-result-label {
+font-size: 11px;
+color: var(--cream-muted);
+margin-top: 4px;
+text-transform: uppercase;
+letter-spacing: 0.06em;
+}
+.sim-note {
+margin-top: 16px;
+font-size: 12px;
+color: var(--cream-muted);
+line-height: 1.6;
+grid-column: 1 / -1;
+text-align: center;
+}
+.slider-row {
+display: flex;
+gap: 12px;
+align-items: center;
+}
+.slider-row input[type=range] {
+flex: 1;
+-webkit-appearance: none;
+height: 4px;
+background: var(--border-strong);
+border-radius: 2px;
+outline: none;
+}
+.slider-row input[type=range]::-webkit-slider-thumb {
+-webkit-appearance: none;
+width: 18px;
+height: 18px;
+border-radius: 50%;
+background: var(--amber);
+cursor: pointer;
+transition: transform 0.15s;
+}
+.slider-row input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.2); }
+.slider-val {
+font-family: 'Fraunces', serif;
+font-size: 18px;
+font-weight: 700;
+color: var(--amber);
+min-width: 52px;
+text-align: right;
 }
 
 /* CALCULADORA RENTABILIDAD */
-#calculadora { background: var(--surface); }
+#calculadora { background: var(--bg); }
 .calc-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  align-items: start;
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 48px;
+align-items: start;
 }
 .calc-panel {
-  background: var(--surface2);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 36px;
+background: var(--surface);
+border: 1px solid var(--border);
+border-radius: var(--radius-lg);
+padding: 36px;
 }
 .calc-field {
-  margin-bottom: 24px;
+margin-bottom: 24px;
 }
 .calc-label {
-  display: block;
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--cream-muted);
-  margin-bottom: 8px;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+display: block;
+font-size: 13px;
+font-weight: 500;
+color: var(--cream-muted);
+margin-bottom: 8px;
+text-transform: uppercase;
+letter-spacing: 0.06em;
 }
 .calc-select, .calc-input {
-  width: 100%;
-  background: var(--surface);
-  border: 1px solid var(--border-strong);
-  border-radius: var(--radius-sm);
-  color: var(--cream);
-  padding: 12px 16px;
-  font-size: 15px;
-  font-family: 'DM Sans', sans-serif;
-  outline: none;
-  transition: border-color 0.2s;
+width: 100%;
+background: var(--surface2);
+border: 1px solid var(--border-strong);
+border-radius: var(--radius-sm);
+color: var(--cream);
+padding: 12px 16px;
+font-size: 15px;
+font-family: 'DM Sans', sans-serif;
+outline: none;
+transition: border-color 0.2s;
 }
 .calc-select:focus, .calc-input:focus {
-  border-color: var(--amber);
+border-color: var(--amber);
 }
 .calc-select option { background: #111d11; }
 .calc-results {
-  margin-top: 28px;
-  padding-top: 28px;
-  border-top: 1px solid var(--border);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
+margin-top: 28px;
+padding-top: 28px;
+border-top: 1px solid var(--border);
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 16px;
 }
 .calc-result-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  padding: 16px;
-  text-align: center;
+background: var(--surface2);
+border: 1px solid var(--border);
+border-radius: var(--radius-sm);
+padding: 16px;
+text-align: center;
 }
 .calc-result-val {
-  font-family: 'Fraunces', serif;
-  font-size: 28px;
-  font-weight: 800;
-  color: var(--amber);
-  line-height: 1;
+font-family: 'Fraunces', serif;
+font-size: 28px;
+font-weight: 800;
+color: var(--amber);
+line-height: 1;
 }
 .calc-result-label {
-  font-size: 11px;
-  color: var(--cream-muted);
-  margin-top: 4px;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+font-size: 11px;
+color: var(--cream-muted);
+margin-top: 4px;
+text-transform: uppercase;
+letter-spacing: 0.06em;
 }
 .calc-disclaimer {
-  margin-top: 24px;
-  padding: 16px;
-  background: rgba(212,150,58,0.08);
-  border-left: 3px solid var(--amber);
-  border-radius: var(--radius-sm);
-  font-size: 12px;
-  color: var(--cream-muted);
-  line-height: 1.6;
-  grid-column: 1 / -1;
+margin-top: 24px;
+padding: 16px;
+background: rgba(212,150,58,0.08);
+border-left: 3px solid var(--amber);
+border-radius: var(--radius-sm);
+font-size: 12px;
+color: var(--cream-muted);
+line-height: 1.6;
+grid-column: 1 / -1;
 }
 
-/* BLOG/NOVEDADES */
+/* KIT */
+#kits { background: var(--surface); }
+.kit-layout {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 64px;
+align-items: center;
+}
+.kit-features {
+list-style: none;
+display: flex;
+flex-direction: column;
+gap: 16px;
+margin: 32px 0;
+}
+.kit-features li {
+display: flex;
+gap: 16px;
+align-items: flex-start;
+}
+.kit-icon-wrap {
+width: 40px;
+height: 40px;
+min-width: 40px;
+border-radius: var(--radius-sm);
+background: rgba(107,158,94,0.12);
+border: 1px solid rgba(107,158,94,0.2);
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 18px;
+}
+.kit-feat-title {
+font-weight: 600;
+color: var(--white);
+font-size: 15px;
+}
+.kit-feat-desc {
+font-size: 13px;
+color: var(--cream-muted);
+margin-top: 2px;
+}
+.kit-highlight-box {
+background: var(--bg);
+border: 1px solid var(--border);
+border-left: 3px solid var(--sage);
+border-radius: var(--radius-sm);
+padding: 16px 20px;
+margin-top: 28px;
+font-size: 14px;
+color: var(--cream);
+}
+.kit-highlight-box strong { color: var(--sage-light); }
+.kit-visual {
+position: relative;
+}
+.kit-card-visual {
+background: var(--surface2);
+border: 1px solid var(--border);
+border-radius: var(--radius-lg);
+padding: 40px;
+text-align: center;
+position: relative;
+overflow: hidden;
+}
+.kit-card-visual::before {
+content: '';
+position: absolute;
+top: -80px; right: -80px;
+width: 200px; height: 200px;
+border-radius: 50%;
+background: radial-gradient(circle, rgba(107,158,94,0.2) 0%, transparent 70%);
+}
+.kit-mushroom-emoji {
+font-size: 80px;
+display: block;
+margin-bottom: 20px;
+filter: drop-shadow(0 4px 16px rgba(107,158,94,0.3));
+}
+.kit-steps {
+display: flex;
+flex-direction: column;
+gap: 12px;
+text-align: left;
+margin-top: 24px;
+}
+.kit-step {
+display: flex;
+align-items: center;
+gap: 12px;
+background: var(--bg);
+padding: 12px 16px;
+border-radius: var(--radius-sm);
+border: 1px solid var(--border);
+}
+.kit-step-num {
+font-family: 'Fraunces', serif;
+font-size: 20px;
+font-weight: 800;
+color: var(--amber);
+min-width: 28px;
+}
+.kit-step-text { font-size: 13px; color: var(--cream); }
+
+/* NOVEDADES/BLOG */
 #novedades { background: var(--bg); }
 .novedades-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 24px;
-  margin-top: 56px;
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+gap: 24px;
+margin-top: 56px;
 }
 .novedad-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 32px;
-  position: relative;
-  overflow: hidden;
-  transition: border-color 0.2s, transform 0.2s;
+background: var(--surface);
+border: 1px solid var(--border);
+border-radius: var(--radius-lg);
+padding: 32px;
+position: relative;
+overflow: hidden;
+transition: border-color 0.2s, transform 0.2s;
 }
 .novedad-card:hover {
-  border-color: var(--amber);
-  transform: translateY(-4px);
+border-color: var(--amber);
+transform: translateY(-4px);
 }
 .novedad-fecha {
-  font-size: 12px;
-  color: var(--amber);
-  font-weight: 600;
-  margin-bottom: 12px;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
+font-size: 12px;
+color: var(--amber);
+font-weight: 600;
+margin-bottom: 12px;
+text-transform: uppercase;
+letter-spacing: 0.1em;
 }
 .novedad-titulo {
-  font-family: 'Fraunces', serif;
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--white);
-  margin-bottom: 12px;
-  line-height: 1.3;
+font-family: 'Fraunces', serif;
+font-size: 22px;
+font-weight: 700;
+color: var(--white);
+margin-bottom: 12px;
+line-height: 1.3;
 }
 .novedad-desc {
-  font-size: 14px;
-  color: var(--cream-muted);
-  line-height: 1.65;
-  margin-bottom: 20px;
+font-size: 14px;
+color: var(--cream-muted);
+line-height: 1.65;
+margin-bottom: 20px;
 }
 .novedad-link {
-  font-size: 14px;
-  color: var(--amber);
-  font-weight: 600;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  transition: gap 0.2s;
+font-size: 14px;
+color: var(--amber);
+font-weight: 600;
+display: inline-flex;
+align-items: center;
+gap: 6px;
+transition: gap 0.2s;
 }
 .novedad-link:hover {
-  gap: 10px;
+gap: 10px;
+}
+
+/* SOBRE */
+#sobre { background: var(--surface); }
+.sobre-grid {
+display: grid;
+grid-template-columns: 1fr 2fr;
+gap: 64px;
+align-items: center;
+}
+.sobre-avatar {
+width: 100%;
+aspect-ratio: 1;
+border-radius: var(--radius-lg);
+background: linear-gradient(135deg, var(--surface2) 0%, rgba(107,158,94,0.1) 100%);
+border: 1px solid var(--border);
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+gap: 12px;
+font-size: 64px;
+position: relative;
+overflow: hidden;
+}
+.sobre-avatar::after {
+content: '';
+position: absolute;
+bottom: 0; left: 0; right: 0;
+height: 40%;
+background: linear-gradient(to top, rgba(107,158,94,0.12), transparent);
+}
+.sobre-name {
+font-family: 'Fraunces', serif;
+font-size: 22px;
+font-weight: 700;
+color: var(--white);
+z-index: 1;
+}
+.sobre-role { font-size: 13px; color: var(--cream-muted); z-index: 1; }
+.sobre-text {
+font-size: 17px;
+color: var(--cream-muted);
+line-height: 1.8;
+margin-bottom: 20px;
+}
+.sobre-text strong { color: var(--cream); }
+.sobre-chips {
+display: flex;
+flex-wrap: wrap;
+gap: 8px;
+margin-top: 24px;
+}
+.chip {
+padding: 6px 14px;
+border-radius: 999px;
+font-size: 13px;
+border: 1px solid var(--border-strong);
+color: var(--cream-muted);
+}
+.chip.green {
+background: rgba(107,158,94,0.1);
+border-color: rgba(107,158,94,0.25);
+color: var(--sage-light);
 }
 
 /* FAQ */
 #faq { background: var(--bg); }
 .faq-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0 48px;
-  align-items: start;
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 0 48px;
+align-items: start;
 }
 .faq-item {
-  border-bottom: 1px solid var(--border);
-  overflow: hidden;
+border-bottom: 1px solid var(--border);
+overflow: hidden;
 }
 .faq-q {
-  width: 100%;
-  background: none;
-  border: none;
-  color: var(--cream);
-  font-family: 'DM Sans', sans-serif;
-  font-size: 15px;
-  font-weight: 500;
-  text-align: left;
-  padding: 20px 0;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 16px;
-  transition: color 0.2s;
+width: 100%;
+background: none;
+border: none;
+color: var(--cream);
+font-family: 'DM Sans', sans-serif;
+font-size: 15px;
+font-weight: 500;
+text-align: left;
+padding: 20px 0;
+cursor: pointer;
+display: flex;
+justify-content: space-between;
+align-items: center;
+gap: 16px;
+transition: color 0.2s;
 }
 .faq-q:hover { color: var(--amber); }
 .faq-arrow {
-  width: 20px;
-  height: 20px;
-  min-width: 20px;
-  border-radius: 50%;
-  border: 1px solid var(--border-strong);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.3s, background 0.2s;
-  font-size: 12px;
-  color: var(--cream-muted);
+width: 20px;
+height: 20px;
+min-width: 20px;
+border-radius: 50%;
+border: 1px solid var(--border-strong);
+display: flex;
+align-items: center;
+justify-content: center;
+transition: transform 0.3s, background 0.2s;
+font-size: 12px;
+color: var(--cream-muted);
 }
 .faq-item.open .faq-arrow {
-  transform: rotate(45deg);
-  background: rgba(212,150,58,0.15);
-  border-color: var(--amber);
-  color: var(--amber);
+transform: rotate(45deg);
+background: rgba(212,150,58,0.15);
+border-color: var(--amber);
+color: var(--amber);
 }
 .faq-a {
-  font-size: 14px;
-  color: var(--cream-muted);
-  line-height: 1.7;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.35s ease, padding 0.35s ease;
-  padding-bottom: 0;
+font-size: 14px;
+color: var(--cream-muted);
+line-height: 1.7;
+max-height: 0;
+overflow: hidden;
+transition: max-height 0.35s ease, padding 0.35s ease;
+padding-bottom: 0;
 }
 .faq-item.open .faq-a {
-  max-height: 300px;
-  padding-bottom: 20px;
+max-height: 300px;
+padding-bottom: 20px;
 }
 
 /* CONTACTO */
 #contacto {
-  background: linear-gradient(135deg, var(--surface) 0%, rgba(107,158,94,0.05) 100%);
-  border-top: 1px solid var(--border);
+background: linear-gradient(135deg, var(--surface) 0%, rgba(107,158,94,0.05) 100%);
+border-top: 1px solid var(--border);
 }
 .contacto-inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
-  align-items: center;
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 64px;
+align-items: center;
 }
 .contacto-title {
-  font-size: clamp(32px, 4vw, 52px);
-  color: var(--white);
-  margin-bottom: 20px;
+font-size: clamp(32px, 4vw, 52px);
+color: var(--white);
+margin-bottom: 20px;
 }
 .contacto-desc {
-  font-size: 16px;
-  color: var(--cream-muted);
-  line-height: 1.7;
-  margin-bottom: 40px;
+font-size: 16px;
+color: var(--cream-muted);
+line-height: 1.7;
+margin-bottom: 40px;
 }
 .contacto-methods {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+display: flex;
+flex-direction: column;
+gap: 16px;
 }
 .contact-method {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  background: var(--surface2);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 16px 20px;
-  transition: border-color 0.2s, transform 0.2s;
-  text-decoration: none;
-  color: var(--cream);
+display: flex;
+align-items: center;
+gap: 16px;
+background: var(--surface2);
+border: 1px solid var(--border);
+border-radius: var(--radius);
+padding: 16px 20px;
+transition: border-color 0.2s, transform 0.2s;
+text-decoration: none;
+color: var(--cream);
 }
 .contact-method:hover {
-  border-color: var(--amber);
-  transform: translateX(4px);
+border-color: var(--amber);
+transform: translateX(4px);
+}
+.contact-method-icon {
+width: 44px;
+height: 44px;
+min-width: 44px;
+border-radius: var(--radius-sm);
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 22px;
+}
+.cm-green { background: rgba(37,211,102,0.12); }
+.cm-pink { background: rgba(200,73,142,0.12); }
+.cm-amber { background: rgba(212,150,58,0.12); }
+.contact-method-info strong {
+display: block;
+font-size: 15px;
+font-weight: 600;
+color: var(--white);
+}
+.contact-method-info span {
+font-size: 13px;
+color: var(--cream-muted);
+}
+.contacto-cta-big {
+text-align: center;
+padding: 48px 40px;
+background: var(--bg);
+border: 1px solid var(--border);
+border-radius: var(--radius-lg);
+}
+.contacto-cta-big h3 {
+font-family: 'Fraunces', serif;
+font-size: 28px;
+color: var(--white);
+margin-bottom: 12px;
+}
+.contacto-cta-big p {
+font-size: 14px;
+color: var(--cream-muted);
+margin-bottom: 32px;
+line-height: 1.6;
+}
+.btn-whatsapp {
+display: inline-flex;
+align-items: center;
+gap: 10px;
+background: #25d366;
+color: #fff;
+padding: 14px 32px;
+border-radius: var(--radius-sm);
+font-size: 16px;
+font-weight: 600;
+width: 100%;
+justify-content: center;
+transition: background 0.2s, transform 0.15s;
+margin-bottom: 12px;
+}
+.btn-whatsapp:hover { background: #20b557; transform: translateY(-2px); }
+.btn-instagram {
+display: inline-flex;
+align-items: center;
+gap: 10px;
+background: transparent;
+border: 1px solid var(--border-strong);
+color: var(--cream);
+padding: 12px 32px;
+border-radius: var(--radius-sm);
+font-size: 14px;
+font-weight: 500;
+width: 100%;
+justify-content: center;
+transition: border-color 0.2s, background 0.2s;
+}
+.btn-instagram:hover {
+border-color: #c67c3e;
+background: rgba(198,124,62,0.06);
 }
 
 /* FOOTER */
 footer {
-  background: var(--bg);
-  border-top: 1px solid var(--border);
-  padding: 40px 0;
+background: var(--bg);
+border-top: 1px solid var(--border);
+padding: 40px 0;
 }
 .footer-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  flex-wrap: wrap;
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 24px;
+flex-wrap: wrap;
 }
 .footer-logo {
-  font-family: 'Fraunces', serif;
-  font-size: 18px;
-  font-weight: 800;
-  color: var(--amber);
+font-family: 'Fraunces', serif;
+font-size: 18px;
+font-weight: 800;
+color: var(--amber);
 }
 .footer-logo span { color: var(--cream); font-style: italic; }
 .footer-copy {
-  font-size: 13px;
-  color: var(--cream-muted);
+font-size: 13px;
+color: var(--cream-muted);
 }
 .footer-links {
-  display: flex;
-  gap: 24px;
+display: flex;
+gap: 24px;
 }
 .footer-links a {
-  font-size: 13px;
-  color: var(--cream-muted);
-  transition: color 0.2s;
+font-size: 13px;
+color: var(--cream-muted);
+transition: color 0.2s;
 }
 .footer-links a:hover { color: var(--amber); }
 
+/* MODAL PRIVACIDAD */
+#privacidadModal {
+display: none;
+position: fixed;
+inset: 0;
+background: rgba(0,0,0,0.8);
+z-index: 2000;
+overflow-y: auto;
+padding: 40px 20px;
+}
+#privacidadModal.show { display: block; }
+.modal-content {
+max-width: 800px;
+margin: 0 auto;
+background: var(--surface);
+border: 1px solid var(--border);
+border-radius: var(--radius-lg);
+padding: 48px;
+position: relative;
+}
+.modal-close {
+position: absolute;
+top: 24px;
+right: 24px;
+background: none;
+border: none;
+color: var(--cream);
+font-size: 28px;
+cursor: pointer;
+width: 32px;
+height: 32px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.modal-content h2 {
+font-family: 'Fraunces', serif;
+font-size: 32px;
+color: var(--white);
+margin-bottom: 24px;
+}
+.modal-content h3 {
+font-family: 'Fraunces', serif;
+font-size: 22px;
+color: var(--white);
+margin-top: 32px;
+margin-bottom: 16px;
+}
+.modal-content p {
+font-size: 15px;
+color: var(--cream-muted);
+line-height: 1.7;
+margin-bottom: 16px;
+}
+.modal-content ul {
+margin-left: 24px;
+margin-bottom: 16px;
+}
+.modal-content li {
+font-size: 15px;
+color: var(--cream-muted);
+line-height: 1.7;
+margin-bottom: 8px;
+}
+
 /* RESPONSIVE */
 @media (max-width: 768px) {
-  .nav-links, .nav-cta { display: none; }
-  .cursos-grid { grid-template-columns: 1fr; }
-  .calc-grid { grid-template-columns: 1fr; }
-  .faq-grid { grid-template-columns: 1fr; gap: 0; }
-  .contacto-inner { grid-template-columns: 1fr; }
-  .hero-stats { flex-direction: column; gap: 20px; }
-  .calc-results { grid-template-columns: 1fr; }
-  section { padding: 72px 0; }
-  .novedades-grid { grid-template-columns: 1fr; }
+.nav-links, .nav-cta { display: none; }
+.hamburger { display: flex; }
+.cursos-grid { grid-template-columns: 1fr; }
+.sim-grid { grid-template-columns: 1fr; }
+.calc-grid { grid-template-columns: 1fr; }
+.kit-layout { grid-template-columns: 1fr; }
+.sobre-grid { grid-template-columns: 1fr; }
+.faq-grid { grid-template-columns: 1fr; gap: 0; }
+.contacto-inner { grid-template-columns: 1fr; }
+.hero-stats { flex-direction: column; gap: 20px; }
+.sim-results { grid-template-columns: 1fr 1fr; }
+.calc-results { grid-template-columns: 1fr; }
+section { padding: 72px 0; }
+.novedades-grid { grid-template-columns: 1fr; }
+.tienda-grid { grid-template-columns: 1fr; }
+#cartSidebar { width: 100vw; }
+}
+
+/* SCROLL ANIMATIONS */
+.reveal {
+opacity: 0;
+transform: translateY(32px);
+transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible {
+opacity: 1;
+transform: translateY(0);
+}
+
+/* MOBILE NAV */
+.mobile-nav {
+display: none;
+position: fixed;
+inset: 0;
+background: var(--bg);
+z-index: 200;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+gap: 32px;
+}
+.mobile-nav.open { display: flex; }
+.mobile-nav a {
+font-family: 'Fraunces', serif;
+font-size: 32px;
+color: var(--white);
+font-weight: 700;
+transition: color 0.2s;
+}
+.mobile-nav a:hover { color: var(--amber); }
+.mobile-nav-close {
+position: absolute;
+top: 24px; right: 24px;
+background: none;
+border: none;
+color: var(--cream);
+font-size: 28px;
+cursor: pointer;
 }
 </style>
 </head>
 <body>
+
+<!-- COOKIE BANNER -->
+<div id="cookieBanner">
+  <div class="cookie-inner">
+    <div class="cookie-text">
+      Usamos cookies propias y de terceros (Google Analytics, Meta Pixel) para mejorar tu experiencia y medir nuestro alcance. Al aceptar, nos ayudás a conocerte mejor. Más info en nuestra <a href="#" onclick="openPrivacidad()">Política de Privacidad</a>.
+    </div>
+    <div class="cookie-actions">
+      <button class="cookie-btn cookie-decline" onclick="declineCookies()">Solo esenciales</button>
+      <button class="cookie-btn cookie-accept" onclick="acceptCookies()">Aceptar todo</button>
+    </div>
+  </div>
+</div>
+
+<!-- CART OVERLAY -->
+<div id="cartOverlay" onclick="toggleCart()"></div>
+
+<!-- CART SIDEBAR -->
+<div id="cartSidebar">
+  <div class="cart-header">
+    <h3>🛒 Tu Carrito</h3>
+    <button class="cart-close" onclick="toggleCart()">×</button>
+  </div>
+  <div class="cart-items" id="cartItemsContainer">
+    <!-- Se llena dinámicamente -->
+  </div>
+  <div class="cart-footer">
+    <div class="cart-total">
+      <span class="cart-total-label">Total</span>
+      <span class="cart-total-value" id="cartTotal">$0</span>
+    </div>
+    <button class="cart-checkout-btn" id="checkoutBtn" onclick="initCheckout()">
+      Finalizar compra →
+    </button>
+  </div>
+</div>
+
+<!-- CART BUTTON -->
+<button id="cartButton" onclick="toggleCart()">
+  🛒
+  <span class="cart-badge" id="cartBadge" style="display:none;">0</span>
+</button>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav-close" onclick="closeMobileNav()">✕</button>
+  <a href="#productos" onclick="closeMobileNav()">Productos</a>
+  <a href="#tienda" onclick="closeMobileNav()">Tienda</a>
+  <a href="#cursos" onclick="closeMobileNav()">Cursos</a>
+  <a href="#simulador" onclick="closeMobileNav()">Simulador</a>
+  <a href="#faq" onclick="closeMobileNav()">FAQ</a>
+  <a href="#contacto" onclick="closeMobileNav()" style="color:var(--amber)">Contacto</a>
+</div>
 
 <!-- NAV -->
 <nav id="mainNav">
@@ -772,12 +1725,15 @@ footer {
       <a href="#" class="nav-logo">🍄 Fun<span>Guys</span></a>
       <ul class="nav-links">
         <li><a href="#productos">Productos</a></li>
+        <li><a href="#tienda">Tienda</a></li>
         <li><a href="#cursos">Cursos</a></li>
-        <li><a href="#calculadora">Calculadora</a></li>
-        <li><a href="#insumos">Insumos</a></li>
+        <li><a href="#simulador">Simulador</a></li>
         <li><a href="#faq">FAQ</a></li>
       </ul>
-      <a href="https://wa.me/5491122798768?text=Hola!%20Me%20interesa%20saber%20m%C3%A1s%20sobre%20FunGuys" target="_blank" class="nav-cta">Consultar por WhatsApp</a>
+      <a href="https://wa.me/5491122798768?text=Hola!%20Me%20interesa%20saber%20m%C3%A1s%20sobre%20los%20cursos%20y%20productos%20de%20FunGuys" target="_blank" class="nav-cta">Consultar por WhatsApp</a>
+      <div class="hamburger" onclick="openMobileNav()">
+        <span></span><span></span><span></span>
+      </div>
     </div>
   </div>
 </nav>
@@ -785,13 +1741,14 @@ footer {
 <!-- HERO -->
 <section id="hero">
   <div class="hero-bg"></div>
+  <svg id="mycelium-canvas" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice"></svg>
   <div class="container">
     <div class="hero-content">
       <div class="hero-badge">Producción local · Argentina</div>
       <h1 class="hero-title">Cultivá tus propios <em>hongos</em> comestibles</h1>
       <p class="hero-sub">Kits de autocultivo, hongos frescos, insumos especializados y formación técnica para emprendedores y productores. Todo desde La Plata para todo el país.</p>
       <div class="hero-actions">
-        <a href="#cursos" class="btn-primary">Ver Cursos →</a>
+        <a href="#tienda" class="btn-primary">Ver Tienda →</a>
         <a href="https://wa.me/5491122798768?text=Hola!%20Quiero%20consultar%20sobre%20los%20kits%20de%20autocultivo" target="_blank" class="btn-secondary">💬 Hablar con nosotros</a>
       </div>
       <div class="hero-stats">
@@ -816,13 +1773,35 @@ footer {
   </div>
 </section>
 
-<!-- PRODUCTOS -->
+<!-- TIENDA -->
+<section id="tienda">
+  <div class="container">
+    <span class="section-tag">Tienda Online</span>
+    <h2 class="section-title">Insumos disponibles<br>para entrega inmediata</h2>
+    <p class="section-sub">Stock actualizado en tiempo real desde nuestro inventario en La Plata. Precios en ARS + IVA incluido.</p>
+    
+    <div class="tienda-filters">
+      <button class="filter-btn active" data-filter="todos" onclick="filterProducts('todos')">Todos</button>
+      <button class="filter-btn" data-filter="sustratos" onclick="filterProducts('sustratos')">Sustratos</button>
+      <button class="filter-btn" data-filter="spawn" onclick="filterProducts('spawn')">Spawn</button>
+      <button class="filter-btn" data-filter="aditivos" onclick="filterProducts('aditivos')">Aditivos</button>
+      <button class="filter-btn" data-filter="materiales" onclick="filterProducts('materiales')">Materiales</button>
+      <button class="filter-btn" data-filter="consumibles" onclick="filterProducts('consumibles')">Consumibles</button>
+    </div>
+    
+    <div class="tienda-grid" id="productGrid">
+      <div class="loading-shop">⏳ Cargando productos...</div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTOS (categorías generales) -->
 <section id="productos">
   <div class="container">
     <span class="section-tag">Catálogo</span>
     <h2 class="section-title">Todo lo que necesitás,<br>en un solo lugar</h2>
     <p class="section-sub">Desde tu primera cosecha en casa hasta escalar a producción profesional. Seguimos cada etapa del camino.</p>
-    <div class="products-grid">
+    <div class="products-grid reveal">
       <div class="product-card">
         <span class="product-icon">🍄</span>
         <div class="product-title">Hongos Frescos</div>
@@ -839,7 +1818,7 @@ footer {
         <span class="product-icon">🧪</span>
         <div class="product-title">Insumos y Equipamiento</div>
         <p class="product-desc">Spawn (semilla), sustratos formulados, bolsas polipropileno, tapones de filtro y más. Todo validado en producción real.</p>
-        <a href="#insumos" class="product-tag">Ver insumos →</a>
+        <a href="#tienda" class="product-tag">Ver tienda →</a>
       </div>
       <div class="product-card">
         <span class="product-icon">🎓</span>
@@ -857,7 +1836,7 @@ footer {
     <span class="section-tag">Formación</span>
     <h2 class="section-title">Aprendé a cultivar<br>con quien produce</h2>
     <p class="section-sub">Cursos diseñados por productores activos. No teoría de manual — técnica validada en producción real.</p>
-    <div class="cursos-grid">
+    <div class="cursos-grid reveal">
       <div class="curso-card featured">
         <span class="featured-badge">⭐ Más elegido</span>
         <div class="curso-type">Curso Virtual</div>
@@ -869,25 +1848,31 @@ footer {
           <li>Inoculación, incubación y fructificación</li>
           <li>Control de parámetros ambientales</li>
           <li>Cosecha, post-cosecha y comercialización</li>
+          <li>Mini asesoría grupal en vivo (incluida)</li>
+          <li>Acceso al grupo de productores</li>
         </ul>
         <div class="precio-wrap">
-          <div class="precio-actual">$48.000</div>
+          <div class="precio-actual">$39.000</div>
+          <div class="precio-tachado">$48.000</div>
         </div>
-        <div class="precio-nota">ARS · Acceso ilimitado</div>
+        <div class="precio-nota">ARS · Precio Early Bird por tiempo limitado</div>
+        <span class="precio-urgencia">🔥 Ahorrás $9.000 — Oferta activa por 72 horas</span>
         <a href="https://wa.me/5491122798768?text=Hola!%20Quiero%20inscribirme%20al%20curso%20virtual%20de%20hongos" target="_blank" class="btn-primary" style="width:100%; justify-content:center; margin-bottom:12px;">
           Inscribirme ahora →
         </a>
+        <p style="font-size:12px; color:var(--cream-muted); text-align:center;">💳 Mercado Pago · Transferencia · Alias · Sin complicaciones</p>
       </div>
       <div style="display:flex; flex-direction:column; gap:24px;">
         <div class="curso-card">
           <div class="curso-type">Curso Presencial</div>
           <div class="curso-title">Taller Práctico de Cultivo</div>
           <p class="curso-desc">Manos en el sustrato. Taller de día completo con inoculación real, control de cámara y primera cosecha en vivo. Cupos reducidos para garantizar la práctica.</p>
-          <div class="precio-wrap">
-            <div class="precio-actual">$95.000</div>
-          </div>
-          <div class="precio-nota">Incluye kit de inicio</div>
-          <a href="https://wa.me/5491122798768?text=Hola!%20Consulto%20por%20el%20taller%20presencial%20del%206%20de%20junio" target="_blank" class="btn-secondary" style="width:100%; justify-content:center;">Consultar fechas →</a>
+          <ul class="curso-features" style="margin-bottom:20px;">
+            <li>Inoculación y preparación de bloques</li>
+            <li>Visita a producción activa</li>
+            <li>Kit de inicio incluido para llevarte</li>
+          </ul>
+          <a href="https://wa.me/5491122798768?text=Hola!%20Consulto%20por%20los%20talleres%20presenciales" target="_blank" class="btn-secondary" style="width:100%; justify-content:center;">Consultar fechas →</a>
         </div>
         <div class="curso-card">
           <div class="curso-type">Asesoría</div>
@@ -895,15 +1880,93 @@ footer {
           <p class="curso-desc">Para productores con producción en marcha. Diagnóstico técnico, optimización de parámetros, diseño de escala y resolución de problemas específicos.</p>
           <a href="https://wa.me/5491122798768?text=Hola!%20Quiero%20una%20asesor%C3%ADa%20especializada" target="_blank" class="btn-secondary" style="width:100%; justify-content:center; margin-top:8px;">Hablar con un especialista →</a>
         </div>
+        <div style="background:var(--surface2); border:1px solid var(--border); border-radius:var(--radius); padding:20px 24px; display:flex; gap:16px; align-items:center;">
+          <span style="font-size:32px;">📦</span>
+          <div>
+            <div style="font-weight:600; color:var(--white); font-size:15px; margin-bottom:4px;">Combo Curso + Kit</div>
+            <div style="font-size:13px; color:var(--cream-muted);">Curso virtual + kit de autocultivo a precio especial. El pack más completo para arrancar hoy.</div>
+            <a href="https://wa.me/5491122798768?text=Hola!%20Me%20interesa%20el%20combo%20Curso%20%2B%20Kit" target="_blank" style="font-size:13px; color:var(--amber); font-weight:600; margin-top:6px; display:inline-block;">Consultar precio del combo →</a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CALCULADORA DE RENTABILIDAD -->
+<!-- SIMULADOR EB -->
+<section id="simulador">
+  <div class="container">
+    <div class="sim-grid">
+      <div class="sim-intro">
+        <span class="section-tag">Herramienta técnica</span>
+        <h2 class="section-title">Simulador de Eficiencia Biológica</h2>
+        <p class="section-sub">Calculá el rendimiento estimado de tu cultivo antes de invertir un solo peso. Ingresá tus datos y obtené proyecciones reales basadas en parámetros técnicos validados.</p>
+        <div style="margin-top:32px; padding:20px 24px; background:var(--surface2); border:1px solid var(--border); border-radius:var(--radius); border-left:3px solid var(--sage);">
+          <div style="font-size:13px; color:var(--cream-muted); line-height:1.7;">
+            <strong style="color:var(--sage-light); display:block; margin-bottom:8px;">¿Qué es la Eficiencia Biológica (EB)?</strong>
+            La EB expresa cuántos gramos de hongo fresco se obtienen por cada 100g de sustrato seco. Una EB del 80% sobre 10 kg de sustrato seco = 8 kg de hongos frescos. Para gírgola gris en condiciones óptimas se alcanzan valores del 80–120% acumulado en 3–4 flushes.
+          </div>
+        </div>
+      </div>
+      <div class="sim-panel">
+        <div class="sim-field">
+          <label class="sim-label">Especie</label>
+          <select class="sim-select" id="simEspecie" onchange="calcSim()">
+            <option value="girgola_gris">Gírgola Gris (Pleurotus ostreatus)</option>
+            <option value="girgola_reina">Gírgola Reina (Pleurotus eryngii)</option>
+            <option value="shiitake">Shiitake (Lentinula edodes)</option>
+          </select>
+        </div>
+        <div class="sim-field">
+          <label class="sim-label">Peso de sustrato seco (kg)</label>
+          <div class="slider-row">
+            <input type="range" min="1" max="100" value="10" step="1" id="simKg" oninput="updateKg(this)">
+            <span class="slider-val" id="simKgVal">10 kg</span>
+          </div>
+        </div>
+        <div class="sim-field">
+          <label class="sim-label">Condiciones del cultivo</label>
+          <select class="sim-select" id="simCondicion" onchange="calcSim()">
+            <option value="optimas">Óptimas (temp/humedad controladas)</option>
+            <option value="buenas">Buenas (semi-controladas)</option>
+            <option value="basicas">Básicas (ambiente sin control)</option>
+          </select>
+        </div>
+        <div class="sim-field">
+          <label class="sim-label">Número de flushes esperados</label>
+          <div class="slider-row">
+            <input type="range" min="1" max="5" value="3" step="1" id="simFlushes" oninput="updateFlushes(this)">
+            <span class="slider-val" id="simFlushesVal">3</span>
+          </div>
+        </div>
+        <div class="sim-results" id="simResults">
+          <div class="sim-result-card">
+            <div class="sim-result-val" id="resRendimiento">—</div>
+            <div class="sim-result-label">kg totales estimados</div>
+          </div>
+          <div class="sim-result-card">
+            <div class="sim-result-val" id="resEB">—</div>
+            <div class="sim-result-label">Eficiencia Biológica %</div>
+          </div>
+          <div class="sim-result-card">
+            <div class="sim-result-val" id="resPorFlush">—</div>
+            <div class="sim-result-label">kg por flush</div>
+          </div>
+          <div class="sim-result-card">
+            <div class="sim-result-val" id="resDias">—</div>
+            <div class="sim-result-label">días 1ª cosecha</div>
+          </div>
+          <div class="sim-note" id="simNota"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CALCULADORA RENTABILIDAD -->
 <section id="calculadora">
   <div class="container">
-    <span class="section-tag">Herramienta</span>
+    <span class="section-tag">Herramienta de negocio</span>
     <h2 class="section-title">Calculadora de Rentabilidad</h2>
     <p class="section-sub">Estimá la inversión, costos y retorno de tu emprendimiento de hongos. Basado en datos reales de producción en Argentina 2026.</p>
     <div class="calc-grid">
@@ -966,13 +2029,85 @@ footer {
   </div>
 </section>
 
-<!-- NOVEDADES/BLOG -->
+<!-- KITS -->
+<section id="kits">
+  <div class="container">
+    <div class="kit-layout">
+      <div>
+        <span class="section-tag">Kits de autocultivo</span>
+        <h2 class="section-title">Tu primera cosecha en menos de 25 días</h2>
+        <p style="font-size:17px; color:var(--cream-muted); line-height:1.7; margin-bottom:32px;">El kit elimina la parte técnica compleja (inoculación y esterilización) y te deja enfocarte en lo que importa: cuidar, observar y cosechar.</p>
+        <ul class="kit-features">
+          <li>
+            <div class="kit-icon-wrap">📦</div>
+            <div>
+              <div class="kit-feat-title">Bloque de sustrato inoculado</div>
+              <div class="kit-feat-desc">Sustrato formulado e inoculado con spawn de calidad. Listo para inducir fructificación.</div>
+            </div>
+          </li>
+          <li>
+            <div class="kit-icon-wrap">💧</div>
+            <div>
+              <div class="kit-feat-title">Bolsa de humidificación</div>
+              <div class="kit-feat-desc">Sistema de bolsa perforada para mantener humedad óptima sin cámara especializada.</div>
+            </div>
+          </li>
+          <li>
+            <div class="kit-icon-wrap">📋</div>
+            <div>
+              <div class="kit-feat-title">Instructivo técnico paso a paso</div>
+              <div class="kit-feat-desc">Guía ilustrada con parámetros precisos. Sin términos complicados.</div>
+            </div>
+          </li>
+          <li>
+            <div class="kit-icon-wrap">💬</div>
+            <div>
+              <div class="kit-feat-title">Soporte técnico por WhatsApp</div>
+              <div class="kit-feat-desc">Consultas reales con respuesta en el día, de lunes a sábado.</div>
+            </div>
+          </li>
+        </ul>
+        <div class="kit-highlight-box">
+          ✅ <strong>Primera cosecha en 15 a 25 días.</strong> Sin inversión en infraestructura. Sin experiencia previa necesaria.
+        </div>
+        <a href="https://wa.me/5491122798768?text=Hola!%20Quiero%20pedir%20un%20kit%20de%20autocultivo" target="_blank" class="btn-primary" style="margin-top:28px; display:inline-flex;">Pedir mi kit ahora →</a>
+      </div>
+      <div class="kit-visual reveal">
+        <div class="kit-card-visual">
+          <span class="kit-mushroom-emoji">🍄</span>
+          <h3 style="font-family:'Fraunces',serif; font-size:20px; color:var(--white); margin-bottom:8px;">Proceso en 4 pasos</h3>
+          <p style="font-size:13px; color:var(--cream-muted); margin-bottom:24px;">Del kit a la cosecha</p>
+          <div class="kit-steps">
+            <div class="kit-step">
+              <div class="kit-step-num">1</div>
+              <div class="kit-step-text"><strong>Recibís el kit</strong> — Bloque inoculado en óptimo estado</div>
+            </div>
+            <div class="kit-step">
+              <div class="kit-step-num">2</div>
+              <div class="kit-step-text"><strong>Inducís la fructificación</strong> — Escarifico y humedecés</div>
+            </div>
+            <div class="kit-step">
+              <div class="kit-step-num">3</div>
+              <div class="kit-step-text"><strong>Primordios en 7–10 días</strong> — Los primeros brotes aparecen</div>
+            </div>
+            <div class="kit-step">
+              <div class="kit-step-num">4</div>
+              <div class="kit-step-text"><strong>Primera cosecha</strong> — Entre 15 y 25 días del inicio</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NOVEDADES -->
 <section id="novedades">
   <div class="container">
     <span class="section-tag">Novedades</span>
     <h2 class="section-title">Últimas actualizaciones</h2>
     <p class="section-sub">Lo nuevo en FunGuys: cursos, técnicas y temporada actual.</p>
-    <div class="novedades-grid">
+    <div class="novedades-grid reveal">
       <div class="novedad-card">
         <div class="novedad-fecha">📅 Junio 2026</div>
         <div class="novedad-titulo">Curso Presencial — Sábado 6 de Junio</div>
@@ -985,8 +2120,8 @@ footer {
         <div class="novedad-fecha">🍄 Temporada Otoño 2026</div>
         <div class="novedad-titulo">P. ostreatus en su mejor momento</div>
         <p class="novedad-desc">Las temperaturas de 12-18°C son ideales para gírgola gris. Eficiencia biológica superior al 100% en condiciones controladas. Es el momento de producir calidad premium.</p>
-        <a href="#insumos" class="novedad-link">
-          Ver spawn disponible →
+        <a href="https://wa.me/5491122798768?text=Hola!%20Consulto%20sobre%20spawn%20disponible" target="_blank" class="novedad-link">
+          Consultar spawn disponible →
         </a>
       </div>
       <div class="novedad-card">
@@ -1001,125 +2136,29 @@ footer {
   </div>
 </section>
 
-<!-- INSUMOS (CATÁLOGO HARDCODEADO) -->
-<section id="insumos" style="background: var(--surface);">
+<!-- SOBRE -->
+<section id="sobre">
   <div class="container">
-    <span class="section-tag">Tienda</span>
-    <h2 class="section-title">Insumos para producción</h2>
-    <p class="section-sub">Todo lo que necesitás para cultivar hongos de calidad profesional.</p>
-    
-    <!-- SPAWN -->
-    <div style="margin-top:56px;">
-      <div style="font-size:18px; font-weight:600; color:var(--amber); margin-bottom:20px;">🧬 Spawn (Semilla Miceliar)</div>
-      <div class="products-grid">
-        <div class="product-card">
-          <div style="font-size:11px; color:var(--cream-muted); margin-bottom:8px;">SKU: SPAWN-PO-01</div>
-          <div class="product-title">P. ostreatus (Gírgola Gris)</div>
-          <p class="product-desc">Spawn en grano de trigo esterilizado. Cepa certificada de alta EB. Ideal para temporada invernal (10-18°C).</p>
-          <div style="margin-top:16px; display:flex; justify-content:space-between; align-items:center;">
-            <span style="font-family:'Fraunces',serif; font-size:24px; font-weight:700; color:var(--amber);">$8.500</span>
-            <span style="font-size:12px; color:var(--cream-muted);">/ 1 kg</span>
-          </div>
-          <span class="product-tag" style="margin-top:12px;">En stock</span>
-        </div>
-        <div class="product-card">
-          <div style="font-size:11px; color:var(--cream-muted); margin-bottom:8px;">SKU: SPAWN-PP-01</div>
-          <div class="product-title">P. pulmonarius (Gírgola Verano)</div>
-          <p class="product-desc">Spawn en grano. Tolerante a calor (18-28°C). Ideal para producción en meses cálidos.</p>
-          <div style="margin-top:16px; display:flex; justify-content:space-between; align-items:center;">
-            <span style="font-family:'Fraunces',serif; font-size:24px; font-weight:700; color:var(--amber);">$8.500</span>
-            <span style="font-size:12px; color:var(--cream-muted);">/ 1 kg</span>
-          </div>
-          <span class="product-tag" style="margin-top:12px;">En stock</span>
-        </div>
-        <div class="product-card">
-          <div style="font-size:11px; color:var(--cream-muted); margin-bottom:8px;">SKU: SPAWN-PE-01</div>
-          <div class="product-title">P. eryngii (Gírgola Reina)</div>
-          <p class="product-desc">Spawn premium. Alta calidad gastronómica. Textura firme, sabor intenso.</p>
-          <div style="margin-top:16px; display:flex; justify-content:space-between; align-items:center;">
-            <span style="font-family:'Fraunces',serif; font-size:24px; font-weight:700; color:var(--amber);">$9.500</span>
-            <span style="font-size:12px; color:var(--cream-muted);">/ 1 kg</span>
-          </div>
-          <span style="display:inline-block; margin-top:12px; padding:4px 12px; border-radius:999px; font-size:12px; font-weight:500; background:rgba(212,150,58,0.12); border:1px solid rgba(212,150,58,0.3); color:var(--amber);">Stock limitado</span>
+    <div class="sobre-grid reveal">
+      <div class="sobre-avatar">
+        <span style="font-size:80px; z-index:1;">🍄</span>
+        <span class="sobre-name">FunGuys</span>
+        <span class="sobre-role">La Plata, Buenos Aires</span>
+      </div>
+      <div>
+        <span class="section-tag">Quiénes somos</span>
+        <h2 class="section-title" style="margin-bottom:24px;">Productores primero,<br>vendedores después</h2>
+        <p class="sobre-text">Somos un equipo de <strong>productores activos de hongos comestibles</strong> basados en La Plata, Buenos Aires. No enseñamos desde el libro — enseñamos desde la cámara de cultivo.</p>
+        <p class="sobre-text">Cada kit que vendemos está preparado con el mismo cuidado con el que cultivamos para nuestros propios clientes gastronómicos. Cada clase que damos refleja lo que aprendimos a las malas y lo que funciona en producción real.</p>
+        <p class="sobre-text">Nuestro objetivo es simple: que más personas puedan acceder a <strong>proteína de calidad de producción propia</strong>, ya sea para autoconsumo, para vender o para emprender.</p>
+        <div class="sobre-chips">
+          <span class="chip green">Pleurotus spp.</span>
+          <span class="chip green">Producción local</span>
+          <span class="chip">La Plata, BA</span>
+          <span class="chip">Soporte técnico real</span>
+          <span class="chip">+5 años de experiencia</span>
         </div>
       </div>
-    </div>
-
-    <!-- SUSTRATOS -->
-    <div style="margin-top:56px;">
-      <div style="font-size:18px; font-weight:600; color:var(--amber); margin-bottom:20px;">🌾 Sustratos</div>
-      <div class="products-grid">
-        <div class="product-card">
-          <div style="font-size:11px; color:var(--cream-muted); margin-bottom:8px;">SKU: SUST-PAJA-01</div>
-          <div class="product-title">Paja de Trigo</div>
-          <p class="product-desc">Fardo de 20kg. Paja limpia, sin hongos de campo. Ideal para Pleurotus.</p>
-          <div style="margin-top:16px; display:flex; justify-content:space-between; align-items:center;">
-            <span style="font-family:'Fraunces',serif; font-size:24px; font-weight:700; color:var(--amber);">$12.000</span>
-            <span style="font-size:12px; color:var(--cream-muted);">/ 20 kg</span>
-          </div>
-          <span class="product-tag" style="margin-top:12px;">En stock</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- ADITIVOS -->
-    <div style="margin-top:56px;">
-      <div style="font-size:18px; font-weight:600; color:var(--amber); margin-bottom:20px;">⚗️ Aditivos</div>
-      <div class="products-grid">
-        <div class="product-card">
-          <div style="font-size:11px; color:var(--cream-muted); margin-bottom:8px;">SKU: ADIT-SALV-01</div>
-          <div class="product-title">Salvado de Trigo</div>
-          <p class="product-desc">Bolsa 10kg. Suplemento nitrogenado. Aumenta EB 15-25%.</p>
-          <div style="margin-top:16px; display:flex; justify-content:space-between; align-items:center;">
-            <span style="font-family:'Fraunces',serif; font-size:24px; font-weight:700; color:var(--amber);">$6.500</span>
-            <span style="font-size:12px; color:var(--cream-muted);">/ 10 kg</span>
-          </div>
-          <span class="product-tag" style="margin-top:12px;">En stock</span>
-        </div>
-        <div class="product-card">
-          <div style="font-size:11px; color:var(--cream-muted); margin-bottom:8px;">SKU: ADIT-YESO-01</div>
-          <div class="product-title">Yeso Agrícola</div>
-          <p class="product-desc">Bolsa 5kg. CaSO4. Ajusta pH y mejora textura del sustrato.</p>
-          <div style="margin-top:16px; display:flex; justify-content:space-between; align-items:center;">
-            <span style="font-family:'Fraunces',serif; font-size:24px; font-weight:700; color:var(--amber);">$3.200</span>
-            <span style="font-size:12px; color:var(--cream-muted);">/ 5 kg</span>
-          </div>
-          <span class="product-tag" style="margin-top:12px;">En stock</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- MATERIALES -->
-    <div style="margin-top:56px;">
-      <div style="font-size:18px; font-weight:600; color:var(--amber); margin-bottom:20px;">📦 Materiales</div>
-      <div class="products-grid">
-        <div class="product-card">
-          <div style="font-size:11px; color:var(--cream-muted); margin-bottom:8px;">SKU: MAT-BOLSA-01</div>
-          <div class="product-title">Bolsas Polipropileno 50x60cm</div>
-          <p class="product-desc">Pack x100 unidades. Calibre 50µm. Transparentes.</p>
-          <div style="margin-top:16px; display:flex; justify-content:space-between; align-items:center;">
-            <span style="font-family:'Fraunces',serif; font-size:24px; font-weight:700; color:var(--amber);">$8.500</span>
-            <span style="font-size:12px; color:var(--cream-muted);">/ 100 unid</span>
-          </div>
-          <span class="product-tag" style="margin-top:12px;">En stock</span>
-        </div>
-        <div class="product-card">
-          <div style="font-size:11px; color:var(--cream-muted); margin-bottom:8px;">SKU: MAT-FILT-01</div>
-          <div class="product-title">Filtros de Algodón</div>
-          <p class="product-desc">Pack x50 unidades. Hidrófobo, reutilizable.</p>
-          <div style="margin-top:16px; display:flex; justify-content:space-between; align-items:center;">
-            <span style="font-family:'Fraunces',serif; font-size:24px; font-weight:700; color:var(--amber);">$4.200</span>
-            <span style="font-size:12px; color:var(--cream-muted);">/ 50 unid</span>
-          </div>
-          <span class="product-tag" style="margin-top:12px;">En stock</span>
-        </div>
-      </div>
-    </div>
-
-    <div style="margin-top:48px; text-align:center;">
-      <a href="https://wa.me/5491122798768?text=Hola!%20Quiero%20consultar%20sobre%20insumos" target="_blank" class="btn-primary">
-        Consultar stock y envíos →
-      </a>
     </div>
   </div>
 </section>
@@ -1128,52 +2167,42 @@ footer {
 <section id="faq">
   <div class="container">
     <span class="section-tag">Preguntas frecuentes</span>
-    <h2 class="section-title">Lo que todos preguntan</h2>
-    <div class="faq-grid">
+    <h2 class="section-title" style="margin-bottom:56px;">Lo que todos preguntan<br>antes de arrancar</h2>
+    <div class="faq-grid reveal">
       <div>
         <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">
-            ¿Necesito experiencia previa para el kit?
-            <span class="faq-arrow">+</span>
-          </button>
-          <div class="faq-a">No. El kit está diseñado para que cualquier persona pueda obtener su primera cosecha sin conocimientos técnicos. El sustrato ya viene inoculado y el instructivo guía cada paso.</div>
+          <button class="faq-q" onclick="toggleFaq(this)">¿Necesito experiencia previa para el kit? <span class="faq-arrow">+</span></button>
+          <div class="faq-a">No. El kit está diseñado para que cualquier persona pueda obtener su primera cosecha sin conocimientos técnicos. El sustrato ya viene inoculado y el instructivo guía cada paso con parámetros precisos. Ante cualquier duda, te responderemos por WhatsApp.</div>
         </div>
         <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">
-            ¿Cuánto tarda la primera cosecha?
-            <span class="faq-arrow">+</span>
-          </button>
-          <div class="faq-a">Entre 15 y 25 días desde que recibís el kit, dependiendo de la temperatura ambiente. En condiciones óptimas (15-20°C) es más rápido.</div>
+          <button class="faq-q" onclick="toggleFaq(this)">¿Puedo cultivar en un departamento pequeño? <span class="faq-arrow">+</span></button>
+          <div class="faq-a">Sí. Los kits de gírgola gris funcionan muy bien en espacios reducidos: un rincón con buena ventilación indirecta, temperatura entre 15–25 °C y humedad sostenida es suficiente. No necesitás cámara ni equipamiento especial para empezar.</div>
         </div>
         <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">
-            ¿Hacen envíos al interior?
-            <span class="faq-arrow">+</span>
-          </button>
-          <div class="faq-a">Los kits se entregan en La Plata y Gran Buenos Aires. Para envíos al interior coordinamos caso por caso. Los insumos secos (spawn, bolsas) tienen más flexibilidad logística.</div>
+          <button class="faq-q" onclick="toggleFaq(this)">¿Cuántas cosechas da un kit? <span class="faq-arrow">+</span></button>
+          <div class="faq-a">Un bloque bien manejado rinde 2 a 3 flushes (cosechas). El primero es el más abundante; los siguientes son progresivamente menores. La eficiencia biológica acumulada en buenas condiciones puede superar el 80% del peso seco del sustrato.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">¿El curso virtual tiene fecha de inicio fija? <span class="faq-arrow">+</span></button>
+          <div class="faq-a">No. El curso es a tu ritmo con acceso 24/7 al material. La mini asesoría grupal en vivo se coordina con los inscriptos en grupos reducidos para garantizar que puedas hacer preguntas reales.</div>
         </div>
       </div>
       <div>
         <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">
-            ¿El curso virtual tiene fecha de inicio?
-            <span class="faq-arrow">+</span>
-          </button>
-          <div class="faq-a">No. El curso es a tu ritmo con acceso 24/7. Podés empezar cuando quieras y avanzar a tu velocidad.</div>
+          <button class="faq-q" onclick="toggleFaq(this)">¿Hacen envíos fuera de La Plata? <span class="faq-arrow">+</span></button>
+          <div class="faq-a">Los kits se entregan en La Plata y Gran Buenos Aires. Para envíos al interior del país coordinamos modalidad y costo de forma individual. Los insumos como spawn tienen más flexibilidad logística. Consultanos por WhatsApp para tu caso específico.</div>
         </div>
         <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">
-            ¿Puedo revender los hongos que produzco?
-            <span class="faq-arrow">+</span>
-          </button>
-          <div class="faq-a">Sí. Muchos de nuestros alumnos empezaron con kits caseros y hoy venden a restaurantes y verdulerías. El curso incluye información sobre comercialización.</div>
+          <button class="faq-q" onclick="toggleFaq(this)">¿Qué diferencia al curso virtual del presencial? <span class="faq-arrow">+</span></button>
+          <div class="faq-a">El virtual cubre toda la teoría y práctica con materiales de alta calidad a tu ritmo. El presencial agrega la experiencia táctil: manos en el sustrato, inoculación real en producción activa y te vas con tu propio kit. Ambos son válidos — depende de tu forma de aprender.</div>
         </div>
         <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">
-            ¿Qué soporte técnico ofrecen?
-            <span class="faq-arrow">+</span>
-          </button>
-          <div class="faq-a">Soporte por WhatsApp de lunes a sábado. Respondemos consultas técnicas, diagnóstico de problemas y seguimiento de cultivos.</div>
+          <button class="faq-q" onclick="toggleFaq(this)">¿El kit funciona si no tengo lugar para colgar? <span class="faq-arrow">+</span></button>
+          <div class="faq-a">Sí. El sistema de bolsa de humidificación no requiere colgado ni infraestructura. Puede apoyarse sobre una superficie plana. Lo único crítico es la ventilación y la humedad ambiental — te explicamos cómo manejar ambas con recursos básicos.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">¿Puedo escalar a producción comercial después? <span class="faq-arrow">+</span></button>
+          <div class="faq-a">Es exactamente la trayectoria que seguimos nosotros. Empezás con el kit, aprendés el ciclo, tomás el curso, y si querés escalar, la asesoría especializada te ayuda a diseñar una producción de 5–50 kg semanales con el menor capex posible.</div>
         </div>
       </div>
     </div>
@@ -1187,43 +2216,53 @@ footer {
       <div>
         <span class="section-tag">Contacto</span>
         <h2 class="contacto-title">¿Tenés dudas?<br><em style="color:var(--amber); font-style:italic;">Hablemos.</em></h2>
-        <p class="contacto-desc">Respondemos en el día de lunes a sábado. No hay preguntas tontas — solo hongos que todavía no crecieron.</p>
+        <p class="contacto-desc">Respondemos en el día de lunes a sábado. No hay preguntas tontas en el reino fungi — solo hongos que todavía no crecieron.</p>
         <div class="contacto-methods">
           <a href="https://wa.me/5491122798768" target="_blank" class="contact-method">
-            <div style="width:44px;height:44px;border-radius:8px;background:rgba(37,211,102,0.12);display:flex;align-items:center;justify-content:center;font-size:22px;">💬</div>
-            <div>
-              <strong style="display:block;font-size:15px;color:var(--white);">WhatsApp — +54 9 11 2279-8768</strong>
-              <span style="font-size:13px;color:var(--cream-muted);">Respuesta rápida</span>
+            <div class="contact-method-icon cm-green">💬</div>
+            <div class="contact-method-info">
+              <strong>WhatsApp — +54 9 11 2279-8768</strong>
+              <span>Respuesta rápida · Lun–Sáb</span>
             </div>
           </a>
-          <a href="mailto:funguysgirgolas@gmail.com" class="contact-method">
-            <div style="width:44px;height:44px;border-radius:8px;background:rgba(212,150,58,0.12);display:flex;align-items:center;justify-content:center;font-size:22px;">📧</div>
-            <div>
-              <strong style="display:block;font-size:15px;color:var(--white);">funguysgirgolas@gmail.com</strong>
-              <span style="font-size:13px;color:var(--cream-muted);">Consultas formales</span>
+          <a href="https://wa.me/5492215245842" target="_blank" class="contact-method">
+            <div class="contact-method-icon cm-green">💬</div>
+            <div class="contact-method-info">
+              <strong>WhatsApp — +54 9 221 524-5842</strong>
+              <span>Línea alternativa</span>
             </div>
           </a>
           <a href="https://instagram.com/funguys.girgolas" target="_blank" class="contact-method">
-            <div style="width:44px;height:44px;border-radius:8px;background:rgba(200,73,142,0.12);display:flex;align-items:center;justify-content:center;font-size:22px;">📸</div>
-            <div>
-              <strong style="display:block;font-size:15px;color:var(--white);">@funguys.girgolas</strong>
-              <span style="font-size:13px;color:var(--cream-muted);">Tips y novedades</span>
+            <div class="contact-method-icon cm-pink">📸</div>
+            <div class="contact-method-info">
+              <strong>Instagram — @funguys.girgolas</strong>
+              <span>Tips, novedades y promos exclusivas</span>
+            </div>
+          </a>
+          <a href="mailto:funguysgirgolas@gmail.com" class="contact-method">
+            <div class="contact-method-icon cm-amber">📧</div>
+            <div class="contact-method-info">
+              <strong>funguysgirgolas@gmail.com</strong>
+              <span>Para consultas formales y empresas</span>
             </div>
           </a>
         </div>
       </div>
-      <div style="text-align:center;padding:48px 40px;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-lg);">
-        <h3 style="font-family:'Fraunces',serif;font-size:28px;color:var(--white);margin-bottom:12px;">¿Listo para cultivar?</h3>
-        <p style="font-size:14px;color:var(--cream-muted);margin-bottom:32px;line-height:1.6;">Escribinos y te ayudamos a elegir la mejor opción para arrancar.</p>
-        <a href="https://wa.me/5491122798768?text=Hola!%20Quiero%20empezar%20a%20cultivar%20hongos" target="_blank" class="btn-primary" style="width:100%;justify-content:center;margin-bottom:12px;background:#25d366;color:#fff;">
+      <div class="contacto-cta-big">
+        <h3>¿Listo para cultivar?</h3>
+        <p>Escribinos y en minutos te decimos qué opción se adapta mejor a tu situación, espacio y presupuesto.</p>
+        <a href="https://wa.me/5491122798768?text=Hola!%20Quiero%20empezar%20a%20cultivar%20hongos.%20%C2%BFPor%20d%C3%B3nde%20arranco%3F" target="_blank" class="btn-whatsapp">
           💬 Escribir por WhatsApp
+        </a>
+        <a href="https://instagram.com/funguys.girgolas" target="_blank" class="btn-instagram">
+          📸 Seguir en Instagram
         </a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER ÚNICO -->
+<!-- FOOTER -->
 <footer>
   <div class="container">
     <div class="footer-inner">
@@ -1231,48 +2270,468 @@ footer {
       <p class="footer-copy">© 2025 FunGuys — Hongos comestibles. La Plata, Buenos Aires, Argentina.</p>
       <div class="footer-links">
         <a href="#productos">Productos</a>
+        <a href="#tienda">Tienda</a>
         <a href="#cursos">Cursos</a>
         <a href="#contacto">Contacto</a>
+        <a href="#" onclick="openPrivacidad()">Privacidad</a>
       </div>
     </div>
   </div>
 </footer>
 
+<!-- MODAL PRIVACIDAD -->
+<div id="privacidadModal">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closePrivacidad()">×</button>
+    <h2>Política de Privacidad</h2>
+    <p><strong>Última actualización:</strong> Mayo 2026</p>
+    
+    <h3>1. Información que recopilamos</h3>
+    <p>FunGuys recopila la siguiente información:</p>
+    <ul>
+      <li><strong>Datos de contacto:</strong> nombre, email, teléfono (WhatsApp) cuando completás formularios o realizás compras.</li>
+      <li><strong>Datos de navegación:</strong> mediante Google Analytics y Meta Pixel (cookies), recopilamos información sobre tu uso del sitio (páginas visitadas, tiempo en sitio, dispositivo).</li>
+      <li><strong>Datos de compra:</strong> cuando realizás una transacción, guardamos tu historial de pedidos y datos de facturación.</li>
+    </ul>
+    
+    <h3>2. Uso de la información</h3>
+    <p>Utilizamos tu información para:</p>
+    <ul>
+      <li>Procesar pedidos y envíos</li>
+      <li>Responder consultas vía WhatsApp o email</li>
+      <li>Mejorar nuestro sitio web mediante análisis de uso</li>
+      <li>Enviarte novedades y ofertas (solo si aceptaste marketing)</li>
+    </ul>
+    
+    <h3>3. Cookies y tecnologías similares</h3>
+    <p>Usamos cookies propias y de terceros (Google Analytics, Meta Pixel) para:</p>
+    <ul>
+      <li>Recordar tus preferencias (carrito de compras)</li>
+      <li>Analizar el tráfico del sitio</li>
+      <li>Mostrar publicidad relevante en redes sociales</li>
+    </ul>
+    <p>Podés gestionar o bloquear cookies desde tu navegador, pero algunas funciones del sitio pueden verse afectadas.</p>
+    
+    <h3>4. Compartir información con terceros</h3>
+    <p>No vendemos ni compartimos tus datos personales con terceros, excepto:</p>
+    <ul>
+      <li><strong>Mercado Pago:</strong> para procesar pagos seguros</li>
+      <li><strong>Google / Meta:</strong> para análisis y publicidad (datos anónimos)</li>
+      <li><strong>Proveedores de logística:</strong> solo tu dirección para entregas</li>
+    </ul>
+    
+    <h3>5. Seguridad de datos</h3>
+    <p>Implementamos medidas técnicas y organizativas para proteger tus datos contra acceso no autorizado, pérdida o alteración. Sin embargo, ningún sistema es 100% seguro.</p>
+    
+    <h3>6. Tus derechos (Ley 25.326 Argentina)</h3>
+    <p>Tenés derecho a:</p>
+    <ul>
+      <li>Acceder a tus datos personales</li>
+      <li>Rectificar datos incorrectos</li>
+      <li>Solicitar la eliminación de tus datos</li>
+      <li>Revocar consentimiento para uso de datos</li>
+    </ul>
+    <p>Para ejercer estos derechos, escribinos a <strong>funguysgirgolas@gmail.com</strong></p>
+    
+    <h3>7. Contacto</h3>
+    <p>Para consultas sobre esta política: <strong>funguysgirgolas@gmail.com</strong> o WhatsApp +54 9 11 2279-8768.</p>
+  </div>
+</div>
+
 <script>
-/* NAV SCROLL */
-const nav = document.getElementById('mainNav');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 60);
+// =============================================================================
+// CONFIGURACIÓN — REEMPLAZAR ESTOS VALORES
+// =============================================================================
+const CONFIG = {
+  API_URL: 'https://script.google.com/macros/s/AKfycbwvd6akHBc6ryCPBwm_yePD2EJbj2jNxTWrgqblgHLTg4dDaDQGi9W3Q_qjMm7Jvtrm/exec',
+  AUTH_TOKEN: 'funguys_2026_secure_token_0lkkdc',
+  MP_PUBLIC_KEY: 'YOUR_MP_PUBLIC_KEY', // ← Reemplazar con tu Public Key de Mercado Pago
+  GA_ID: 'G-XXXXXXXXXX', // Ya está en el head
+  FB_PIXEL_ID: 'YOUR_META_PIXEL_ID' // Ya está en el head
+};
+
+// =============================================================================
+// COOKIE CONSENT
+// =============================================================================
+window.addEventListener('DOMContentLoaded', () => {
+  const consent = localStorage.getItem('cookieConsent');
+  if (!consent) {
+    document.getElementById('cookieBanner').classList.add('show');
+  }
 });
 
-/* FAQ TOGGLE */
-function toggleFaq(btn) {
-  const item = btn.closest('.faq-item');
-  const isOpen = item.classList.contains('open');
-  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
-  if (!isOpen) item.classList.add('open');
+function acceptCookies() {
+  localStorage.setItem('cookieConsent', 'accepted');
+  document.getElementById('cookieBanner').classList.remove('show');
+  // Activar tracking
+  if (window.gtag) gtag('consent', 'update', { analytics_storage: 'granted', ad_storage: 'granted' });
+  if (window.fbq) fbq('consent', 'grant');
 }
 
-/* CALCULADORA DE RENTABILIDAD */
-const CALC_DATA = {
-  micro: {
-    inversionMin: 165000,
-    inversionMax: 205000,
-    costoBolsa: 4450,
-    costosFijos: 15000
-  },
-  pequena: {
-    inversionMin: 955000,
-    inversionMax: 1055000,
-    costoBolsa: 4700,
-    costosFijos: 85000
-  },
-  mediana: {
-    inversionMin: 2700000,
-    inversionMax: 3100000,
-    costoBolsa: 5200,
-    costosFijos: 320000
+function declineCookies() {
+  localStorage.setItem('cookieConsent', 'declined');
+  document.getElementById('cookieBanner').classList.remove('show');
+  // Desactivar tracking
+  if (window.gtag) gtag('consent', 'update', { analytics_storage: 'denied', ad_storage: 'denied' });
+  if (window.fbq) fbq('consent', 'revoke');
+}
+
+function openPrivacidad() {
+  document.getElementById('privacidadModal').classList.add('show');
+}
+
+function closePrivacidad() {
+  document.getElementById('privacidadModal').classList.remove('show');
+}
+
+// =============================================================================
+// TIENDA - CARGAR PRODUCTOS
+// =============================================================================
+let allProducts = [];
+let currentFilter = 'todos';
+
+async function loadProducts() {
+  try {
+    const response = await fetch(`${CONFIG.API_URL}?token=${CONFIG.AUTH_TOKEN}`);
+    const data = await response.json();
+    
+    if (data.status === 'ok') {
+      allProducts = data.products;
+      renderProducts();
+      console.log(`✅ ${allProducts.length} productos cargados`);
+    } else {
+      throw new Error(data.message || 'Error al cargar productos');
+    }
+  } catch (error) {
+    console.error('Error cargando productos:', error);
+    document.getElementById('productGrid').innerHTML = `
+      <div style="grid-column: 1/-1; text-align:center; padding:60px 20px; color:var(--cream-muted);">
+        ❌ Error al cargar productos. <br>
+        <button onclick="loadProducts()" style="margin-top:16px; padding:10px 20px; background:var(--amber); color:var(--bg); border:none; border-radius:8px; cursor:pointer; font-weight:600;">
+          Reintentar
+        </button>
+      </div>
+    `;
   }
+}
+
+function filterProducts(category) {
+  currentFilter = category;
+  
+  // Update button states
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.classList.remove('active');
+    if (btn.dataset.filter === category) {
+      btn.classList.add('active');
+    }
+  });
+  
+  renderProducts();
+  
+  // Track filter click
+  if (window.gtag) gtag('event', 'filter_products', { category });
+  if (window.fbq) fbq('track', 'Search', { search_string: category });
+}
+
+function renderProducts() {
+  const grid = document.getElementById('productGrid');
+  const filtered = currentFilter === 'todos' 
+    ? allProducts 
+    : allProducts.filter(p => p.category === currentFilter);
+  
+  if (filtered.length === 0) {
+    grid.innerHTML = '<div style="grid-column: 1/-1; text-align:center; padding:60px 20px; color:var(--cream-muted);">🍄 No hay productos en esta categoría</div>';
+    return;
+  }
+  
+  grid.innerHTML = filtered.map(product => `
+    <div class="product-card-shop" data-category="${product.category}">
+      <div class="product-cat">${getCategoryLabel(product.category)}</div>
+      <div class="product-name-shop">${product.name}</div>
+      <div class="product-sku-shop">SKU: ${product.sku}</div>
+      <div class="product-stock ${getStockClass(product.stock)}">
+        ${getStockLabel(product.stock, product.unit)}
+      </div>
+      <div class="product-price-shop">$${product.price.toLocaleString('es-AR')}</div>
+      <div class="product-unit">por ${product.unit}</div>
+      <button 
+        class="add-to-cart-btn" 
+        onclick="addToCart('${product.sku}')"
+        ${product.stock <= 0 ? 'disabled' : ''}
+      >
+        ${product.stock <= 0 ? 'Sin stock' : 'Agregar al carrito'}
+      </button>
+    </div>
+  `).join('');
+}
+
+function getCategoryLabel(cat) {
+  const labels = {
+    sustratos: 'Sustratos',
+    spawn: 'Spawn (Semilla)',
+    aditivos: 'Aditivos',
+    materiales: 'Materiales',
+    consumibles: 'Consumibles'
+  };
+  return labels[cat] || cat;
+}
+
+function getStockClass(stock) {
+  if (stock <= 0) return 'stock-out';
+  if (stock < 20) return 'stock-low';
+  return 'stock-ok';
+}
+
+function getStockLabel(stock, unit) {
+  if (stock <= 0) return '⛔ Sin stock';
+  if (stock < 20) return `⚠️ Últimas ${stock} ${unit}`;
+  return `✅ Stock disponible`;
+}
+
+// =============================================================================
+// CARRITO
+// =============================================================================
+let cart = JSON.parse(localStorage.getItem('funguyCart') || '[]');
+
+function updateCartUI() {
+  const badge = document.getElementById('cartBadge');
+  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+  
+  if (totalItems > 0) {
+    badge.textContent = totalItems;
+    badge.style.display = 'flex';
+  } else {
+    badge.style.display = 'none';
+  }
+  
+  renderCartItems();
+}
+
+function renderCartItems() {
+  const container = document.getElementById('cartItemsContainer');
+  const totalEl = document.getElementById('cartTotal');
+  const checkoutBtn = document.getElementById('checkoutBtn');
+  
+  if (cart.length === 0) {
+    container.innerHTML = `
+      <div class="cart-empty">
+        <div class="cart-empty-icon">🛒</div>
+        <p>Tu carrito está vacío</p>
+      </div>
+    `;
+    totalEl.textContent = '$0';
+    checkoutBtn.disabled = true;
+    return;
+  }
+  
+  container.innerHTML = cart.map(item => `
+    <div class="cart-item">
+      <div class="cart-item-info">
+        <div class="cart-item-name">${item.name}</div>
+        <div class="cart-item-sku">SKU: ${item.sku}</div>
+        <div class="cart-item-price">$${item.price.toLocaleString('es-AR')} × ${item.quantity}</div>
+        <div class="cart-item-qty">
+          <button class="qty-btn" onclick="updateQuantity('${item.sku}', ${item.quantity - 1})">−</button>
+          <span class="qty-value">${item.quantity}</span>
+          <button class="qty-btn" onclick="updateQuantity('${item.sku}', ${item.quantity + 1})">+</button>
+        </div>
+      </div>
+      <button class="cart-item-remove" onclick="removeFromCart('${item.sku}')">×</button>
+    </div>
+  `).join('');
+  
+  const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+  totalEl.textContent = '$' + total.toLocaleString('es-AR');
+  checkoutBtn.disabled = false;
+}
+
+function addToCart(sku) {
+  const product = allProducts.find(p => p.sku === sku);
+  if (!product || product.stock <= 0) return;
+  
+  const existing = cart.find(item => item.sku === sku);
+  
+  if (existing) {
+    if (existing.quantity < product.stock) {
+      existing.quantity++;
+    } else {
+      alert(`No hay más stock disponible de ${product.name}`);
+      return;
+    }
+  } else {
+    cart.push({
+      sku: product.sku,
+      name: product.name,
+      price: product.price,
+      unit: product.unit,
+      quantity: 1
+    });
+  }
+  
+  localStorage.setItem('funguyCart', JSON.stringify(cart));
+  updateCartUI();
+  
+  // Track add to cart
+  if (window.gtag) {
+    gtag('event', 'add_to_cart', {
+      currency: 'ARS',
+      value: product.price,
+      items: [{ item_id: sku, item_name: product.name, price: product.price, quantity: 1 }]
+    });
+  }
+  if (window.fbq) {
+    fbq('track', 'AddToCart', {
+      content_ids: [sku],
+      content_name: product.name,
+      value: product.price,
+      currency: 'ARS'
+    });
+  }
+  
+  // Abrir carrito brevemente
+  toggleCart(true);
+  setTimeout(() => toggleCart(false), 2000);
+}
+
+function updateQuantity(sku, newQty) {
+  const product = allProducts.find(p => p.sku === sku);
+  const item = cart.find(i => i.sku === sku);
+  
+  if (!item) return;
+  
+  if (newQty <= 0) {
+    removeFromCart(sku);
+    return;
+  }
+  
+  if (newQty > product.stock) {
+    alert(`Stock máximo: ${product.stock}`);
+    return;
+  }
+  
+  item.quantity = newQty;
+  localStorage.setItem('funguyCart', JSON.stringify(cart));
+  updateCartUI();
+}
+
+function removeFromCart(sku) {
+  cart = cart.filter(item => item.sku !== sku);
+  localStorage.setItem('funguyCart', JSON.stringify(cart));
+  updateCartUI();
+}
+
+function toggleCart(forceOpen) {
+  const sidebar = document.getElementById('cartSidebar');
+  const overlay = document.getElementById('cartOverlay');
+  
+  if (forceOpen === true) {
+    sidebar.classList.add('open');
+    overlay.classList.add('show');
+  } else if (forceOpen === false) {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('show');
+  } else {
+    sidebar.classList.toggle('open');
+    overlay.classList.toggle('show');
+  }
+}
+
+// =============================================================================
+// CHECKOUT - MERCADO PAGO
+// =============================================================================
+async function initCheckout() {
+  if (cart.length === 0) return;
+  
+  const checkoutBtn = document.getElementById('checkoutBtn');
+  checkoutBtn.disabled = true;
+  checkoutBtn.textContent = 'Procesando...';
+  
+  // OPCIÓN A: Redirigir a WhatsApp con resumen del pedido
+  const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+  const items = cart.map(item => `${item.name} (${item.sku}) × ${item.quantity} = $${(item.price * item.quantity).toLocaleString('es-AR')}`).join('%0A');
+  const message = `🛒 *Nuevo Pedido*%0A%0A${items}%0A%0A*Total: $${total.toLocaleString('es-AR')}*%0A%0APor favor confirmame disponibilidad y método de pago.`;
+  
+  window.open(`https://wa.me/5491122798768?text=${message}`, '_blank');
+  
+  // Track checkout
+  if (window.gtag) {
+    gtag('event', 'begin_checkout', {
+      currency: 'ARS',
+      value: total,
+      items: cart.map(item => ({
+        item_id: item.sku,
+        item_name: item.name,
+        price: item.price,
+        quantity: item.quantity
+      }))
+    });
+  }
+  if (window.fbq) {
+    fbq('track', 'InitiateCheckout', {
+      value: total,
+      currency: 'ARS',
+      num_items: cart.length
+    });
+  }
+  
+  checkoutBtn.disabled = false;
+  checkoutBtn.textContent = 'Finalizar compra →';
+  
+  // OPCIÓN B (AVANZADO): Integrar Mercado Pago Checkout Pro
+  // Requiere backend para crear preferencia de pago
+  // Ver docs: https://www.mercadopago.com.ar/developers/es/docs/checkout-pro/landing
+}
+
+// =============================================================================
+// SIMULADORES Y CALCULADORAS (mantienen funcionalidad original)
+// =============================================================================
+const SIM_CONFIG = {
+  girgola_gris:  { beBase: 100, flushDist: [0.45, 0.30, 0.17, 0.06, 0.02], dias: [15, 25], mult: { optimas: 1.1, buenas: 0.9, basicas: 0.7 } },
+  girgola_reina: { beBase: 80,  flushDist: [0.50, 0.28, 0.14, 0.06, 0.02], dias: [20, 35], mult: { optimas: 1.05, buenas: 0.88, basicas: 0.65 } },
+  shiitake:      { beBase: 70,  flushDist: [0.40, 0.30, 0.18, 0.08, 0.04], dias: [45, 75], mult: { optimas: 1.08, buenas: 0.85, basicas: 0.60 } },
+};
+
+function updateKg(el) {
+  document.getElementById('simKgVal').textContent = el.value + ' kg';
+  calcSim();
+}
+
+function updateFlushes(el) {
+  document.getElementById('simFlushesVal').textContent = el.value;
+  calcSim();
+}
+
+function calcSim() {
+  const especie = document.getElementById('simEspecie').value;
+  const kg = parseFloat(document.getElementById('simKg').value);
+  const cond = document.getElementById('simCondicion').value;
+  const flushes = parseInt(document.getElementById('simFlushes').value);
+
+  const c = SIM_CONFIG[especie];
+  const mult = c.mult[cond];
+  const be = c.beBase * mult;
+
+  const distSum = c.flushDist.slice(0, flushes).reduce((a, b) => a + b, 0);
+  const totalRend = (kg * be / 100) * distSum / c.flushDist.reduce((a,b)=>a+b,0);
+  const porFlush = totalRend / flushes;
+
+  document.getElementById('resRendimiento').textContent = totalRend.toFixed(1);
+  document.getElementById('resEB').textContent = Math.round(be * distSum) + '%';
+  document.getElementById('resPorFlush').textContent = porFlush.toFixed(1);
+  document.getElementById('resDias').textContent = c.dias[0] + '–' + c.dias[1];
+
+  const notas = {
+    girgola_gris: 'Gírgola gris: excelente para iniciar, ciclos cortos y rendimiento alto.',
+    girgola_reina: 'Gírgola reina: mayor valor comercial, requiere sustrato específico a base de cardos.',
+    shiitake: 'Shiitake: ciclo más largo en madera o bloque enriquecido, alto valor gastronómico.'
+  };
+  document.getElementById('simNota').textContent = notas[especie];
+}
+
+const CALC_DATA = {
+  micro: { inversionMin: 165000, inversionMax: 205000, costoBolsa: 4450, costosFijos: 15000 },
+  pequena: { inversionMin: 955000, inversionMax: 1055000, costoBolsa: 4700, costosFijos: 85000 },
+  mediana: { inversionMin: 2700000, inversionMax: 3100000, costoBolsa: 5200, costosFijos: 320000 }
 };
 
 function calcRentabilidad() {
@@ -1286,18 +2745,16 @@ function calcRentabilidad() {
   
   let ingresoMes;
   if (modelo === 'fresco') {
-    // EB 80%, bolsa 5kg seco → 4kg fresco @ ARS 15.000/kg
     const kgPorBolsa = 4;
     const precioKg = 15000;
     ingresoMes = bolsas * kgPorBolsa * precioKg;
   } else {
-    // Venta de bolsas productoras @ ARS 20.000/bolsa
     ingresoMes = bolsas * 20000;
   }
   
   const margenMes = ingresoMes - costoMes;
   const roi = margenMes > 0 ? Math.round(inversion / margenMes) : 999;
-  const equilibrio = Math.ceil(cfg.costosFijos / (ingresoMes / bolsas - cfg.costoBolsa));
+  const equilibrio = Math.ceil(cfg.costosFijos / ((modelo === 'fresco' ? 4 * 15000 : 20000) - cfg.costoBolsa));
   
   const fmt = (n) => new Intl.NumberFormat('es-AR', {maximumFractionDigits: 0}).format(n);
   
@@ -1309,8 +2766,79 @@ function calcRentabilidad() {
   document.getElementById('resEquilibrio').textContent = equilibrio + ' bolsas';
 }
 
-// Calcular al cargar
-window.addEventListener('DOMContentLoaded', calcRentabilidad);
+// =============================================================================
+// NAV Y ANIMACIONES
+// =============================================================================
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+function openMobileNav() { document.getElementById('mobileNav').classList.add('open'); }
+function closeMobileNav() { document.getElementById('mobileNav').classList.remove('open'); }
+
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+}, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+reveals.forEach(el => observer.observe(el));
+
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+// =============================================================================
+// MYCELIUM ANIMATION
+// =============================================================================
+(function() {
+  const svg = document.getElementById('mycelium-canvas');
+  const W = 1200, H = 700;
+  const nodes = [];
+  const N = 40;
+
+  for (let i = 0; i < N; i++) {
+    nodes.push({ x: Math.random() * W, y: Math.random() * H, vx: (Math.random()-0.5)*0.4, vy: (Math.random()-0.5)*0.4 });
+  }
+
+  function draw() {
+    let lines = '';
+    let circles = '';
+    for (let i = 0; i < N; i++) {
+      for (let j = i+1; j < N; j++) {
+        const dx = nodes[i].x - nodes[j].x;
+        const dy = nodes[i].y - nodes[j].y;
+        const d = Math.sqrt(dx*dx + dy*dy);
+        if (d < 180) {
+          const op = (1 - d/180) * 0.6;
+          lines += `<line x1="${nodes[i].x.toFixed(1)}" y1="${nodes[i].y.toFixed(1)}" x2="${nodes[j].x.toFixed(1)}" y2="${nodes[j].y.toFixed(1)}" stroke="#6b9e5e" stroke-opacity="${op.toFixed(2)}" stroke-width="0.8"/>`;
+        }
+      }
+      circles += `<circle cx="${nodes[i].x.toFixed(1)}" cy="${nodes[i].y.toFixed(1)}" r="2" fill="#8fc07f" fill-opacity="0.5"/>`;
+    }
+    svg.innerHTML = lines + circles;
+
+    nodes.forEach(n => {
+      n.x += n.vx; n.y += n.vy;
+      if (n.x < 0 || n.x > W) n.vx *= -1;
+      if (n.y < 0 || n.y > H) n.vy *= -1;
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+// =============================================================================
+// INIT
+// =============================================================================
+window.addEventListener('DOMContentLoaded', () => {
+  loadProducts();
+  updateCartUI();
+  calcSim();
+  calcRentabilidad();
+});
 </script>
 
 </body>
