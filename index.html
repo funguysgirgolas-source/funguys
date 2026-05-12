@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FunGuys — Hongos Comestibles | Gestión de Cultivo</title>
+<script src="https://sdk.mercadopago.com/js/v2"></script>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #0a130a;
+    --surface: #111d11;
+    --amber: #d4963a;
+    --cream: #f0e6cc;
+    --sage: #6b9e5e;
+    --white: #faf7f0;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+  }
+
+  /* NAVEGACIÓN FIJA */
+  nav {
+    position: fixed;
+    top: 0; width: 100%;
+    background: rgba(10, 19, 10, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(240,230,204,0.1);
+  }
+
+  .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+  }
+
+  .nav-links { display: flex; gap: 20px; }
+  .nav-links a { 
+    font-size: 14px; 
+    cursor: pointer; 
+    text-transform: uppercase; 
+    letter-spacing: 1px;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--amber); }
+
+  /* SISTEMA DE SECCIONES OCULTAS */
+  section { 
+    display: none; /* Todas ocultas por defecto */
+    padding: 100px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    animation: fadeIn 0.5s ease;
+  }
+
+  section.active { display: block; } /* Solo se muestra la activa */
+
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* CARRITO FIJO (ESTILO WIDGET) */
+  #cart-widget {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--amber);
+    color: var(--bg);
+    padding: 15px 25px;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    z-index: 999;
+    transition: transform 0.2s;
+  }
+  #cart-widget:hover { transform: scale(1.05); }
+
+  /* ESTILO DE TARJETAS DE PRODUCTO */
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; }
+  .card { background: var(--surface); padding: 20px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.05); }
+  .btn-buy { width: 100%; background: var(--amber); border: none; padding: 10px; border-radius: 5px; cursor: pointer; margin-top: 10px; font-weight: bold; }
+
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div style="font-family: 'Fraunces'; color: var(--amber); font-size: 24px;">FunGuys</div>
+    <div class="nav-links">
+      <a onclick="showSection('inicio')">Inicio</a>
+      <a onclick="showSection('tienda')">Tienda</a>
+      <a onclick="showSection('calculadora')">Calculadora</a>
+      <a onclick="showSection('sobre')">Sobre Mí</a>
+    </div>
+  </div>
+</nav>
+
+<section id="inicio" class="active">
+  <h1 style="font-family: 'Fraunces'; font-size: 50px;">Del micelio al <br><span style="color:var(--amber)">mercado local.</span></h1>
+  <p>Insumos y capacitación profesional para productores de hongos en Argentina.</p>
+  <button class="btn-buy" onclick="showSection('tienda')" style="width: 200px;">Ver Insumos</button>
+</section>
+
+<section id="tienda">
+  <h2 style="font-family: 'Fraunces';">Insumos y Kits</h2>
+  <div id="product-container" class="grid">
+    <p>Cargando inventario real...</p>
+  </div>
+</section>
+
+<section id="calculadora">
+  <h2 style="font-family: 'Fraunces';">Calculadora de Rentabilidad</h2>
+  <div class="card">
+    <label>Cantidad de bolsas (2kg):</label>
+    <input type="number" id="bolsas" value="10" style="width:100%; margin:10px 0; padding:10px; border-radius:5px; border:none;">
+    <button class="btn-buy" onclick="calcular()">Calcular Ganancia Estimada</button>
+    <div id="resultado" style="margin-top:20px; font-size:20px; color:var(--amber)"></div>
+  </div>
+</section>
+
+<section id="sobre">
+  <h2 style="font-family: 'Fraunces';">Sobre el Proyecto</h2>
+  <p>Soy el Ing. Fernando Ocampo. En FunGuys transformamos residuos de poda (Pecán) en sustrato de alta calidad en Poblet, La Plata. Nuestro objetivo es la economía circular y el consumo de cercanía.</p>
+</section>
+
+<div id="cart-widget" onclick="alert('Funcionalidad de pago se activa al final')">
+  🛒 Mi Pedido (<span id="cart-count">0</span>)
+</div>
+
+<script>
+  // CONFIGURACIÓN DE TU SISTEMA [CITE: 1]
+  const CONFIG = {
+    URL_SCRIPT: "https://script.google.com/macros/s/AKfycbwrnC4TPr9oX1JrWaO0wBMlhKDT3pzwBRRmKVCT8sQ-nfLLMeplCbLzQIWHhzHZn09x/exec",
+    TOKEN: "funguys_2026_secure_token_hfiwm"
+  };
+
+  // NAVEGACIÓN SIN SCROLL
+  function showSection(id) {
+    document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    window.scrollTo(0,0);
+  }
+
+  // CARGA DE PRODUCTOS DESDE GOOGLE SHEETS
+  async function loadProducts() {
+    try {
+      const resp = await fetch(`${CONFIG.URL_SCRIPT}?action=read&token=${CONFIG.TOKEN}`);
+      const data = await resp.json();
+      const container = document.getElementById('product-container');
+      container.innerHTML = '';
+
+      data.forEach(p => {
+        if(p.Stock > 0) {
+          container.innerHTML += `
+            <div class="card">
+              <h3>${p.Nombre}</h3>
+              <p style="color:var(--sage)">Stock: ${p.Stock} unidades</p>
+              <div style="font-size:24px; font-weight:bold;">$${p.Precio}</div>
+              <button class="btn-buy" onclick="updateCart()">Agregar</button>
+            </div>
+          `;
+        }
+      });
+    } catch (e) {
+      document.getElementById('product-container').innerHTML = "Error al conectar con el inventario.";
+    }
+  }
+
+  let count = 0;
+  function updateCart() {
+    count++;
+    document.getElementById('cart-count').innerText = count;
+  }
+
+  function calcular() {
+    const b = document.getElementById('bolsas').value;
+    const costoBolsa = 20000; // Insumo [Cite: User Context]
+    const ventaKilo = 15000;  // Precio mercado [Cite: User Context]
+    const rinde = b * 0.5;    // Estimación 25% rinde por bolsa de 2kg
+    const ganancia = (rinde * ventaKilo) - (b * costoBolsa);
+    document.getElementById('resultado').innerText = `Rinde estimado: ${rinde}kg | Ganancia neta: $${ganancia.toLocaleString()}`;
+  }
+
+  window.onload = loadProducts;
+</script>
+
+</body>
+</html>
