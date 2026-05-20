@@ -1755,7 +1755,7 @@ async function loadProducts() {
   const grid = document.getElementById('productGrid');
   try {
     const response = await fetch(
-      `${API_CONFIG.url}?action=getInventory&token=${API_CONFIG.token}`,
+       `${API_CONFIG.url}?action=getInventory&token=${API_CONFIG.token}`,
       { method: 'GET', headers: { 'Content-Type': 'application/json' } }
     );
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
