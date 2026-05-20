@@ -1761,7 +1761,7 @@ async function loadProducts() {
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const data = await response.json();
 
-    if (data && data.success && Array.isArray(data.products)) {
+    if (data && data.success === true && Array.isArray(data.products)) {
       allProducts = data.products.filter(p => p.active !== false && p.active !== 'FALSE');
       renderProducts();
     } else {
